@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="kcc-fg-ulY">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
@@ -702,6 +702,135 @@
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
+        <!--Window Controller-->
+        <scene sceneID="Vee-GB-hqw">
+            <objects>
+                <windowController id="kcc-fg-ulY" sceneMemberID="viewController">
+                    <window key="window" title="Sound Board" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="DIb-jc-QEe">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="196" y="240" width="720" height="400"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
+                        <value key="minSize" type="size" width="720" height="400"/>
+                        <toolbar key="toolbar" implicitIdentifier="CC09CB02-5F8A-45BB-9934-F3DEA939E667" autosavesConfiguration="NO" displayMode="iconOnly" sizeMode="regular" id="PFc-Gg-fgR">
+                            <allowedToolbarItems>
+                                <toolbarItem implicitItemIdentifier="NSToolbarShowColorsItem" id="iZr-gv-74U"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarShowFontsItem" id="24i-gW-oFn"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="5JU-j7-Sjt"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="j5X-l4-2uW"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="2vk-Av-FMS"/>
+                                <toolbarItem implicitItemIdentifier="EC56C51B-5B1D-40DC-9D95-6B5907135137" label="" paletteLabel="Custom View" id="A4O-Hh-xKh">
+                                    <nil key="toolTip"/>
+                                    <size key="minSize" width="127" height="25"/>
+                                    <size key="maxSize" width="127" height="28"/>
+                                    <button key="view" verticalHuggingPriority="750" id="Ed9-uz-GnW">
+                                        <rect key="frame" x="0.0" y="14" width="127" height="28"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="roundTextured" title="Textured Rounded" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1gY-mC-Vxu">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                    </button>
+                                </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="7D50F936-154B-4B56-8823-A02E178A3786" label="" paletteLabel="Buttons" id="lDQ-3e-a0z">
+                                    <nil key="toolTip"/>
+                                    <size key="minSize" width="63" height="25"/>
+                                    <size key="maxSize" width="67" height="28"/>
+                                    <segmentedControl key="view" verticalHuggingPriority="750" id="goH-Sc-Q9d">
+                                        <rect key="frame" x="0.0" y="14" width="67" height="28"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedSquare" trackingMode="selectAny" id="Hbn-7Q-yKW">
+                                            <font key="font" metaFont="system"/>
+                                            <segments>
+                                                <segment image="SidebarLeft" width="32"/>
+                                                <segment image="SidebarRight" width="32" tag="1"/>
+                                            </segments>
+                                        </segmentedCell>
+                                    </segmentedControl>
+                                </toolbarItem>
+                            </allowedToolbarItems>
+                            <defaultToolbarItems>
+                                <toolbarItem reference="A4O-Hh-xKh"/>
+                                <toolbarItem reference="2vk-Av-FMS"/>
+                                <toolbarItem reference="lDQ-3e-a0z"/>
+                            </defaultToolbarItems>
+                        </toolbar>
+                        <connections>
+                            <outlet property="delegate" destination="kcc-fg-ulY" id="thH-6O-W4G"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="94a-Kd-rab" kind="relationship" relationship="window.shadowedContentViewController" id="ms1-ml-TyB"/>
+                    </connections>
+                </windowController>
+                <customObject id="96U-DN-2N9" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="963" y="229"/>
+        </scene>
+        <!--Sound Board View Controller-->
+        <scene sceneID="ADe-c8-nMU">
+            <objects>
+                <viewController id="94a-Kd-rab" customClass="SoundBoardViewController" customModule="Waventasy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="nuz-LX-qgt">
+                        <rect key="frame" x="0.0" y="0.0" width="720" height="400"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6IJ-8T-ZXy" customClass="SoundBoardScrollView" customModule="Waventasy" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="720" height="400"/>
+                                <clipView key="contentView" id="1si-qV-rlG">
+                                    <rect key="frame" x="0.0" y="0.0" width="720" height="400"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <view fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KEN-FN-PIb">
+                                            <rect key="frame" x="0.0" y="0.0" width="900" height="600"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CS3-wa-Gak">
+                                                    <rect key="frame" x="378" y="362" width="81" height="32"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="eLh-Cg-Cmi">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                </button>
+                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gtt-6d-er9">
+                                                    <rect key="frame" x="405" y="-69" width="81" height="32"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="5HI-FO-SNB">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                </button>
+                                            </subviews>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.32747733159999998" green="0.32747733159999998" blue="0.32747733159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </clipView>
+                                <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="kZb-X4-g2K">
+                                    <rect key="frame" x="0.0" y="384" width="720" height="16"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="NTF-bZ-rhY">
+                                    <rect key="frame" x="704" y="0.0" width="16" height="400"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="6IJ-8T-ZXy" secondAttribute="bottom" id="LbV-Kc-plQ"/>
+                            <constraint firstItem="6IJ-8T-ZXy" firstAttribute="top" secondItem="nuz-LX-qgt" secondAttribute="top" id="bI4-xA-2Ar"/>
+                            <constraint firstItem="6IJ-8T-ZXy" firstAttribute="leading" secondItem="nuz-LX-qgt" secondAttribute="leading" id="geM-Tz-4Zc"/>
+                            <constraint firstAttribute="trailing" secondItem="6IJ-8T-ZXy" secondAttribute="trailing" id="tfI-9o-XLc"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="scrollView" destination="6IJ-8T-ZXy" id="jsL-xa-cg8"/>
+                    </connections>
+                </viewController>
+                <customObject id="Rcd-Vg-pvc" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="963" y="800"/>
+        </scene>
         <!--Waves-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
@@ -970,4 +1099,8 @@
             <point key="canvasLocation" x="75" y="834"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="SidebarLeft" width="19" height="19"/>
+        <image name="SidebarRight" width="19" height="19"/>
+    </resources>
 </document>

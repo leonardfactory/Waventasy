@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		A11A6ADF5754E8360AF617CF /* Pods_Waventasy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87C21329FD51F9AA38A8FDE2 /* Pods_Waventasy.framework */; };
+		A7155BDC203645BA00E9B4A7 /* SoundBoardScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7155BDB203645BA00E9B4A7 /* SoundBoardScrollView.swift */; };
 		A730455B2033868D00DB15DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A730455A2033868D00DB15DE /* AppDelegate.swift */; };
 		A730455D2033868D00DB15DE /* WavesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A730455C2033868D00DB15DE /* WavesViewController.swift */; };
 		A730455F2033868D00DB15DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A730455E2033868D00DB15DE /* Assets.xcassets */; };
 		A73045622033868D00DB15DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A73045602033868D00DB15DE /* Main.storyboard */; };
 		A730456F2033A5DE00DB15DE /* Harmonic.swift in Sources */ = {isa = PBXBuildFile; fileRef = A730456E2033A5DE00DB15DE /* Harmonic.swift */; };
+		A75C9DD820362982001B34F6 /* SoundBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75C9DD720362982001B34F6 /* SoundBoardViewController.swift */; };
 		A7B27C5E2034D0000053780B /* SoundBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B27C5D2034D0000053780B /* SoundBuilder.swift */; };
 /* End PBXBuildFile section */
 
@@ -20,6 +22,7 @@
 		1D830755041ACFA6FE38E718 /* Pods-Waventasy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Waventasy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Waventasy/Pods-Waventasy.debug.xcconfig"; sourceTree = "<group>"; };
 		6D8ABFD73382CE2CA8034B49 /* Pods-Waventasy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Waventasy.release.xcconfig"; path = "Pods/Target Support Files/Pods-Waventasy/Pods-Waventasy.release.xcconfig"; sourceTree = "<group>"; };
 		87C21329FD51F9AA38A8FDE2 /* Pods_Waventasy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Waventasy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7155BDB203645BA00E9B4A7 /* SoundBoardScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundBoardScrollView.swift; sourceTree = "<group>"; };
 		A73045572033868D00DB15DE /* Waventasy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Waventasy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A730455A2033868D00DB15DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A730455C2033868D00DB15DE /* WavesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WavesViewController.swift; sourceTree = "<group>"; };
@@ -28,6 +31,7 @@
 		A73045632033868D00DB15DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A73045642033868D00DB15DE /* Waventasy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Waventasy.entitlements; sourceTree = "<group>"; };
 		A730456E2033A5DE00DB15DE /* Harmonic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Harmonic.swift; sourceTree = "<group>"; };
+		A75C9DD720362982001B34F6 /* SoundBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundBoardViewController.swift; sourceTree = "<group>"; };
 		A7B27C5D2034D0000053780B /* SoundBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,6 +85,7 @@
 		A73045592033868D00DB15DE /* Waventasy */ = {
 			isa = PBXGroup;
 			children = (
+				A75C9DD520362931001B34F6 /* Controller */,
 				A730456C2033A51A00DB15DE /* Sound */,
 				A730455A2033868D00DB15DE /* AppDelegate.swift */,
 				A730455C2033868D00DB15DE /* WavesViewController.swift */,
@@ -107,6 +112,23 @@
 				A730456E2033A5DE00DB15DE /* Harmonic.swift */,
 			);
 			path = Wave;
+			sourceTree = "<group>";
+		};
+		A75C9DD520362931001B34F6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A75C9DD620362942001B34F6 /* SoundBoard */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A75C9DD620362942001B34F6 /* SoundBoard */ = {
+			isa = PBXGroup;
+			children = (
+				A75C9DD720362982001B34F6 /* SoundBoardViewController.swift */,
+				A7155BDB203645BA00E9B4A7 /* SoundBoardScrollView.swift */,
+			);
+			path = SoundBoard;
 			sourceTree = "<group>";
 		};
 		A7B27C5C2034CFF10053780B /* Builder */ = {
@@ -153,6 +175,11 @@
 					A73045562033868D00DB15DE = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -250,6 +277,8 @@
 				A730456F2033A5DE00DB15DE /* Harmonic.swift in Sources */,
 				A7B27C5E2034D0000053780B /* SoundBuilder.swift in Sources */,
 				A730455D2033868D00DB15DE /* WavesViewController.swift in Sources */,
+				A75C9DD820362982001B34F6 /* SoundBoardViewController.swift in Sources */,
+				A7155BDC203645BA00E9B4A7 /* SoundBoardScrollView.swift in Sources */,
 				A730455B2033868D00DB15DE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -379,7 +408,7 @@
 			baseConfigurationReference = 1D830755041ACFA6FE38E718 /* Pods-Waventasy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Waventasy/Waventasy.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = UG9F7JGZ3C;
@@ -387,6 +416,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.leonardfactory.Waventasy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -396,7 +426,7 @@
 			baseConfigurationReference = 6D8ABFD73382CE2CA8034B49 /* Pods-Waventasy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Waventasy/Waventasy.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = UG9F7JGZ3C;
@@ -404,6 +434,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.leonardfactory.Waventasy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;

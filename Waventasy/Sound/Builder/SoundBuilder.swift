@@ -11,6 +11,7 @@ import AudioKit
 
 class SoundBuilder {
     let base = AKOscillator()
+    var timer:Timer?
     var harmonics:[AKAmplitudeEnvelope] = []
     
     init(frequency:Double) {
@@ -33,6 +34,23 @@ class SoundBuilder {
             mixer.connect(input: envelope)
             envelope.play()
         }
+        
+        self.timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { (t) in
+            self.harmonics.forEach({ (envelope) in
+                if (envelope.isStarted) {
+                    envelope.stop()
+                }
+                else {
+                    envelope.play()
+                }
+            })
+        }
+        
         return mixer
+    }
+    
+    deinit {
+        print("delloc")
+        self.timer?.invalidate()
     }
 }
