@@ -13,7 +13,7 @@ class SoundBoardScrollView: NSScrollView {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        self.addCursorRect(self.frame, cursor: NSCursor.openHand)
+        self.documentCursor = NSCursor.openHand
     }
     
     
@@ -29,24 +29,31 @@ class SoundBoardScrollView: NSScrollView {
         // Draggin support
         if (event.type == NSEvent.EventType.leftMouseDown) {
             self.isDragging = true
+            NSCursor.closedHand.push()
+            self.window?.disableCursorRects()
         }
     }
     
     override func mouseDragged(with event: NSEvent) {
         if (self.isDragging && event.type == NSEvent.EventType.leftMouseDragged) {
-            print("I'm gonna scroll", event.deltaY, event.deltaY)
-            print("Origin", NSStringFromRect(self.contentView.documentVisibleRect))
+//            print("I'm gonna scroll", event.deltaY, event.deltaY)
+//            print("Origin", NSStringFromRect(self.contentView.documentVisibleRect))
             self.contentView.scroll(NSPoint(
                 x: self.contentView.documentVisibleRect.origin.x - event.deltaX,
                 y: self.contentView.documentVisibleRect.origin.y + event.deltaY
             ))
-//            self.scroll() event
         }
     }
     
     override func mouseUp(with event: NSEvent) {
         if (self.isDragging && event.type == NSEvent.EventType.leftMouseUp) {
             self.isDragging = false
+            NSCursor.pop()
+            self.window?.enableCursorRects()
         }
+    }
+    
+    override func resetCursorRects() {
+        super.resetCursorRects()
     }
 }

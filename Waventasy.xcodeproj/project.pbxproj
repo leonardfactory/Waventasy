@@ -16,6 +16,7 @@
 		A730456F2033A5DE00DB15DE /* Harmonic.swift in Sources */ = {isa = PBXBuildFile; fileRef = A730456E2033A5DE00DB15DE /* Harmonic.swift */; };
 		A75C9DD820362982001B34F6 /* SoundBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75C9DD720362982001B34F6 /* SoundBoardViewController.swift */; };
 		A7B27C5E2034D0000053780B /* SoundBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B27C5D2034D0000053780B /* SoundBuilder.swift */; };
+		A7C4FF05203766940011816A /* SoundBoardWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C4FF04203766940011816A /* SoundBoardWindowController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		A730456E2033A5DE00DB15DE /* Harmonic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Harmonic.swift; sourceTree = "<group>"; };
 		A75C9DD720362982001B34F6 /* SoundBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundBoardViewController.swift; sourceTree = "<group>"; };
 		A7B27C5D2034D0000053780B /* SoundBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundBuilder.swift; sourceTree = "<group>"; };
+		A7C4FF04203766940011816A /* SoundBoardWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundBoardWindowController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 			children = (
 				A75C9DD720362982001B34F6 /* SoundBoardViewController.swift */,
 				A7155BDB203645BA00E9B4A7 /* SoundBoardScrollView.swift */,
+				A7C4FF04203766940011816A /* SoundBoardWindowController.swift */,
 			);
 			path = SoundBoard;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A730456F2033A5DE00DB15DE /* Harmonic.swift in Sources */,
+				A7C4FF05203766940011816A /* SoundBoardWindowController.swift in Sources */,
 				A7B27C5E2034D0000053780B /* SoundBuilder.swift in Sources */,
 				A730455D2033868D00DB15DE /* WavesViewController.swift in Sources */,
 				A75C9DD820362982001B34F6 /* SoundBoardViewController.swift in Sources */,

@@ -679,7 +679,7 @@
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="0.0"/>
+            <point key="canvasLocation" x="75" y="-149"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -705,7 +705,7 @@
         <!--Window Controller-->
         <scene sceneID="Vee-GB-hqw">
             <objects>
-                <windowController id="kcc-fg-ulY" sceneMemberID="viewController">
+                <windowController id="kcc-fg-ulY" customClass="SoundBoardWindowController" customModule="Waventasy" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Sound Board" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="DIb-jc-QEe">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -737,7 +737,7 @@
                                     <size key="minSize" width="63" height="25"/>
                                     <size key="maxSize" width="67" height="28"/>
                                     <segmentedControl key="view" verticalHuggingPriority="750" id="goH-Sc-Q9d">
-                                        <rect key="frame" x="0.0" y="14" width="67" height="28"/>
+                                        <rect key="frame" x="0.0" y="14" width="67" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                         <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedSquare" trackingMode="selectAny" id="Hbn-7Q-yKW">
                                             <font key="font" metaFont="system"/>
@@ -745,6 +745,9 @@
                                                 <segment image="SidebarLeft" width="32"/>
                                                 <segment image="SidebarRight" width="32" tag="1"/>
                                             </segments>
+                                            <connections>
+                                                <action selector="toggleSidebar:" target="kcc-fg-ulY" id="e9B-ig-FPt"/>
+                                            </connections>
                                         </segmentedCell>
                                     </segmentedControl>
                                 </toolbarItem>
@@ -760,6 +763,7 @@
                         </connections>
                     </window>
                     <connections>
+                        <outlet property="sidebarControl" destination="goH-Sc-Q9d" id="SAQ-xl-XPa"/>
                         <segue destination="94a-Kd-rab" kind="relationship" relationship="window.shadowedContentViewController" id="ms1-ml-TyB"/>
                     </connections>
                 </windowController>
@@ -775,14 +779,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="720" height="400"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="ngl-G0-pm5">
+                                <rect key="frame" x="520" y="0.0" width="200" height="400"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="IgP-pv-7fJ"/>
+                                </constraints>
+                            </customView>
                             <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6IJ-8T-ZXy" customClass="SoundBoardScrollView" customModule="Waventasy" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="720" height="400"/>
+                                <rect key="frame" x="0.0" y="0.0" width="520" height="400"/>
                                 <clipView key="contentView" id="1si-qV-rlG">
-                                    <rect key="frame" x="0.0" y="0.0" width="720" height="400"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="520" height="400"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <view fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KEN-FN-PIb">
-                                            <rect key="frame" x="0.0" y="0.0" width="900" height="600"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="700" height="600"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CS3-wa-Gak">
@@ -807,23 +817,28 @@
                                     <color key="backgroundColor" red="0.32747733159999998" green="0.32747733159999998" blue="0.32747733159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </clipView>
                                 <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="kZb-X4-g2K">
-                                    <rect key="frame" x="0.0" y="384" width="720" height="16"/>
+                                    <rect key="frame" x="0.0" y="384" width="520" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="NTF-bZ-rhY">
-                                    <rect key="frame" x="704" y="0.0" width="16" height="400"/>
+                                    <rect key="frame" x="504" y="0.0" width="16" height="400"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="6IJ-8T-ZXy" secondAttribute="bottom" id="LbV-Kc-plQ"/>
-                            <constraint firstItem="6IJ-8T-ZXy" firstAttribute="top" secondItem="nuz-LX-qgt" secondAttribute="top" id="bI4-xA-2Ar"/>
-                            <constraint firstItem="6IJ-8T-ZXy" firstAttribute="leading" secondItem="nuz-LX-qgt" secondAttribute="leading" id="geM-Tz-4Zc"/>
-                            <constraint firstAttribute="trailing" secondItem="6IJ-8T-ZXy" secondAttribute="trailing" id="tfI-9o-XLc"/>
+                            <constraint firstItem="ngl-G0-pm5" firstAttribute="leading" secondItem="6IJ-8T-ZXy" secondAttribute="trailing" id="5Bg-rO-nUw"/>
+                            <constraint firstItem="6IJ-8T-ZXy" firstAttribute="top" secondItem="nuz-LX-qgt" secondAttribute="top" id="8Zd-VR-QJD"/>
+                            <constraint firstAttribute="bottom" secondItem="ngl-G0-pm5" secondAttribute="bottom" id="QxN-lc-23w"/>
+                            <constraint firstAttribute="trailing" secondItem="ngl-G0-pm5" secondAttribute="trailing" id="pZd-GC-ld2"/>
+                            <constraint firstItem="ngl-G0-pm5" firstAttribute="top" secondItem="nuz-LX-qgt" secondAttribute="top" id="q6O-FM-dcl"/>
+                            <constraint firstItem="6IJ-8T-ZXy" firstAttribute="leading" secondItem="nuz-LX-qgt" secondAttribute="leading" id="uLy-Bs-X2x"/>
+                            <constraint firstAttribute="bottom" secondItem="6IJ-8T-ZXy" secondAttribute="bottom" id="zBj-ri-jo1"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="rightSideBarView" destination="ngl-G0-pm5" id="CYP-yg-Ku6"/>
+                        <outlet property="rightSideBarXConstraint" destination="pZd-GC-ld2" id="N0x-4t-et9"/>
                         <outlet property="scrollView" destination="6IJ-8T-ZXy" id="jsL-xa-cg8"/>
                     </connections>
                 </viewController>
