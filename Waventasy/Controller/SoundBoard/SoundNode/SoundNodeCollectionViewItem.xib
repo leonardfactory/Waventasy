@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="SoundNodeCollectionViewItem" customModule="Waventasy" customModuleProvider="target">
+            <connections>
+                <outlet property="backgroundImageView" destination="10n-wx-Qdu" id="xmt-Bj-5EJ"/>
+                <outlet property="nameLabel" destination="l9C-w3-7PI" id="spF-Sg-Gs7"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="324" height="34"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="10n-wx-Qdu">
+                    <rect key="frame" x="0.0" y="0.0" width="324" height="34"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="BlueNode" id="hDT-GA-IhY"/>
+                </imageView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="l9C-w3-7PI">
+                    <rect key="frame" x="10" y="9" width="304" height="16"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="Yoz-UK-8HQ">
+                        <font key="font" metaFont="systemSemibold" size="12"/>
+                        <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="l9C-w3-7PI" secondAttribute="trailing" constant="12" id="2sH-yX-R4E"/>
+                <constraint firstAttribute="trailing" secondItem="l9C-w3-7PI" secondAttribute="trailing" constant="12" id="4e5-DH-bNF"/>
+                <constraint firstItem="10n-wx-Qdu" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="9f0-75-hep"/>
+                <constraint firstAttribute="trailing" secondItem="10n-wx-Qdu" secondAttribute="trailing" id="Gth-wV-i77"/>
+                <constraint firstAttribute="bottom" secondItem="l9C-w3-7PI" secondAttribute="bottom" priority="750" constant="9" id="Npg-sZ-9Je"/>
+                <constraint firstItem="10n-wx-Qdu" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="QbR-ET-gOt"/>
+                <constraint firstItem="l9C-w3-7PI" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="9" id="YR7-Mt-fHA"/>
+                <constraint firstItem="l9C-w3-7PI" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="12" id="jCZ-aE-UQJ"/>
+                <constraint firstAttribute="bottom" secondItem="10n-wx-Qdu" secondAttribute="bottom" id="mGD-KH-3GB"/>
+            </constraints>
+            <point key="canvasLocation" x="61" y="107.5"/>
+        </customView>
+        <collectionViewItem id="fAj-FI-VOW" customClass="SoundNodeCollectionViewItem" customModule="Waventasy" customModuleProvider="target"/>
+    </objects>
+    <resources>
+        <image name="BlueNode" width="22" height="22"/>
+    </resources>
+</document>

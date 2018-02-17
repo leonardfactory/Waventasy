@@ -785,61 +785,54 @@
                                     <constraint firstAttribute="width" constant="200" id="IgP-pv-7fJ"/>
                                 </constraints>
                             </customView>
-                            <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6IJ-8T-ZXy" customClass="SoundBoardScrollView" customModule="Waventasy" customModuleProvider="target">
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2vg-x5-lXG">
+                                <rect key="frame" x="270" y="158" width="81" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="jQW-Me-pcf">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <scrollView wantsLayer="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRu-NK-ilw" customClass="SoundBoardScrollView" customModule="Waventasy" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="520" height="400"/>
-                                <clipView key="contentView" id="1si-qV-rlG">
+                                <clipView key="contentView" id="uTy-5k-hDo">
                                     <rect key="frame" x="0.0" y="0.0" width="520" height="400"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <view fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KEN-FN-PIb">
-                                            <rect key="frame" x="0.0" y="0.0" width="700" height="600"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <subviews>
-                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CS3-wa-Gak">
-                                                    <rect key="frame" x="378" y="362" width="81" height="32"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="eLh-Cg-Cmi">
-                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                        <font key="font" metaFont="system"/>
-                                                    </buttonCell>
-                                                </button>
-                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gtt-6d-er9">
-                                                    <rect key="frame" x="405" y="-69" width="81" height="32"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="5HI-FO-SNB">
-                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                        <font key="font" metaFont="system"/>
-                                                    </buttonCell>
-                                                </button>
-                                            </subviews>
-                                        </view>
+                                        <collectionView id="wTR-kd-N1s">
+                                            <rect key="frame" x="0.0" y="0.0" width="520" height="158"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                            <collectionViewLayout key="collectionViewLayout" id="Deb-Nr-iaG" customClass="SoundBoardCollectionLayout" customModule="Waventasy" customModuleProvider="target"/>
+                                            <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </collectionView>
                                     </subviews>
                                     <color key="backgroundColor" red="0.32747733159999998" green="0.32747733159999998" blue="0.32747733159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </clipView>
-                                <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="kZb-X4-g2K">
-                                    <rect key="frame" x="0.0" y="384" width="520" height="16"/>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="2n0-uI-fHL">
+                                    <rect key="frame" x="1" y="383" width="518" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="NTF-bZ-rhY">
-                                    <rect key="frame" x="504" y="0.0" width="16" height="400"/>
+                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="qao-N8-Vfi">
+                                    <rect key="frame" x="234" y="1" width="15" height="143"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="ngl-G0-pm5" firstAttribute="leading" secondItem="6IJ-8T-ZXy" secondAttribute="trailing" id="5Bg-rO-nUw"/>
-                            <constraint firstItem="6IJ-8T-ZXy" firstAttribute="top" secondItem="nuz-LX-qgt" secondAttribute="top" id="8Zd-VR-QJD"/>
+                            <constraint firstItem="pRu-NK-ilw" firstAttribute="trailing" secondItem="ngl-G0-pm5" secondAttribute="leading" id="7BB-bj-FhD"/>
                             <constraint firstAttribute="bottom" secondItem="ngl-G0-pm5" secondAttribute="bottom" id="QxN-lc-23w"/>
+                            <constraint firstAttribute="bottom" secondItem="pRu-NK-ilw" secondAttribute="bottom" id="VMF-l9-aG6"/>
+                            <constraint firstItem="pRu-NK-ilw" firstAttribute="leading" secondItem="nuz-LX-qgt" secondAttribute="leading" id="l5M-0o-bNR"/>
                             <constraint firstAttribute="trailing" secondItem="ngl-G0-pm5" secondAttribute="trailing" id="pZd-GC-ld2"/>
                             <constraint firstItem="ngl-G0-pm5" firstAttribute="top" secondItem="nuz-LX-qgt" secondAttribute="top" id="q6O-FM-dcl"/>
-                            <constraint firstItem="6IJ-8T-ZXy" firstAttribute="leading" secondItem="nuz-LX-qgt" secondAttribute="leading" id="uLy-Bs-X2x"/>
-                            <constraint firstAttribute="bottom" secondItem="6IJ-8T-ZXy" secondAttribute="bottom" id="zBj-ri-jo1"/>
+                            <constraint firstItem="pRu-NK-ilw" firstAttribute="top" secondItem="nuz-LX-qgt" secondAttribute="top" id="qZi-Gf-agH"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="collectionView" destination="wTR-kd-N1s" id="gu0-gZ-Yea"/>
                         <outlet property="rightSideBarView" destination="ngl-G0-pm5" id="CYP-yg-Ku6"/>
                         <outlet property="rightSideBarXConstraint" destination="pZd-GC-ld2" id="N0x-4t-et9"/>
-                        <outlet property="scrollView" destination="6IJ-8T-ZXy" id="jsL-xa-cg8"/>
+                        <outlet property="scrollView" destination="pRu-NK-ilw" id="X3u-WG-ZNh"/>
                     </connections>
                 </viewController>
                 <customObject id="Rcd-Vg-pvc" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
