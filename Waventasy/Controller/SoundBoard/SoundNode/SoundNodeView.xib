@@ -8,22 +8,22 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SoundNodeView" customModule="Waventasy" customModuleProvider="target">
             <connections>
-                <outlet property="nameLabel" destination="xsb-bW-wQO" id="WEH-Sh-UwJ"/>
-                <outlet property="topView" destination="c22-O7-iKe" id="a7h-FM-HtG"/>
+                <outlet property="nameLabel" destination="xsb-bW-wQO" id="ly2-Gb-m19"/>
+                <outlet property="view" destination="c22-O7-iKe" id="a7h-FM-HtG"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="c22-O7-iKe">
-            <rect key="frame" x="0.0" y="0.0" width="263" height="119"/>
+            <rect key="frame" x="0.0" y="0.0" width="263" height="32"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WgJ-sx-6iL">
-                    <rect key="frame" x="0.0" y="0.0" width="263" height="119"/>
+                    <rect key="frame" x="0.0" y="0.0" width="263" height="32"/>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="BlueNode" id="4ws-o9-IJY"/>
                 </imageView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xsb-bW-wQO">
-                    <rect key="frame" x="9" y="95" width="36" height="16"/>
+                    <rect key="frame" x="10" y="8" width="243" height="16"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Node" id="qQV-Jj-B2e">
                         <font key="font" metaFont="systemBold" size="12"/>
                         <color key="textColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
@@ -32,16 +32,15 @@
                 </textField>
             </subviews>
             <constraints>
+                <constraint firstItem="xsb-bW-wQO" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="12" id="0Gp-1j-k6M"/>
                 <constraint firstAttribute="bottom" secondItem="WgJ-sx-6iL" secondAttribute="bottom" id="5iE-ON-aA5"/>
                 <constraint firstItem="WgJ-sx-6iL" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="MWl-17-tTg"/>
                 <constraint firstAttribute="trailing" secondItem="WgJ-sx-6iL" secondAttribute="trailing" id="R6p-qE-cW6"/>
-                <constraint firstItem="xsb-bW-wQO" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="11" id="kZH-44-vtV"/>
-                <constraint firstItem="xsb-bW-wQO" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="8" id="l7w-AF-ZN3"/>
+                <constraint firstAttribute="trailing" secondItem="xsb-bW-wQO" secondAttribute="trailing" constant="12" id="dga-uv-U8A"/>
+                <constraint firstItem="xsb-bW-wQO" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="8" id="jMo-ZB-0ln"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="xsb-bW-wQO" secondAttribute="bottom" priority="750" constant="8" id="tUg-1o-hai"/>
                 <constraint firstItem="WgJ-sx-6iL" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="zJs-nk-jhP"/>
             </constraints>
-            <connections>
-                <outlet property="nameLabel" destination="xsb-bW-wQO" id="ryC-ph-vmX"/>
-            </connections>
             <point key="canvasLocation" x="172.5" y="23.5"/>
         </customView>
     </objects>

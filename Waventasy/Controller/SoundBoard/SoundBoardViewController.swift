@@ -14,12 +14,9 @@ class SoundBoardViewController: NSViewController {
     @IBOutlet weak var rightSideBarView:NSView?
     @IBOutlet weak var rightSideBarXConstraint: NSLayoutConstraint!
     
-    @IBOutlet weak var collectionView: NSCollectionView?
-    
     var isRightSidebarShown: Bool = false
     
     var nodes:[SoundNode] = []
-    var nodeItemTemplateView:SoundNodeCollectionViewItem? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,18 +29,14 @@ class SoundBoardViewController: NSViewController {
         
         // Ottimizzazioni per la CollectionView
         self.view.wantsLayer = true
-        self.collectionView?.delegate = self
-        self.collectionView?.dataSource = self
-        self.collectionView?.registerForDraggedTypes([NSPasteboard.PasteboardType.string])
-        self.collectionView?.setDraggingSourceOperationMask(NSDragOperation.move, forLocal: true)
         
-        
-        self.nodeItemTemplateView = SoundNodeCollectionViewItem(nibName: NSNib.Name("SoundNodeCollectionViewItem"), bundle: Bundle.main)
         
         // Test
         self.nodes.append(SoundNode(name: "Nodo Demo", position: NSPoint(x:100.0, y:100.0)))
         self.nodes.append(SoundNode(name: "440Hz", position: NSPoint(x:100.0, y:225.0)))
-        self.nodes.append(SoundNode(name: "440Hz", position: NSPoint(x:1000.0, y:600.0)))
+        self.nodes.append(SoundNode(name: "880Hz", position: NSPoint(x:1000.0, y:600.0)))
+        
+        self.displayNodes()
         
         // Test
 //        let demoNode = SoundNodeView(frame: NSRect(x: 100.0, y: 100.0, width: 120.0, height: 80.0))
@@ -72,6 +65,14 @@ class SoundBoardViewController: NSViewController {
     
     public func toggleLeftSidebar() {
         print("Toggle left..")
+    }
+    
+    // Visualizzazione dei nodi
+    public func displayNodes() {
+        for node in self.nodes {
+            self.scrollView!.documentView!.addSubview(SoundNodeView(node: node))
+        }
+        _ = self.calculateBoardContentSize()
     }
 }
 
@@ -109,19 +110,6 @@ extension SoundBoardViewController: NSCollectionViewDelegate, NSCollectionViewDa
     // Dimensioni di Layout
     // -
     
-    func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: SoundBoardCollectionLayout, frameForItemAt indexPath: IndexPath) -> NSRect {
-        if (!self.nodes.indices.contains(indexPath.item)) {
-            return NSRect.zero
-        }
-        
-        let node = self.nodes[indexPath.item]
-        self.nodeItemTemplateView?.node = node
-        return NSRect(
-            origin: node.position,
-            size: self.nodeItemTemplateView!.view.fittingSize
-        )
-    }
-    
     func calculateBoardContentSize() -> NSSize {
         var minPoint = CGPoint.zero
         var maxPoint = CGPoint.zero
@@ -138,7 +126,10 @@ extension SoundBoardViewController: NSCollectionViewDelegate, NSCollectionViewDa
             height: max(self.scrollView!.frame.height, maxPoint.y - minPoint.y)
         )
         
-        self.scrollView!.documentView?.frame.size = size
+        self.scrollView!.documentView?.frame = NSRect(
+            origin:self.scrollView!.documentView!.frame.origin,
+            size: size
+        )
         
         return size
     }

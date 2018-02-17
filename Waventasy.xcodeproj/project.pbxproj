@@ -14,6 +14,7 @@
 		A726C81A203865B000DECE67 /* SoundNodeCollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = A726C818203865B000DECE67 /* SoundNodeCollectionViewItem.xib */; };
 		A726C81D20387A3000DECE67 /* SoundNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A726C81C20387A3000DECE67 /* SoundNode.swift */; };
 		A726C820203890AA00DECE67 /* CGPoint+Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = A726C81F203890AA00DECE67 /* CGPoint+Operators.swift */; };
+		A72D752E2038A76000D60CB0 /* FlippedClipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D752D2038A76000D60CB0 /* FlippedClipView.swift */; };
 		A730455B2033868D00DB15DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A730455A2033868D00DB15DE /* AppDelegate.swift */; };
 		A730455D2033868D00DB15DE /* WavesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A730455C2033868D00DB15DE /* WavesViewController.swift */; };
 		A730455F2033868D00DB15DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A730455E2033868D00DB15DE /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 		A726C818203865B000DECE67 /* SoundNodeCollectionViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SoundNodeCollectionViewItem.xib; sourceTree = "<group>"; };
 		A726C81C20387A3000DECE67 /* SoundNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundNode.swift; sourceTree = "<group>"; };
 		A726C81F203890AA00DECE67 /* CGPoint+Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Operators.swift"; sourceTree = "<group>"; };
+		A72D752D2038A76000D60CB0 /* FlippedClipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlippedClipView.swift; sourceTree = "<group>"; };
 		A73045572033868D00DB15DE /* Waventasy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Waventasy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A730455A2033868D00DB15DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A730455C2033868D00DB15DE /* WavesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WavesViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				A726C81F203890AA00DECE67 /* CGPoint+Operators.swift */,
+				A72D752D2038A76000D60CB0 /* FlippedClipView.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				A7B27C5E2034D0000053780B /* SoundBuilder.swift in Sources */,
 				A726C816203863F500DECE67 /* SoundBoardCollectionLayout.swift in Sources */,
 				A726C81D20387A3000DECE67 /* SoundNode.swift in Sources */,
+				A72D752E2038A76000D60CB0 /* FlippedClipView.swift in Sources */,
 				A730455D2033868D00DB15DE /* WavesViewController.swift in Sources */,
 				A75C9DD820362982001B34F6 /* SoundBoardViewController.swift in Sources */,
 				A7155BDC203645BA00E9B4A7 /* SoundBoardScrollView.swift in Sources */,

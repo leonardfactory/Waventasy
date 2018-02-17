@@ -793,46 +793,43 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                             </button>
-                            <scrollView wantsLayer="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRu-NK-ilw" customClass="SoundBoardScrollView" customModule="Waventasy" customModuleProvider="target">
+                            <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Wl-XH-k80" customClass="SoundBoardScrollView" customModule="Waventasy" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="520" height="400"/>
-                                <clipView key="contentView" id="uTy-5k-hDo">
+                                <clipView key="contentView" id="SEt-IB-dU7">
                                     <rect key="frame" x="0.0" y="0.0" width="520" height="400"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <collectionView selectable="YES" allowsMultipleSelection="YES" id="wTR-kd-N1s">
-                                            <rect key="frame" x="0.0" y="0.0" width="520" height="158"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                            <collectionViewLayout key="collectionViewLayout" id="Deb-Nr-iaG" customClass="SoundBoardCollectionLayout" customModule="Waventasy" customModuleProvider="target"/>
-                                            <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                        </collectionView>
+                                        <view fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mgP-Ux-k3R">
+                                            <rect key="frame" x="0.0" y="0.0" width="505" height="385"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </view>
                                     </subviews>
                                     <color key="backgroundColor" red="0.32747733159999998" green="0.32747733159999998" blue="0.32747733159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="2n0-uI-fHL">
-                                    <rect key="frame" x="1" y="383" width="518" height="16"/>
+                                <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="pbL-50-KjR">
+                                    <rect key="frame" x="0.0" y="384" width="520" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="qao-N8-Vfi">
-                                    <rect key="frame" x="234" y="1" width="15" height="143"/>
+                                <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="p31-ii-qBd">
+                                    <rect key="frame" x="504" y="0.0" width="16" height="400"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="pRu-NK-ilw" firstAttribute="trailing" secondItem="ngl-G0-pm5" secondAttribute="leading" id="7BB-bj-FhD"/>
+                            <constraint firstItem="7Wl-XH-k80" firstAttribute="leading" secondItem="nuz-LX-qgt" secondAttribute="leading" id="5eu-3Y-Uh3"/>
+                            <constraint firstItem="7Wl-XH-k80" firstAttribute="trailing" secondItem="ngl-G0-pm5" secondAttribute="leading" id="IHX-Eu-wRp"/>
                             <constraint firstAttribute="bottom" secondItem="ngl-G0-pm5" secondAttribute="bottom" id="QxN-lc-23w"/>
-                            <constraint firstAttribute="bottom" secondItem="pRu-NK-ilw" secondAttribute="bottom" id="VMF-l9-aG6"/>
-                            <constraint firstItem="pRu-NK-ilw" firstAttribute="leading" secondItem="nuz-LX-qgt" secondAttribute="leading" id="l5M-0o-bNR"/>
+                            <constraint firstAttribute="bottom" secondItem="7Wl-XH-k80" secondAttribute="bottom" id="Sfv-CV-mG9"/>
+                            <constraint firstItem="7Wl-XH-k80" firstAttribute="top" secondItem="nuz-LX-qgt" secondAttribute="top" id="enc-Aj-RC0"/>
                             <constraint firstAttribute="trailing" secondItem="ngl-G0-pm5" secondAttribute="trailing" id="pZd-GC-ld2"/>
                             <constraint firstItem="ngl-G0-pm5" firstAttribute="top" secondItem="nuz-LX-qgt" secondAttribute="top" id="q6O-FM-dcl"/>
-                            <constraint firstItem="pRu-NK-ilw" firstAttribute="top" secondItem="nuz-LX-qgt" secondAttribute="top" id="qZi-Gf-agH"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="collectionView" destination="wTR-kd-N1s" id="gu0-gZ-Yea"/>
                         <outlet property="rightSideBarView" destination="ngl-G0-pm5" id="CYP-yg-Ku6"/>
                         <outlet property="rightSideBarXConstraint" destination="pZd-GC-ld2" id="N0x-4t-et9"/>
-                        <outlet property="scrollView" destination="pRu-NK-ilw" id="X3u-WG-ZNh"/>
+                        <outlet property="scrollView" destination="7Wl-XH-k80" id="G3i-S9-Asg"/>
                     </connections>
                 </viewController>
                 <customObject id="Rcd-Vg-pvc" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
