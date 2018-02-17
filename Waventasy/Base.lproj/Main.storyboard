@@ -799,7 +799,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="520" height="400"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <collectionView id="wTR-kd-N1s">
+                                        <collectionView selectable="YES" allowsMultipleSelection="YES" id="wTR-kd-N1s">
                                             <rect key="frame" x="0.0" y="0.0" width="520" height="158"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                             <collectionViewLayout key="collectionViewLayout" id="Deb-Nr-iaG" customClass="SoundBoardCollectionLayout" customModule="Waventasy" customModuleProvider="target"/>

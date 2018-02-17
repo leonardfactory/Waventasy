@@ -14,6 +14,9 @@ import Cocoa
 @objc protocol SoundBoardCollectionLayoutDelegate : NSCollectionViewDelegateFlowLayout {
     // Ottengo le dimensioni di un nodo
     @objc optional func collectionView(_ collectionView:NSCollectionView, layout collectionViewLayout:SoundBoardCollectionLayout, frameForItemAt indexPath:IndexPath) -> NSRect
+    
+    // Ottengo le dimensioni di massa
+    func calculateBoardContentSize() -> NSSize
 }
 
 /**
@@ -31,21 +34,36 @@ class SoundBoardCollectionLayout: NSCollectionViewFlowLayout {
         setup()
     }
     
+    override var collectionViewContentSize: NSSize {
+        get {
+            guard let delegate = self.collectionView?.delegate as? SoundBoardCollectionLayoutDelegate else {
+                return NSSize.zero
+            }
+            
+            return delegate.calculateBoardContentSize()
+        }
+    }
+    
     override func prepare() {
         super.prepare()
-        self.scrollDirection = NSCollectionView.ScrollDirection.horizontal
+        
+//        self.scrollDirection = NSCollectionView.ScrollDirection.horizontal
+    }
+    
+    override func shouldInvalidateLayout(forBoundsChange newBounds: NSRect) -> Bool {
+        return true
     }
     
     override func layoutAttributesForItem(at indexPath: IndexPath) -> NSCollectionViewLayoutAttributes? {
 //        let item = self.collectionView?.item(at: indexPath)
 //        guard let nodeItem = item as? SoundNodeCollectionViewItem else { return nil }
 //        let item = self.collectionView
-        print("ip", indexPath)
+//        print("ip", indexPath)
         guard let delegate = self.collectionView?.delegate as? SoundBoardCollectionLayoutDelegate else { return nil }
         let itemFrame = delegate.collectionView!(self.collectionView!, layout: self, frameForItemAt: indexPath)
         let layoutAttributes = NSCollectionViewLayoutAttributes.init(forItemWith: indexPath)
         layoutAttributes.frame = itemFrame
-        print(layoutAttributes.frame)
+//        print(layoutAttributes.frame)
 
         return layoutAttributes
     }

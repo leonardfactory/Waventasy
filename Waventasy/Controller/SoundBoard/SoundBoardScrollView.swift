@@ -14,6 +14,7 @@ class SoundBoardScrollView: NSScrollView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         self.documentCursor = NSCursor.openHand
+        self.hasHorizontalScroller = true
     }
     
     
@@ -26,12 +27,12 @@ class SoundBoardScrollView: NSScrollView {
     }
     
     override func mouseDown(with event: NSEvent) {
-        // Draggin support
-        if (event.type == NSEvent.EventType.leftMouseDown) {
-            self.isDragging = true
-            NSCursor.closedHand.push()
-            self.window?.disableCursorRects()
-        }
+//        // Draggin support
+//        if (event.type == NSEvent.EventType.leftMouseDown) {
+//            self.isDragging = true
+//            NSCursor.closedHand.push()
+//            self.window?.disableCursorRects()
+//        }
     }
     
     override func mouseDragged(with event: NSEvent) {

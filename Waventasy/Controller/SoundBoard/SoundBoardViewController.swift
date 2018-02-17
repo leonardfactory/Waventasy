@@ -34,12 +34,16 @@ class SoundBoardViewController: NSViewController {
         self.view.wantsLayer = true
         self.collectionView?.delegate = self
         self.collectionView?.dataSource = self
+        self.collectionView?.registerForDraggedTypes([NSPasteboard.PasteboardType.string])
+        self.collectionView?.setDraggingSourceOperationMask(NSDragOperation.move, forLocal: true)
+        
         
         self.nodeItemTemplateView = SoundNodeCollectionViewItem(nibName: NSNib.Name("SoundNodeCollectionViewItem"), bundle: Bundle.main)
         
         // Test
         self.nodes.append(SoundNode(name: "Nodo Demo", position: NSPoint(x:100.0, y:100.0)))
         self.nodes.append(SoundNode(name: "440Hz", position: NSPoint(x:100.0, y:225.0)))
+        self.nodes.append(SoundNode(name: "440Hz", position: NSPoint(x:1000.0, y:600.0)))
         
         // Test
 //        let demoNode = SoundNodeView(frame: NSRect(x: 100.0, y: 100.0, width: 120.0, height: 80.0))
@@ -117,4 +121,42 @@ extension SoundBoardViewController: NSCollectionViewDelegate, NSCollectionViewDa
             size: self.nodeItemTemplateView!.view.fittingSize
         )
     }
+    
+    func calculateBoardContentSize() -> NSSize {
+        var minPoint = CGPoint.zero
+        var maxPoint = CGPoint.zero
+        
+        for node in self.nodes {
+            if (node.position.x < minPoint.x) { minPoint.x = node.position.x }
+            if (node.position.y < minPoint.y) { minPoint.y = node.position.y }
+            if (node.position.x + 100 > maxPoint.x) { maxPoint.x = node.position.x + 100 }
+            if (node.position.y + 100 > maxPoint.y) { maxPoint.y = node.position.y + 100 }
+        }
+        
+        let size = NSSize(
+            width: max(self.scrollView!.frame.width, maxPoint.x - minPoint.x),
+            height: max(self.scrollView!.frame.height, maxPoint.y - minPoint.y)
+        )
+        
+        self.scrollView!.documentView?.frame.size = size
+        
+        return size
+    }
+    
+//    func collectionView(_ collectionView: NSCollectionView, canDragItemsAt indexPaths: Set<IndexPath>, with event: NSEvent) -> Bool {
+////        print("Yeah, drag many")
+//        return true
+//    }
+//
+//    func collectionView(_ collectionView: NSCollectionView, validateDrop draggingInfo: NSDraggingInfo, proposedIndexPath proposedDropIndexPath: AutoreleasingUnsafeMutablePointer<NSIndexPath>, dropOperation proposedDropOperation: UnsafeMutablePointer<NSCollectionView.DropOperation>) -> NSDragOperation {
+//        return NSDragOperation.move
+//    }
+//
+//    func collectionView(_ collectionView: NSCollectionView, acceptDrop draggingInfo: NSDraggingInfo, indexPath: IndexPath, dropOperation: NSCollectionView.DropOperation) -> Bool {
+//        return true
+//    }
+//
+//    func collectionView(_ collectionView: NSCollectionView, pasteboardWriterForItemAt indexPath: IndexPath) -> NSPasteboardWriting? {
+//        return NSPasteboardItem(pasteboardPropertyList: self.nodes[indexPath.item].name, ofType: NSPasteboard.PasteboardType.string)
+//    }
 }
