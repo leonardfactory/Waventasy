@@ -12,6 +12,11 @@ import Foundation
  Rappresenta un nodo base (Audio)
  */
 class SoundNode {
+    public enum NodeType {
+        case frequency
+        case harmonic
+    }
+    
     var name:String
     var position:NSPoint
     

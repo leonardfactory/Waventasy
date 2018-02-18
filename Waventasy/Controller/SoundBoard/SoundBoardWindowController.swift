@@ -17,11 +17,32 @@ private enum SidebarToolbarSegment: Int {
 class SoundBoardWindowController: NSWindowController {
     
     @IBOutlet weak var sidebarControl:NSSegmentedControl?
-
+    @IBOutlet weak var popUpAddButton: NSPopUpButton!
+    
     override func windowDidLoad() {
         super.windowDidLoad()
     
-        // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+        self.setupAddButtonMenu()
+    }
+    
+    // Prepariamo la view per il menu di aggiunta
+    private func setupAddButtonMenu() {
+        let menu = NSMenu()
+        
+        let mainItem = NSMenuItem(title:"", action:nil, keyEquivalent:"")
+        mainItem.image = NSImage(named: NSImage.Name.addTemplate)
+        menu.addItem(mainItem)
+        
+        let frequencyItem = NSMenuItem(title: "Frequenza", action: nil, keyEquivalent: "f")
+        frequencyItem.image = soundNodeSwatchImage(fromType: SoundNode.NodeType.frequency)
+        menu.addItem(frequencyItem)
+        
+        let harmonicItem = NSMenuItem(title: "Armonica", action: nil, keyEquivalent: "a")
+        harmonicItem.image = soundNodeSwatchImage(fromType: SoundNode.NodeType.harmonic)
+        menu.addItem(harmonicItem)
+        
+        self.popUpAddButton.imagePosition = .imageOnly
+        self.popUpAddButton.menu = menu
     }
     
     // Inviamo il comando al ViewController per mostrare e nascondere

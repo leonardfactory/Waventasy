@@ -15,6 +15,8 @@
 		A726C81D20387A3000DECE67 /* SoundNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A726C81C20387A3000DECE67 /* SoundNode.swift */; };
 		A726C820203890AA00DECE67 /* CGPoint+Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = A726C81F203890AA00DECE67 /* CGPoint+Operators.swift */; };
 		A72D752E2038A76000D60CB0 /* FlippedClipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D752D2038A76000D60CB0 /* FlippedClipView.swift */; };
+		A72D75302039216D00D60CB0 /* SoundNodeDrawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D752F2039216D00D60CB0 /* SoundNodeDrawing.swift */; };
+		A72D753420392A1100D60CB0 /* NSColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D753320392A1100D60CB0 /* NSColor+Hex.swift */; };
 		A730455B2033868D00DB15DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A730455A2033868D00DB15DE /* AppDelegate.swift */; };
 		A730455D2033868D00DB15DE /* WavesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A730455C2033868D00DB15DE /* WavesViewController.swift */; };
 		A730455F2033868D00DB15DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A730455E2033868D00DB15DE /* Assets.xcassets */; };
@@ -38,6 +40,8 @@
 		A726C81C20387A3000DECE67 /* SoundNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundNode.swift; sourceTree = "<group>"; };
 		A726C81F203890AA00DECE67 /* CGPoint+Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Operators.swift"; sourceTree = "<group>"; };
 		A72D752D2038A76000D60CB0 /* FlippedClipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlippedClipView.swift; sourceTree = "<group>"; };
+		A72D752F2039216D00D60CB0 /* SoundNodeDrawing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundNodeDrawing.swift; sourceTree = "<group>"; };
+		A72D753320392A1100D60CB0 /* NSColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSColor+Hex.swift"; sourceTree = "<group>"; };
 		A73045572033868D00DB15DE /* Waventasy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Waventasy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A730455A2033868D00DB15DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A730455C2033868D00DB15DE /* WavesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WavesViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +107,7 @@
 			children = (
 				A726C81F203890AA00DECE67 /* CGPoint+Operators.swift */,
 				A72D752D2038A76000D60CB0 /* FlippedClipView.swift */,
+				A72D753320392A1100D60CB0 /* NSColor+Hex.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -194,6 +199,7 @@
 				A7C4FF0920377E100011816A /* SoundNodeView.swift */,
 				A726C817203865B000DECE67 /* SoundNodeCollectionViewItem.swift */,
 				A726C818203865B000DECE67 /* SoundNodeCollectionViewItem.xib */,
+				A72D752F2039216D00D60CB0 /* SoundNodeDrawing.swift */,
 			);
 			path = SoundNode;
 			sourceTree = "<group>";
@@ -336,6 +342,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7C4FF0A20377E100011816A /* SoundNodeView.swift in Sources */,
+				A72D753420392A1100D60CB0 /* NSColor+Hex.swift in Sources */,
 				A730456F2033A5DE00DB15DE /* Harmonic.swift in Sources */,
 				A7C4FF05203766940011816A /* SoundBoardWindowController.swift in Sources */,
 				A726C819203865B000DECE67 /* SoundNodeCollectionViewItem.swift in Sources */,
@@ -347,6 +354,7 @@
 				A730455D2033868D00DB15DE /* WavesViewController.swift in Sources */,
 				A75C9DD820362982001B34F6 /* SoundBoardViewController.swift in Sources */,
 				A7155BDC203645BA00E9B4A7 /* SoundBoardScrollView.swift in Sources */,
+				A72D75302039216D00D60CB0 /* SoundNodeDrawing.swift in Sources */,
 				A730455B2033868D00DB15DE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

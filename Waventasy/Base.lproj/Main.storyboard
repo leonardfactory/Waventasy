@@ -751,9 +751,30 @@
                                         </buttonCell>
                                     </button>
                                 </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="61968EA1-25CD-4211-9C78-932BAD0CBF08" label="" paletteLabel="Add2" image="NSAddTemplate" id="hJQ-rF-npp">
+                                    <nil key="toolTip"/>
+                                    <size key="minSize" width="36" height="25"/>
+                                    <size key="maxSize" width="36" height="28"/>
+                                    <popUpButton key="view" verticalHuggingPriority="750" id="laW-2b-T1w">
+                                        <rect key="frame" x="0.0" y="14" width="36" height="28"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <popUpButtonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" pullsDown="YES" altersStateOfSelectedItem="NO" selectedItem="2WO-f5-TRn" id="Cie-Ht-K1p">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="menu"/>
+                                            <menu key="menu" id="Dzq-Id-qtY">
+                                                <items>
+                                                    <menuItem state="on" image="NSAddTemplate" hidden="YES" id="2WO-f5-TRn"/>
+                                                    <menuItem title="Item 2" id="tdJ-Cb-ysK"/>
+                                                    <menuItem title="Item 3" id="ySh-Wc-iMo"/>
+                                                </items>
+                                            </menu>
+                                        </popUpButtonCell>
+                                    </popUpButton>
+                                </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
                                 <toolbarItem reference="i8g-8L-ozz"/>
+                                <toolbarItem reference="hJQ-rF-npp"/>
                                 <toolbarItem reference="2vk-Av-FMS"/>
                                 <toolbarItem reference="lDQ-3e-a0z"/>
                             </defaultToolbarItems>
@@ -763,6 +784,7 @@
                         </connections>
                     </window>
                     <connections>
+                        <outlet property="popUpAddButton" destination="laW-2b-T1w" id="9ZV-c5-7oW"/>
                         <outlet property="sidebarControl" destination="goH-Sc-Q9d" id="SAQ-xl-XPa"/>
                         <segue destination="94a-Kd-rab" kind="relationship" relationship="window.shadowedContentViewController" id="ms1-ml-TyB"/>
                     </connections>

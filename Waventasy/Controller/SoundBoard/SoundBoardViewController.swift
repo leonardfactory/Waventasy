@@ -13,7 +13,6 @@ class SoundBoardViewController: NSViewController {
     @IBOutlet weak var scrollView:SoundBoardScrollView?
     @IBOutlet weak var rightSideBarView:NSView?
     @IBOutlet weak var rightSideBarXConstraint: NSLayoutConstraint!
-    @IBOutlet weak var rightSideBarVibrantView:NSView?
     
     var isRightSidebarShown: Bool = false
     
