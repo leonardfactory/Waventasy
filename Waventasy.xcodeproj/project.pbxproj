@@ -17,6 +17,12 @@
 		A72D752E2038A76000D60CB0 /* FlippedClipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D752D2038A76000D60CB0 /* FlippedClipView.swift */; };
 		A72D75302039216D00D60CB0 /* SoundNodeDrawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D752F2039216D00D60CB0 /* SoundNodeDrawing.swift */; };
 		A72D753420392A1100D60CB0 /* NSColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D753320392A1100D60CB0 /* NSColor+Hex.swift */; };
+		A72D753720399BAB00D60CB0 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D753620399BAB00D60CB0 /* BoardView.swift */; };
+		A72D753920399BE000D60CB0 /* BoardDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D753820399BE000D60CB0 /* BoardDataSource.swift */; };
+		A72D753B20399C9500D60CB0 /* BoardTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D753A20399C9500D60CB0 /* BoardTypes.swift */; };
+		A72D753D2039A04A00D60CB0 /* BoardItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D753C2039A04A00D60CB0 /* BoardItemView.swift */; };
+		A72D753F2039A0BA00D60CB0 /* BoardDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D753E2039A0BA00D60CB0 /* BoardDelegate.swift */; };
+		A72D75412039AC0100D60CB0 /* SoundBoardItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D75402039AC0100D60CB0 /* SoundBoardItemType.swift */; };
 		A730455B2033868D00DB15DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A730455A2033868D00DB15DE /* AppDelegate.swift */; };
 		A730455D2033868D00DB15DE /* WavesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A730455C2033868D00DB15DE /* WavesViewController.swift */; };
 		A730455F2033868D00DB15DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A730455E2033868D00DB15DE /* Assets.xcassets */; };
@@ -42,6 +48,12 @@
 		A72D752D2038A76000D60CB0 /* FlippedClipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlippedClipView.swift; sourceTree = "<group>"; };
 		A72D752F2039216D00D60CB0 /* SoundNodeDrawing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundNodeDrawing.swift; sourceTree = "<group>"; };
 		A72D753320392A1100D60CB0 /* NSColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSColor+Hex.swift"; sourceTree = "<group>"; };
+		A72D753620399BAB00D60CB0 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
+		A72D753820399BE000D60CB0 /* BoardDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardDataSource.swift; sourceTree = "<group>"; };
+		A72D753A20399C9500D60CB0 /* BoardTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardTypes.swift; sourceTree = "<group>"; };
+		A72D753C2039A04A00D60CB0 /* BoardItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardItemView.swift; sourceTree = "<group>"; };
+		A72D753E2039A0BA00D60CB0 /* BoardDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardDelegate.swift; sourceTree = "<group>"; };
+		A72D75402039AC0100D60CB0 /* SoundBoardItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundBoardItemType.swift; sourceTree = "<group>"; };
 		A73045572033868D00DB15DE /* Waventasy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Waventasy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A730455A2033868D00DB15DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A730455C2033868D00DB15DE /* WavesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WavesViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +124,18 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
+		A72D753520399B6E00D60CB0 /* Board */ = {
+			isa = PBXGroup;
+			children = (
+				A72D753620399BAB00D60CB0 /* BoardView.swift */,
+				A72D753820399BE000D60CB0 /* BoardDataSource.swift */,
+				A72D753A20399C9500D60CB0 /* BoardTypes.swift */,
+				A72D753C2039A04A00D60CB0 /* BoardItemView.swift */,
+				A72D753E2039A0BA00D60CB0 /* BoardDelegate.swift */,
+			);
+			path = Board;
+			sourceTree = "<group>";
+		};
 		A730454E2033868D00DB15DE = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +176,7 @@
 				A726C81B20387A1D00DECE67 /* Node */,
 				A7B27C5C2034CFF10053780B /* Builder */,
 				A730456D2033A52C00DB15DE /* Wave */,
+				A72D75402039AC0100D60CB0 /* SoundBoardItemType.swift */,
 			);
 			path = Sound;
 			sourceTree = "<group>";
@@ -175,6 +200,7 @@
 		A75C9DD620362942001B34F6 /* SoundBoard */ = {
 			isa = PBXGroup;
 			children = (
+				A72D753520399B6E00D60CB0 /* Board */,
 				A726C814203863D900DECE67 /* Collection */,
 				A7C4FF0620377DD40011816A /* SoundNode */,
 				A75C9DD720362982001B34F6 /* SoundBoardViewController.swift */,
@@ -344,16 +370,22 @@
 				A7C4FF0A20377E100011816A /* SoundNodeView.swift in Sources */,
 				A72D753420392A1100D60CB0 /* NSColor+Hex.swift in Sources */,
 				A730456F2033A5DE00DB15DE /* Harmonic.swift in Sources */,
+				A72D753D2039A04A00D60CB0 /* BoardItemView.swift in Sources */,
 				A7C4FF05203766940011816A /* SoundBoardWindowController.swift in Sources */,
+				A72D753B20399C9500D60CB0 /* BoardTypes.swift in Sources */,
+				A72D75412039AC0100D60CB0 /* SoundBoardItemType.swift in Sources */,
 				A726C819203865B000DECE67 /* SoundNodeCollectionViewItem.swift in Sources */,
 				A726C820203890AA00DECE67 /* CGPoint+Operators.swift in Sources */,
 				A7B27C5E2034D0000053780B /* SoundBuilder.swift in Sources */,
 				A726C816203863F500DECE67 /* SoundBoardCollectionLayout.swift in Sources */,
+				A72D753920399BE000D60CB0 /* BoardDataSource.swift in Sources */,
 				A726C81D20387A3000DECE67 /* SoundNode.swift in Sources */,
 				A72D752E2038A76000D60CB0 /* FlippedClipView.swift in Sources */,
 				A730455D2033868D00DB15DE /* WavesViewController.swift in Sources */,
 				A75C9DD820362982001B34F6 /* SoundBoardViewController.swift in Sources */,
 				A7155BDC203645BA00E9B4A7 /* SoundBoardScrollView.swift in Sources */,
+				A72D753720399BAB00D60CB0 /* BoardView.swift in Sources */,
+				A72D753F2039A0BA00D60CB0 /* BoardDelegate.swift in Sources */,
 				A72D75302039216D00D60CB0 /* SoundNodeDrawing.swift in Sources */,
 				A730455B2033868D00DB15DE /* AppDelegate.swift in Sources */,
 			);

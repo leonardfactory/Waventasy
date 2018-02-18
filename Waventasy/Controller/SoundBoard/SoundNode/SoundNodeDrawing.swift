@@ -17,8 +17,11 @@ func soundNodeSwatchImage(fromType type:SoundNode.NodeType) -> NSImage {
     
     let size = NSSize(width:12, height:12)
     let image = NSImage(size: size)
+    let rect = NSRect(origin: NSPoint.zero, size: size)
     image.lockFocus()
-    color?.drawSwatch(in: NSRect(origin: NSPoint.zero, size: size))
+    let roundedPath = NSBezierPath(roundedRect: rect, xRadius: 2.0, yRadius: 2.0)
+    color?.setFill()
+    roundedPath.fill()
     image.unlockFocus()
     
     return image

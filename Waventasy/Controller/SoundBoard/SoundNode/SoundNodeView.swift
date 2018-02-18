@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class SoundNodeView: NSView {
+class SoundNodeView: BoardItemView {
     
     public static var templateView:SoundNodeView = SoundNodeView(frame: NSRect(x:0.0, y:0.0, width: 100.0, height: 20.0))
     

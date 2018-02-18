@@ -770,6 +770,9 @@
                                             </menu>
                                         </popUpButtonCell>
                                     </popUpButton>
+                                    <connections>
+                                        <action selector="addNode:" target="kcc-fg-ulY" id="Ed0-RT-UOg"/>
+                                    </connections>
                                 </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
@@ -831,7 +834,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="520" height="400"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <view fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mgP-Ux-k3R">
+                                        <view fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mgP-Ux-k3R" customClass="BoardView" customModule="Waventasy" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="505" height="385"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </view>
@@ -859,6 +862,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="boardView" destination="mgP-Ux-k3R" id="Gz5-af-XLU"/>
                         <outlet property="rightSideBarView" destination="ngl-G0-pm5" id="CYP-yg-Ku6"/>
                         <outlet property="rightSideBarXConstraint" destination="pZd-GC-ld2" id="N0x-4t-et9"/>
                         <outlet property="scrollView" destination="7Wl-XH-k80" id="G3i-S9-Asg"/>

@@ -14,6 +14,12 @@ private enum SidebarToolbarSegment: Int {
     case right = 1
 }
 
+private enum SoundNodeMenuItem: String {
+    case none = ""
+    case frequency = "FrequencyItem"
+    case harmonic = "HarmonicItem"
+}
+
 class SoundBoardWindowController: NSWindowController {
     
     @IBOutlet weak var sidebarControl:NSSegmentedControl?
@@ -31,18 +37,32 @@ class SoundBoardWindowController: NSWindowController {
         
         let mainItem = NSMenuItem(title:"", action:nil, keyEquivalent:"")
         mainItem.image = NSImage(named: NSImage.Name.addTemplate)
+        mainItem.identifier = NSUserInterfaceItemIdentifier(rawValue: SoundNodeMenuItem.none.rawValue)
         menu.addItem(mainItem)
         
         let frequencyItem = NSMenuItem(title: "Frequenza", action: nil, keyEquivalent: "f")
         frequencyItem.image = soundNodeSwatchImage(fromType: SoundNode.NodeType.frequency)
+        frequencyItem.identifier = NSUserInterfaceItemIdentifier(rawValue: SoundNodeMenuItem.frequency.rawValue)
         menu.addItem(frequencyItem)
         
         let harmonicItem = NSMenuItem(title: "Armonica", action: nil, keyEquivalent: "a")
         harmonicItem.image = soundNodeSwatchImage(fromType: SoundNode.NodeType.harmonic)
+        harmonicItem.identifier = NSUserInterfaceItemIdentifier(rawValue: SoundNodeMenuItem.harmonic.rawValue)
         menu.addItem(harmonicItem)
         
         self.popUpAddButton.imagePosition = .imageOnly
         self.popUpAddButton.menu = menu
+    }
+    
+    @IBAction func addNode(_ sender: NSPopUpButton) {
+        let viewController = self.window?.contentViewController as! SoundBoardViewController
+        let selectedItem = SoundNodeMenuItem(rawValue: (sender.selectedItem?.identifier)!.rawValue) ?? SoundNodeMenuItem.none
+        
+        switch (selectedItem) {
+        case .frequency: viewController.addSoundNode(type: SoundNode.NodeType.frequency)
+        case .harmonic: viewController.addSoundNode(type: SoundNode.NodeType.harmonic)
+        default: return
+        }
     }
     
     // Inviamo il comando al ViewController per mostrare e nascondere

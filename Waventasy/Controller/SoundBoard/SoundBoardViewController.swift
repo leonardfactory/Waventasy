@@ -13,6 +13,7 @@ class SoundBoardViewController: NSViewController {
     @IBOutlet weak var scrollView:SoundBoardScrollView?
     @IBOutlet weak var rightSideBarView:NSView?
     @IBOutlet weak var rightSideBarXConstraint: NSLayoutConstraint!
+    @IBOutlet weak var boardView: BoardView!
     
     var isRightSidebarShown: Bool = false
     
@@ -30,8 +31,10 @@ class SoundBoardViewController: NSViewController {
         // Vibrant
         self.setupVibrantViews()
         
-        // Ottimizzazioni per la CollectionView
+        // Ottimizzazioni per la BoardView
         self.view.wantsLayer = true
+        self.boardView.dataSource = self
+        self.boardView.delegate = self
         
         
         // Test
@@ -39,7 +42,7 @@ class SoundBoardViewController: NSViewController {
         self.nodes.append(SoundNode(name: "440Hz", position: NSPoint(x:100.0, y:225.0)))
         self.nodes.append(SoundNode(name: "880Hz", position: NSPoint(x:1000.0, y:600.0)))
         
-        self.displayNodes()
+        self.boardView.reloadData()
         
         // Test
 //        let demoNode = SoundNodeView(frame: NSRect(x: 100.0, y: 100.0, width: 120.0, height: 80.0))
@@ -79,19 +82,66 @@ class SoundBoardViewController: NSViewController {
         self.rightSideBarView?.addSubview(sidebarVibrant, positioned:NSWindow.OrderingMode.below, relativeTo: nil)
     }
     
-    // Visualizzazione dei nodi
-    public func displayNodes() {
-        for node in self.nodes {
-            self.scrollView!.documentView!.addSubview(SoundNodeView(node: node))
+    // Aggiunta dei noid
+    public func addSoundNode(type: SoundNode.NodeType) {
+        print("addnode", type)
+        let visibleRect = self.scrollView!.documentVisibleRect
+        let node = SoundNode(name: "Hello", position:CGPoint(x: visibleRect.midX, y: visibleRect.midY))
+
+        self.nodes.append(node)
+        self.boardView.reloadData()
+//        self.scrollView!.documentView!.addSubview(SoundNodeView(node: node))
+    }
+}
+
+extension SoundBoardViewController: BoardDelegate, BoardDataSource {
+    // Display e/o Update di un nodo
+    func boardView(_ boardView: BoardView, item: BoardRenderable, fromExistingView existingView: BoardItemView?) -> BoardItemView? {
+        guard let soundNode = item as? SoundNode else { return nil }
+        guard let soundNodeView = existingView as? SoundNodeView? else {
+            print("View non attesa", existingView)
+            return nil
         }
-        _ = self.calculateBoardContentSize()
+        let itemView = soundNodeView ?? SoundNodeView(node: soundNode)
+        
+        // Impostazioni
+        if (existingView == nil) {
+            itemView.node = soundNode
+        }
+        
+        return itemView
+    }
+    
+    // Ottiene l'elenco dei nodi
+    func boardView(itemsIn boardView: BoardView) -> [BoardRenderable] {
+        return self.nodes
+    }
+    
+    // Calcola le dimensioni
+    func boardView(contentSizeFor boardView: BoardView) -> NSSize {
+        var minPoint = CGPoint.zero
+        var maxPoint = CGPoint.zero
+        
+        for node in self.nodes {
+            if (node.position.x < minPoint.x) { minPoint.x = node.position.x }
+            if (node.position.y < minPoint.y) { minPoint.y = node.position.y }
+            if (node.position.x + 100 > maxPoint.x) { maxPoint.x = node.position.x + 100 }
+            if (node.position.y + 100 > maxPoint.y) { maxPoint.y = node.position.y + 100 }
+        }
+        
+        let size = NSSize(
+            width: max(self.scrollView!.frame.width, maxPoint.x - minPoint.x),
+            height: max(self.scrollView!.frame.height, maxPoint.y - minPoint.y)
+        )
+        
+        return size
     }
 }
 
 /**
  Visualizzazione dei nodi.
  */
-extension SoundBoardViewController: NSCollectionViewDelegate, NSCollectionViewDataSource, SoundBoardCollectionLayoutDelegate {
+extension SoundBoardViewController: NSCollectionViewDelegate, NSCollectionViewDataSource {
     // Singola sezione
     func numberOfSections(in collectionView: NSCollectionView) -> Int {
         return 1
@@ -122,29 +172,7 @@ extension SoundBoardViewController: NSCollectionViewDelegate, NSCollectionViewDa
     // Dimensioni di Layout
     // -
     
-    func calculateBoardContentSize() -> NSSize {
-        var minPoint = CGPoint.zero
-        var maxPoint = CGPoint.zero
-        
-        for node in self.nodes {
-            if (node.position.x < minPoint.x) { minPoint.x = node.position.x }
-            if (node.position.y < minPoint.y) { minPoint.y = node.position.y }
-            if (node.position.x + 100 > maxPoint.x) { maxPoint.x = node.position.x + 100 }
-            if (node.position.y + 100 > maxPoint.y) { maxPoint.y = node.position.y + 100 }
-        }
-        
-        let size = NSSize(
-            width: max(self.scrollView!.frame.width, maxPoint.x - minPoint.x),
-            height: max(self.scrollView!.frame.height, maxPoint.y - minPoint.y)
-        )
-        
-        self.scrollView!.documentView?.frame = NSRect(
-            origin:self.scrollView!.documentView!.frame.origin,
-            size: size
-        )
-        
-        return size
-    }
+    
     
 //    func collectionView(_ collectionView: NSCollectionView, canDragItemsAt indexPaths: Set<IndexPath>, with event: NSEvent) -> Bool {
 ////        print("Yeah, drag many")

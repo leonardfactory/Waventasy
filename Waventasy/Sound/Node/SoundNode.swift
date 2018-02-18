@@ -11,7 +11,15 @@ import Foundation
 /**
  Rappresenta un nodo base (Audio)
  */
-class SoundNode {
+class SoundNode : BoardRenderable {
+    var boardType: BoardItemType {
+        return SoundBoardItemType.node.rawValue
+    }
+    
+    var boardIdentifier: BoardItemIdentifier {
+        return self.name
+    }
+    
     public enum NodeType {
         case frequency
         case harmonic
