@@ -31,5 +31,6 @@ func soundNodeColor(fromType type:SoundNode.NodeType) -> NSColor? {
     switch (type) {
     case .frequency: return NSColor(hex: 0x00a8ff)
     case .harmonic: return NSColor(hex: 0x4cd137)
+    default: return NSColor(hex: 0xffffff)
     }
 }

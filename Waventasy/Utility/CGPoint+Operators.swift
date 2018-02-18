@@ -21,9 +21,25 @@ extension CGPoint {
         return sum
     }
     
+    static func -(left: CGPoint, right: CGSize) -> CGPoint {
+        var sum = CGPoint()
+        sum = CGPoint(x: left.x - right.width, y:left.y - right.height)
+        return sum
+    }
+    
+    static func /(left:CGPoint, right:CGFloat) -> CGPoint {
+        return CGPoint(x:left.x / right, y: left.y / right)
+    }
+    
     func distance(p: CGPoint) -> CGFloat {
         let dx = x - p.x
         let dy = y - p.y
         return sqrt(dx*dx + dy*dy)
+    }
+}
+
+extension CGSize {
+    static func /(left:CGSize, right:CGFloat) -> CGSize {
+        return CGSize(width:left.width / right, height: left.height / right)
     }
 }

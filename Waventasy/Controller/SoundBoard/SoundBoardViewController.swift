@@ -38,9 +38,9 @@ class SoundBoardViewController: NSViewController {
         
         
         // Test
-        self.nodes.append(SoundNode(name: "Nodo Demo", position: NSPoint(x:100.0, y:100.0)))
-        self.nodes.append(SoundNode(name: "440Hz", position: NSPoint(x:100.0, y:225.0)))
-        self.nodes.append(SoundNode(name: "880Hz", position: NSPoint(x:1000.0, y:600.0)))
+        self.nodes.append(SoundNode(.harmonic, name: "Nodo Demo", position: NSPoint(x:100.0, y:100.0)))
+        self.nodes.append(SoundNode(.frequency, name: "440Hz", position: NSPoint(x:100.0, y:225.0)))
+        self.nodes.append(SoundNode(.frequency, name: "880Hz", position: NSPoint(x:1000.0, y:600.0)))
         
         self.boardView.reloadData()
     }
@@ -79,7 +79,14 @@ class SoundBoardViewController: NSViewController {
     public func addSoundNode(type: SoundNode.NodeType) {
         print("addnode", type)
         let visibleRect = self.scrollView!.documentVisibleRect
-        let node = SoundNode(name: "Hello", position:CGPoint(x: visibleRect.midX, y: visibleRect.midY))
+        var node:SoundNode
+        if type == .frequency {
+            node = FrequencyNode(name: "Hello", position: CGPoint(x: visibleRect.midX, y: visibleRect.midY))
+        }
+        else {
+            node = SoundNode(type, name: "Hello", position:CGPoint(x: visibleRect.midX, y: visibleRect.midY))
+        }
+        
 
         self.nodes.append(node)
         self.boardView.reloadData()

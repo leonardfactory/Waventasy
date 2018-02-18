@@ -23,6 +23,12 @@
 		A72D753D2039A04A00D60CB0 /* BoardItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D753C2039A04A00D60CB0 /* BoardItemView.swift */; };
 		A72D753F2039A0BA00D60CB0 /* BoardDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D753E2039A0BA00D60CB0 /* BoardDelegate.swift */; };
 		A72D75412039AC0100D60CB0 /* SoundBoardItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D75402039AC0100D60CB0 /* SoundBoardItemType.swift */; };
+		A72D75432039BDFA00D60CB0 /* FrequencyNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D75422039BDFA00D60CB0 /* FrequencyNode.swift */; };
+		A72D75452039BE5A00D60CB0 /* SoundNodeSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D75442039BE5A00D60CB0 /* SoundNodeSlot.swift */; };
+		A72D75472039C04100D60CB0 /* SoundNodeLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D75462039C04100D60CB0 /* SoundNodeLink.swift */; };
+		A72D754A2039C20700D60CB0 /* SoundNodeSlotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D75492039C20700D60CB0 /* SoundNodeSlotView.swift */; };
+		A72D754E2039C23800D60CB0 /* NSView+NibLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D754D2039C23800D60CB0 /* NSView+NibLoading.swift */; };
+		A72D75512039C9E600D60CB0 /* SoundNodeLinkImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72D75502039C9E600D60CB0 /* SoundNodeLinkImage.swift */; };
 		A730455B2033868D00DB15DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A730455A2033868D00DB15DE /* AppDelegate.swift */; };
 		A730455D2033868D00DB15DE /* WavesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A730455C2033868D00DB15DE /* WavesViewController.swift */; };
 		A730455F2033868D00DB15DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A730455E2033868D00DB15DE /* Assets.xcassets */; };
@@ -54,6 +60,12 @@
 		A72D753C2039A04A00D60CB0 /* BoardItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardItemView.swift; sourceTree = "<group>"; };
 		A72D753E2039A0BA00D60CB0 /* BoardDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardDelegate.swift; sourceTree = "<group>"; };
 		A72D75402039AC0100D60CB0 /* SoundBoardItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundBoardItemType.swift; sourceTree = "<group>"; };
+		A72D75422039BDFA00D60CB0 /* FrequencyNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequencyNode.swift; sourceTree = "<group>"; };
+		A72D75442039BE5A00D60CB0 /* SoundNodeSlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundNodeSlot.swift; sourceTree = "<group>"; };
+		A72D75462039C04100D60CB0 /* SoundNodeLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundNodeLink.swift; sourceTree = "<group>"; };
+		A72D75492039C20700D60CB0 /* SoundNodeSlotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundNodeSlotView.swift; sourceTree = "<group>"; };
+		A72D754D2039C23800D60CB0 /* NSView+NibLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+NibLoading.swift"; sourceTree = "<group>"; };
+		A72D75502039C9E600D60CB0 /* SoundNodeLinkImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundNodeLinkImage.swift; sourceTree = "<group>"; };
 		A73045572033868D00DB15DE /* Waventasy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Waventasy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A730455A2033868D00DB15DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A730455C2033868D00DB15DE /* WavesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WavesViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +122,9 @@
 			isa = PBXGroup;
 			children = (
 				A726C81C20387A3000DECE67 /* SoundNode.swift */,
+				A72D75442039BE5A00D60CB0 /* SoundNodeSlot.swift */,
+				A72D75422039BDFA00D60CB0 /* FrequencyNode.swift */,
+				A72D75462039C04100D60CB0 /* SoundNodeLink.swift */,
 			);
 			path = Node;
 			sourceTree = "<group>";
@@ -120,6 +135,7 @@
 				A726C81F203890AA00DECE67 /* CGPoint+Operators.swift */,
 				A72D752D2038A76000D60CB0 /* FlippedClipView.swift */,
 				A72D753320392A1100D60CB0 /* NSColor+Hex.swift */,
+				A72D754D2039C23800D60CB0 /* NSView+NibLoading.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -134,6 +150,23 @@
 				A72D753E2039A0BA00D60CB0 /* BoardDelegate.swift */,
 			);
 			path = Board;
+			sourceTree = "<group>";
+		};
+		A72D75482039C14D00D60CB0 /* Slot */ = {
+			isa = PBXGroup;
+			children = (
+				A72D754F2039C9D400D60CB0 /* Link */,
+				A72D75492039C20700D60CB0 /* SoundNodeSlotView.swift */,
+			);
+			path = Slot;
+			sourceTree = "<group>";
+		};
+		A72D754F2039C9D400D60CB0 /* Link */ = {
+			isa = PBXGroup;
+			children = (
+				A72D75502039C9E600D60CB0 /* SoundNodeLinkImage.swift */,
+			);
+			path = Link;
 			sourceTree = "<group>";
 		};
 		A730454E2033868D00DB15DE = {
@@ -221,6 +254,7 @@
 		A7C4FF0620377DD40011816A /* SoundNode */ = {
 			isa = PBXGroup;
 			children = (
+				A72D75482039C14D00D60CB0 /* Slot */,
 				A7C4FF0720377DF60011816A /* SoundNodeView.xib */,
 				A7C4FF0920377E100011816A /* SoundNodeView.swift */,
 				A726C817203865B000DECE67 /* SoundNodeCollectionViewItem.swift */,
@@ -373,10 +407,15 @@
 				A72D753D2039A04A00D60CB0 /* BoardItemView.swift in Sources */,
 				A7C4FF05203766940011816A /* SoundBoardWindowController.swift in Sources */,
 				A72D753B20399C9500D60CB0 /* BoardTypes.swift in Sources */,
+				A72D754E2039C23800D60CB0 /* NSView+NibLoading.swift in Sources */,
 				A72D75412039AC0100D60CB0 /* SoundBoardItemType.swift in Sources */,
 				A726C819203865B000DECE67 /* SoundNodeCollectionViewItem.swift in Sources */,
+				A72D754A2039C20700D60CB0 /* SoundNodeSlotView.swift in Sources */,
+				A72D75452039BE5A00D60CB0 /* SoundNodeSlot.swift in Sources */,
+				A72D75432039BDFA00D60CB0 /* FrequencyNode.swift in Sources */,
 				A726C820203890AA00DECE67 /* CGPoint+Operators.swift in Sources */,
 				A7B27C5E2034D0000053780B /* SoundBuilder.swift in Sources */,
+				A72D75472039C04100D60CB0 /* SoundNodeLink.swift in Sources */,
 				A726C816203863F500DECE67 /* SoundBoardCollectionLayout.swift in Sources */,
 				A72D753920399BE000D60CB0 /* BoardDataSource.swift in Sources */,
 				A726C81D20387A3000DECE67 /* SoundNode.swift in Sources */,
@@ -386,6 +425,7 @@
 				A7155BDC203645BA00E9B4A7 /* SoundBoardScrollView.swift in Sources */,
 				A72D753720399BAB00D60CB0 /* BoardView.swift in Sources */,
 				A72D753F2039A0BA00D60CB0 /* BoardDelegate.swift in Sources */,
+				A72D75512039C9E600D60CB0 /* SoundNodeLinkImage.swift in Sources */,
 				A72D75302039216D00D60CB0 /* SoundNodeDrawing.swift in Sources */,
 				A730455B2033868D00DB15DE /* AppDelegate.swift in Sources */,
 			);

@@ -20,6 +20,9 @@ class SoundNodeView: BoardItemView {
     @IBOutlet weak var view:NSView!
     @IBOutlet weak var nameLabel:NSTextField?
     
+    var inputSlotsView:NSStackView!
+    var outputSlotsView:NSStackView!
+    
     private var _node:SoundNode? = nil
     
     var isDragging:Bool = false
@@ -30,6 +33,7 @@ class SoundNodeView: BoardItemView {
         didSet {
             self._node = node
             self.name = node?.name
+            self.addSlots()
             // La posizione viene gestita automaticamente dal layout
         }
     }
@@ -61,22 +65,32 @@ class SoundNodeView: BoardItemView {
     }
     
     func setup() {
-        var topLevelObjects : NSArray?
-        if Bundle.main.loadNibNamed(NSNib.Name(rawValue: "SoundNodeView"), owner: self, topLevelObjects: &topLevelObjects) {
-            self.view = topLevelObjects!.first(where: { $0 is NSView }) as? NSView
-            self.view.wantsLayer = true
-            
-            self.addSubview(self.view)
-            self.view.translatesAutoresizingMaskIntoConstraints = true
-            self.view.autoresizingMask = [.width, .height]
-            self.view.frame = self.bounds
-        }
+        self.view = self.loadFromNib(nibName: "SoundNodeView")
+        
+        self.setupSlots()
     }
     
-    override func draw(_ dirtyRect: NSRect) {
-        super.draw(dirtyRect)
-
-        // Drawing code here.
+    func setupSlots() {
+        inputSlotsView = NSStackView(frame: NSRect.zero)
+        inputSlotsView.orientation = .vertical
+        inputSlotsView.alignment = .leading
+        inputSlotsView.spacing = 0.0
+        inputSlotsView.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.view.addSubview(inputSlotsView)
+        inputSlotsView.topAnchor.constraint(equalTo: nameLabel!.bottomAnchor, constant: 8.0).isActive = true
+        inputSlotsView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -8.0).isActive = true
+        inputSlotsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8.0).isActive = true
+        inputSlotsView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8.0).isActive = true
+    }
+    
+    func addSlots() {
+        for slotItem in self.node!.inputs {
+            let slot = slotItem.value
+            
+            let slotView = SoundNodeSlotView(slot: slot, frame: NSRect.zero)
+            inputSlotsView.addView(slotView, in: .bottom)
+        }
     }
     
     override func mouseDown(with event: NSEvent) {

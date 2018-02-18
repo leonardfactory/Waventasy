@@ -24,6 +24,9 @@
                 </imageView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xsb-bW-wQO">
                     <rect key="frame" x="10" y="8" width="243" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="1Zy-9g-TMu"/>
+                    </constraints>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Node" id="qQV-Jj-B2e">
                         <font key="font" metaFont="systemBold" size="12"/>
                         <color key="textColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
@@ -38,7 +41,6 @@
                 <constraint firstAttribute="trailing" secondItem="WgJ-sx-6iL" secondAttribute="trailing" id="R6p-qE-cW6"/>
                 <constraint firstAttribute="trailing" secondItem="xsb-bW-wQO" secondAttribute="trailing" constant="12" id="dga-uv-U8A"/>
                 <constraint firstItem="xsb-bW-wQO" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="8" id="jMo-ZB-0ln"/>
-                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="xsb-bW-wQO" secondAttribute="bottom" priority="750" constant="8" id="tUg-1o-hai"/>
                 <constraint firstItem="WgJ-sx-6iL" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="zJs-nk-jhP"/>
             </constraints>
             <point key="canvasLocation" x="172.5" y="23.5"/>
