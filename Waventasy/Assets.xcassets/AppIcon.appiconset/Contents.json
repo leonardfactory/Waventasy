@@ -15,49 +15,49 @@
     {
       "size" : "32x32",
       "idiom" : "mac",
-      "filename" : "YosemiteIconGrid-PSD32@1x.png",
+      "filename" : "WaventasyAppIcon32@1x.png",
       "scale" : "1x"
     },
     {
       "size" : "32x32",
       "idiom" : "mac",
-      "filename" : "YosemiteIconGrid-PSD32@2x.png",
+      "filename" : "WaventasyAppIcon32@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "128x128",
       "idiom" : "mac",
-      "filename" : "YosemiteIconGrid-PSD128@1x.png",
+      "filename" : "WaventasyAppIcon128@1x.png",
       "scale" : "1x"
     },
     {
       "size" : "128x128",
       "idiom" : "mac",
-      "filename" : "YosemiteIconGrid-PSD128@2x.png",
+      "filename" : "WaventasyAppIcon128@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "256x256",
       "idiom" : "mac",
-      "filename" : "YosemiteIconGrid-PSD256@1x.png",
+      "filename" : "WaventasyAppIcon256@1x.png",
       "scale" : "1x"
     },
     {
       "size" : "256x256",
       "idiom" : "mac",
-      "filename" : "YosemiteIconGrid-PSD256@2x.png",
+      "filename" : "WaventasyAppIcon256@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "512x512",
       "idiom" : "mac",
-      "filename" : "YosemiteIconGrid-PSD512@1x.png",
+      "filename" : "WaventasyAppIcon512@1x.png",
       "scale" : "1x"
     },
     {
       "size" : "512x512",
       "idiom" : "mac",
-      "filename" : "YosemiteIconGrid-PSD512@2x.png",
+      "filename" : "WaventasyAppIcon512@2x.png",
       "scale" : "2x"
     }
   ],

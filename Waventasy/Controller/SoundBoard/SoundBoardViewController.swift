@@ -13,6 +13,7 @@ class SoundBoardViewController: NSViewController {
     @IBOutlet weak var scrollView:SoundBoardScrollView?
     @IBOutlet weak var rightSideBarView:NSView?
     @IBOutlet weak var rightSideBarXConstraint: NSLayoutConstraint!
+    @IBOutlet weak var rightSideBarVibrantView:NSView?
     
     var isRightSidebarShown: Bool = false
     
@@ -26,6 +27,9 @@ class SoundBoardViewController: NSViewController {
         // Nascondo la rightSidebar
         self.rightSideBarXConstraint.constant = -self.rightSideBarView!.frame.size.width
         self.isRightSidebarShown = false
+        
+        // Vibrant
+        self.setupVibrantViews()
         
         // Ottimizzazioni per la CollectionView
         self.view.wantsLayer = true
@@ -65,6 +69,15 @@ class SoundBoardViewController: NSViewController {
     
     public func toggleLeftSidebar() {
         print("Toggle left..")
+    }
+    
+    // Translucent
+    private func setupVibrantViews() {
+        // Sidebar
+        let sidebarVibrant = NSVisualEffectView(frame: self.rightSideBarView!.bounds)
+        sidebarVibrant.autoresizingMask = [.height, .width]
+        sidebarVibrant.blendingMode = NSVisualEffectView.BlendingMode.behindWindow
+        self.rightSideBarView?.addSubview(sidebarVibrant, positioned:NSWindow.OrderingMode.below, relativeTo: nil)
     }
     
     // Visualizzazione dei nodi
