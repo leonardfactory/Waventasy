@@ -43,13 +43,6 @@ class SoundBoardViewController: NSViewController {
         self.nodes.append(SoundNode(name: "880Hz", position: NSPoint(x:1000.0, y:600.0)))
         
         self.boardView.reloadData()
-        
-        // Test
-//        let demoNode = SoundNodeView(frame: NSRect(x: 100.0, y: 100.0, width: 120.0, height: 80.0))
-//        demoNode.nameLabel?.stringValue = "Nodo 1"
-//        self.scrollView?.documentView?.addSubview(
-//            demoNode
-//        )
     }
     
     
@@ -90,7 +83,6 @@ class SoundBoardViewController: NSViewController {
 
         self.nodes.append(node)
         self.boardView.reloadData()
-//        self.scrollView!.documentView!.addSubview(SoundNodeView(node: node))
     }
 }
 
@@ -98,10 +90,7 @@ extension SoundBoardViewController: BoardDelegate, BoardDataSource {
     // Display e/o Update di un nodo
     func boardView(_ boardView: BoardView, item: BoardRenderable, fromExistingView existingView: BoardItemView?) -> BoardItemView? {
         guard let soundNode = item as? SoundNode else { return nil }
-        guard let soundNodeView = existingView as? SoundNodeView? else {
-            print("View non attesa", existingView)
-            return nil
-        }
+        guard let soundNodeView = existingView as? SoundNodeView? else { fatalError("Non implementato") }
         let itemView = soundNodeView ?? SoundNodeView(node: soundNode)
         
         // Impostazioni

@@ -17,7 +17,7 @@ class SoundNode : BoardRenderable {
     }
     
     var boardIdentifier: BoardItemIdentifier {
-        return self.name
+        return id.uuidString
     }
     
     public enum NodeType {
@@ -25,10 +25,12 @@ class SoundNode : BoardRenderable {
         case harmonic
     }
     
+    var id: NSUUID
     var name:String
     var position:NSPoint
     
     init(name:String, position:NSPoint) {
+        self.id = NSUUID()
         self.name = name
         self.position = position
     }
