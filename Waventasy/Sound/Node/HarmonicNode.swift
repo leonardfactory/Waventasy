@@ -12,7 +12,11 @@ class HarmonicNode : SoundNode {
     convenience init(name: String, position: NSPoint) {
         self.init(.harmonic, name: name, position: position)
         
-        inputs["octave"]    = SoundNodeSlotInput(.decimal, name: "Ottava")
-        inputs["wave"]      = SoundNodeSlotInput(.wave, name: "Onda")
+        inputs.append(SoundNodeSlotInput(.decimal, key:"octave", name: "Ottava"))
+        inputs.append(SoundNodeSlotInput(.wave, key:"wave", name: "Onda"))
+        inputs.append(SoundNodeSlotInput(.decimal, key:"attack", name: "Attack"))
+        inputs.append(SoundNodeSlotInput(.decimal, key:"decay", name: "Decay"))
+        inputs.append(SoundNodeSlotInput(.decimal, key:"sustain", name: "Sustain"))
+        inputs.append(SoundNodeSlotInput(.decimal, key:"release", name: "Release"))
     }
 }

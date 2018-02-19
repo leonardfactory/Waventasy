@@ -11,7 +11,13 @@ import Foundation
 /**
  Uno slot rappresenta un ingresso o un'uscita da un nodo
  */
-class SoundNodeSlot {
+class SoundNodeSlot : Hashable {
+    var hashValue: Int { return self.key.hashValue }
+    
+    static func ==(lhs: SoundNodeSlot, rhs: SoundNodeSlot) -> Bool {
+        return lhs.key == rhs.key
+    }
+    
     enum SlotType {
         case int
         case decimal
@@ -25,10 +31,12 @@ class SoundNodeSlot {
     
     var type:SlotType
     var direction:SlotDirection
+    var key:String
     var name:String
     
-    init(_ type:SlotType, direction:SlotDirection, name:String) {
+    init(_ type:SlotType, key:String, direction:SlotDirection, name:String) {
         self.type = type
+        self.key = key
         self.direction = direction
         self.name = name
     }

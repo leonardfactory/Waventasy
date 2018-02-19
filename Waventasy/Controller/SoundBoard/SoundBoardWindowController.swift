@@ -18,6 +18,7 @@ private enum SoundNodeMenuItem: String {
     case none = ""
     case frequency = "FrequencyItem"
     case harmonic = "HarmonicItem"
+    case constant = "ConstantItem"
 }
 
 class SoundBoardWindowController: NSWindowController {
@@ -52,6 +53,11 @@ class SoundBoardWindowController: NSWindowController {
         harmonicItem.identifier = NSUserInterfaceItemIdentifier(rawValue: SoundNodeMenuItem.harmonic.rawValue)
         menu.addItem(harmonicItem)
         
+        let constantItem = NSMenuItem(title: "Costante", action: nil, keyEquivalent: "c")
+        constantItem.image = soundNodeSwatchImage(fromType: SoundNode.NodeType.constant)
+        constantItem.identifier = NSUserInterfaceItemIdentifier(rawValue: SoundNodeMenuItem.constant.rawValue)
+        menu.addItem(constantItem)
+        
         self.popUpAddButton.imagePosition = .imageOnly
         self.popUpAddButton.menu = menu
     }
@@ -61,8 +67,9 @@ class SoundBoardWindowController: NSWindowController {
         let selectedItem = SoundNodeMenuItem(rawValue: (sender.selectedItem?.identifier)!.rawValue) ?? SoundNodeMenuItem.none
         
         switch (selectedItem) {
-        case .frequency: viewController.addSoundNode(type: SoundNode.NodeType.frequency)
-        case .harmonic: viewController.addSoundNode(type: SoundNode.NodeType.harmonic)
+        case .frequency: viewController.addSoundNode(type: .frequency)
+        case .harmonic: viewController.addSoundNode(type: .harmonic)
+        case .constant: viewController.addSoundNode(type: .constant)
         default: return
         }
     }

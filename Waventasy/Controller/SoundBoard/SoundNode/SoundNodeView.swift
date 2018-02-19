@@ -8,7 +8,21 @@
 
 import Cocoa
 
-protocol SoundNodeViewDelegate : BoardItemViewDelegate {}
+/**
+ Protocollo per gestire le richieste del SoundNode
+ */
+protocol SoundNodeViewDelegate {
+    // Permesso di avviare un link
+    func canStartLink(fromNode node:SoundNode, atSlot slot:SoundNodeSlot) -> Bool
+    // Permesso di terminare un link
+    func canEndLink(toNode node:SoundNode, atSlot slot:SoundNodeSlot, link:SoundLink) -> Bool
+    // Controlla se un link è in corso
+    func findActiveLink() -> SoundLink?
+    // Avvio del linking
+    func startLink(fromNode node:SoundNode, atSlot slot:SoundNodeSlot) -> SoundLink
+    // Terminazione del linking
+    func endLink(toNode node:SoundNode, atSlot slot:SoundNodeSlot, link:SoundLink) -> Void
+}
 
 class SoundNodeView: BoardItemView {
     
@@ -26,9 +40,14 @@ class SoundNodeView: BoardItemView {
     var inputSlotsView:NSStackView!
     var outputSlotsView:NSStackView!
     
+    var inputSlotsViewItems:Dictionary<SoundNodeSlotInput, SoundNodeSlotInputView> = [:]
+    var outputsSlotsViewItems:Dictionary<SoundNodeSlotOutput, SoundNodeSlotOutputView> = [:]
+    
     var isDragging:Bool = false
     var draggingOrigin:CGPoint? = nil
     var draggingCurrent:CGPoint? = nil
+    
+    var nodeDelegate:SoundNodeViewDelegate? = nil
     
     var node:SoundNode? {
         didSet {
@@ -143,12 +162,16 @@ class SoundNodeView: BoardItemView {
     
     func setupSlotElements() {
         if self.node != nil {
-            for slotItem in self.node!.inputs {
-                let slotView = SoundNodeSlotInputView(slot: slotItem.value, frame: NSRect.zero)
+            for slot in self.node!.inputs {
+                let slotView = SoundNodeSlotInputView(slot: slot, frame: NSRect.zero)
+                slotView.delegate = self
+                inputSlotsViewItems[slot] = slotView
                 inputSlotsView.addView(slotView, in: .bottom)
             }
-            for slotItem in self.node!.outputs {
-                let slotView = SoundNodeSlotOutputView(slot: slotItem.value, frame: NSRect.zero)
+            for slot in self.node!.outputs {
+                let slotView = SoundNodeSlotOutputView(slot: slot, frame: NSRect.zero)
+                slotView.delegate = self
+                outputsSlotsViewItems[slot] = slotView
                 outputSlotsView.addView(slotView, in: .bottom)
             }
         }
@@ -158,30 +181,17 @@ class SoundNodeView: BoardItemView {
     // -
     
     override func cursorUpdate(with event: NSEvent) {
-        if (!self.isDragging) {
+        if (!self.isDragging && delegate!.canDragItem) {
             NSCursor.arrow.set()
         }
     }
-    
-//    override func updateTrackingAreas() {
-//        super.updateTrackingAreas()
-//        trackingArea.
-//    }
-//
-//    override func mouseEntered(with event: NSEvent) {
-//        NSCursor.arrow.push()
-//    }
-//
-//    override func mouseExited(with event: NSEvent) {
-//        NSCursor.pop()
-//    }
     
     // Dragging
     // -
     
     override func mouseDown(with event: NSEvent) {
         // Draggin support
-        if (event.type == NSEvent.EventType.leftMouseDown) {
+        if (event.type == NSEvent.EventType.leftMouseDown && delegate!.canDragItem) {
             self.isDragging = true
             self.draggingOrigin = self.frame.origin
             self.draggingCurrent = self.draggingOrigin
@@ -197,6 +207,7 @@ class SoundNodeView: BoardItemView {
             let desired:CGPoint = self.delegate?.toGridPoint(point: self.draggingCurrent!) ?? self.draggingCurrent!
             self.node?.position = desired
             self.frame = NSRect(origin: desired, size: self.frame.size)
+            self.delegate?.mouseDragged(forItem: self)
         }
     }
     
@@ -204,7 +215,31 @@ class SoundNodeView: BoardItemView {
         if (self.isDragging && event.type == NSEvent.EventType.leftMouseUp) {
             self.isDragging = false
             NSCursor.pop()
-            //            self.window?.enableCursorRects()
         }
+    }
+}
+
+/**
+ Gestione degli eventi di link, per girarli al parent
+ */
+extension SoundNodeView : SoundNodeSlotDelegate {
+    func canStartLink(fromSlot slot: SoundNodeSlot) -> Bool {
+        return nodeDelegate!.canStartLink(fromNode: node!, atSlot: slot)
+    }
+    
+    func canEndLink(toSlot slot: SoundNodeSlot, link: SoundLink) -> Bool {
+        return nodeDelegate!.canEndLink(toNode: node!, atSlot: slot, link: link)
+    }
+    
+    func findActiveLink() -> SoundLink? {
+        return nodeDelegate?.findActiveLink()
+    }
+    
+    func startLink(fromSlot slot: SoundNodeSlot) -> SoundLink {
+        return nodeDelegate!.startLink(fromNode: node!, atSlot: slot)
+    }
+    
+    func endLink(toSlot slot: SoundNodeSlot, link: SoundLink) {
+        return nodeDelegate!.endLink(toNode: node!, atSlot: slot, link: link)
     }
 }

@@ -11,4 +11,5 @@ import Cocoa
 extension NSImage.Name {
     static let blueNodeBg = NSImage.Name(rawValue: "BlueNode")
     static let greenNodeBg = NSImage.Name(rawValue: "GreenNode")
+    static let grayNodeBg = NSImage.Name(rawValue: "GrayNode")
 }

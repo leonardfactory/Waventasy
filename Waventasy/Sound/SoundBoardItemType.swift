@@ -10,4 +10,5 @@ import Foundation
 
 enum SoundBoardItemType: String {
     case node = "Node"
+    case link = "Link"
 }

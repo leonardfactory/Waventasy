@@ -9,7 +9,7 @@
 import Foundation
 
 class SoundNodeSlotOutput : SoundNodeSlot {
-    init(_ type: SlotType, name: String) {
-        super.init(type, direction: .output, name: name)
+    init(_ type: SlotType, key:String, name: String) {
+        super.init(type, key: key, direction: .output, name: name)
     }
 }

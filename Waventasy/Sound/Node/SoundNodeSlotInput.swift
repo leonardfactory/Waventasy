@@ -12,7 +12,7 @@ class SoundNodeSlotInput : SoundNodeSlot {
     public var floatValue: Float? = nil
     public var intValue: Int? = nil
     
-    init(_ type: SlotType, name: String) {
-        super.init(type, direction: .input, name: name)
+    init(_ type: SlotType, key:String, name: String) {
+        super.init(type, key: key, direction: .input, name: name)
     }
 }

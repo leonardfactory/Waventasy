@@ -12,6 +12,7 @@ import Cocoa
  Input
  */
 class SoundNodeSlotOutputView : NSView {
+    var delegate:SoundNodeSlotDelegate? = nil
     var slot:SoundNodeSlotOutput? {
         didSet {
             if let slot = slot {
@@ -72,8 +73,21 @@ class SoundNodeSlotOutputView : NSView {
         self.nameLabel.trailingAnchor.constraint(equalTo: self.linkButton.leadingAnchor, constant: -4.0).isActive = true
     }
     
+    // Un output link può attivare i link ma non riceverne
     @objc func linkPressed() {
+        guard let delegate = self.delegate else { return }
         
+        if (delegate.findActiveLink()) != nil {
+            print("Link già in corso")
+            return
+        }
+        
+        if delegate.canStartLink(fromSlot: slot!) {
+            _ = delegate.startLink(fromSlot: slot!)
+        }
+        else {
+            print("Impossibile partire da questo nodo")
+        }
     }
 }
 

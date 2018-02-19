@@ -12,6 +12,8 @@ import Cocoa
  Input
  */
 class SoundNodeSlotInputView : NSView {
+    var delegate:SoundNodeSlotDelegate? = nil
+    
     var slot:SoundNodeSlotInput? {
         didSet {
             if let slot = slot {
@@ -111,8 +113,18 @@ class SoundNodeSlotInputView : NSView {
         }
     }
     
+    // Un input link può ricevere i link solo in ingresso
     @objc func linkPressed() {
+        guard let delegate = self.delegate else { return }
         
+        if let activeLink = delegate.findActiveLink() {
+            if delegate.canEndLink(toSlot: slot!, link: activeLink) {
+                delegate.endLink(toSlot: slot!, link: activeLink)
+            }
+            else {
+                print("Impossibile collegare a questo nodo")
+            }
+        }
     }
 }
 

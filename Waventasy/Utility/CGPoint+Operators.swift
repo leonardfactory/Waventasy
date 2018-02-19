@@ -43,3 +43,9 @@ extension CGSize {
         return CGSize(width:left.width / right, height: left.height / right)
     }
 }
+
+extension NSRect {
+    func center() -> CGPoint {
+        return CGPoint(x: NSMidX(self), y: NSMidY(self))
+    }
+}

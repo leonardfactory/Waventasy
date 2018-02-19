@@ -23,6 +23,9 @@ public class BoardView: NSView {
     var delegate:BoardDelegate? = nil
     var dataSource:BoardDataSource? = nil
     
+    // Tracking
+    var trackingArea:NSTrackingArea? = nil
+    
     // Elementi
     var items:[BoardRenderable] = []
     var visibleItems:Set<BoardItemIdentifier> = []
@@ -48,7 +51,13 @@ public class BoardView: NSView {
     // -
     
     private func setup() {
-        printResponderChain(from: self)
+        trackingArea = NSTrackingArea(
+            rect: self.bounds,
+            options: [.activeInKeyWindow, .mouseMoved, .inVisibleRect],
+            owner: self,
+            userInfo: nil
+        )
+        self.addTrackingArea(trackingArea!)
     }
     
     // Eventi
@@ -119,6 +128,13 @@ public class BoardView: NSView {
         _ = self.dataSource?.boardView(self, item: item, fromExistingView: subviewItem.value)
     }
     
+    // Linking
+    // -
+    
+    public override func mouseMoved(with event: NSEvent) {
+        self.delegate?.boardView(self, mouseMoved: event)
+    }
+    
     // Display
     // -
     
@@ -127,13 +143,22 @@ public class BoardView: NSView {
     // Ridimensiona la content size
     private func resizeDocumentView() {
         if let dataSource = self.dataSource {
-            print("refreshed document size", dataSource.boardView(contentRectFor: self))
+//            print("refreshed document size", dataSource.boardView(contentRectFor: self))
 //            self.frame = dataSource.boardView(contentSizeFor: self)
             self.setFrameSize(dataSource.boardView(contentRectFor: self).size)
         }
     }
+    
+    // Query
+    // -
+    public func view(forItem item:BoardItemIdentifier) -> BoardItemView? {
+        return renderedSubviews[item]
+    }
 }
 
+/**
+ Gestione degli elementi
+ */
 extension BoardView : BoardItemViewDelegate {
     // Griglia
     public func toGridPoint(point:CGPoint) -> CGPoint {
@@ -141,5 +166,14 @@ extension BoardView : BoardItemViewDelegate {
             x: floor(point.x / GridSize) * GridSize,
             y: floor(point.y / GridSize) * GridSize
         )
+    }
+    
+    // Dragging
+    var canDragItem: Bool {
+        return !self.delegate!.isScrollViewDragging
+    }
+    
+    func mouseDragged(forItem itemView: BoardItemView) {
+        self.delegate?.boardView(self, mouseDraggedForItem: itemView)
     }
 }

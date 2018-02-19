@@ -15,6 +15,9 @@ struct SoundNodeLinkColors {
     static let bgColor = NSColor(hex: 0xffffff, alpha: 0.5)
     static let activeBgColor = NSColor(hex: 0xffffff, alpha: 0.75)
     static let bulletColor = NSColor(hex:0xfffff)
+    
+    static let activeLineColor = NSColor(hex: 0xfbc531, alpha: 0.7)
+    static let completeLineColor = NSColor(hex: 0xffffff, alpha: 0.7)
 }
 
 struct SoundNodeLinkImage {
