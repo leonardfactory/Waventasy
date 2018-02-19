@@ -22,7 +22,9 @@ class SoundBoardViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do view setup here.
+//        self.view.window?.makeFirstResponder(self.scrollView)
+        self.scrollView?.becomeFirstResponder()
+        printResponderChain(from: self.scrollView)
         
         // Nascondo la rightSidebar
         self.rightSideBarXConstraint.constant = -self.rightSideBarView!.frame.size.width
@@ -65,7 +67,11 @@ class SoundBoardViewController: NSViewController {
     public func toggleLeftSidebar() {
         print("Toggle left..")
     }
-    
+//
+//    override func keyDown(with event: NSEvent) {
+//        print("hello")
+//    }
+//
     // Translucent
     private func setupVibrantViews() {
         // Sidebar
@@ -79,15 +85,15 @@ class SoundBoardViewController: NSViewController {
     public func addSoundNode(type: SoundNode.NodeType) {
         print("addnode", type)
         let visibleRect = self.scrollView!.documentVisibleRect
+        let position = self.boardView.toGridPoint(point: CGPoint(x: visibleRect.midX, y: visibleRect.midY))
         var node:SoundNode
         if type == .frequency {
-            node = FrequencyNode(name: "Hello", position: CGPoint(x: visibleRect.midX, y: visibleRect.midY))
+            node = FrequencyNode(name: "Frequenza", position: position)
         }
         else {
-            node = SoundNode(type, name: "Hello", position:CGPoint(x: visibleRect.midX, y: visibleRect.midY))
+            node = HarmonicNode(name: "Armonica", position: position)
         }
         
-
         self.nodes.append(node)
         self.boardView.reloadData()
     }
@@ -114,7 +120,7 @@ extension SoundBoardViewController: BoardDelegate, BoardDataSource {
     }
     
     // Calcola le dimensioni
-    func boardView(contentSizeFor boardView: BoardView) -> NSSize {
+    func boardView(contentRectFor boardView: BoardView) -> NSRect {
         var minPoint = CGPoint.zero
         var maxPoint = CGPoint.zero
         
@@ -130,60 +136,6 @@ extension SoundBoardViewController: BoardDelegate, BoardDataSource {
             height: max(self.scrollView!.frame.height, maxPoint.y - minPoint.y)
         )
         
-        return size
+        return NSRect(origin:minPoint, size: size)
     }
-}
-
-/**
- Visualizzazione dei nodi.
- */
-extension SoundBoardViewController: NSCollectionViewDelegate, NSCollectionViewDataSource {
-    // Singola sezione
-    func numberOfSections(in collectionView: NSCollectionView) -> Int {
-        return 1
-    }
-    
-    // Numero di nodi
-    func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.nodes.count
-    }
-    
-    func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
-        let item = collectionView.makeItem(
-            withIdentifier: NSUserInterfaceItemIdentifier("SoundNodeCollectionViewItem"),
-            for: indexPath
-        )
-        guard let nodeItem = item as? SoundNodeCollectionViewItem else { return item }
-        nodeItem.node = self.nodes[indexPath.item]
-//        nodeItem.view.bounds = NSRect(
-//            x: 100.0,
-//            y: CGFloat(indexPath.item) * 140.0 + 100.0,
-//            width: nodeItem.view.bounds.width,
-//            height: nodeItem.view.bounds.height
-//        )
-        
-        return nodeItem
-    }
-    
-    // Dimensioni di Layout
-    // -
-    
-    
-    
-//    func collectionView(_ collectionView: NSCollectionView, canDragItemsAt indexPaths: Set<IndexPath>, with event: NSEvent) -> Bool {
-////        print("Yeah, drag many")
-//        return true
-//    }
-//
-//    func collectionView(_ collectionView: NSCollectionView, validateDrop draggingInfo: NSDraggingInfo, proposedIndexPath proposedDropIndexPath: AutoreleasingUnsafeMutablePointer<NSIndexPath>, dropOperation proposedDropOperation: UnsafeMutablePointer<NSCollectionView.DropOperation>) -> NSDragOperation {
-//        return NSDragOperation.move
-//    }
-//
-//    func collectionView(_ collectionView: NSCollectionView, acceptDrop draggingInfo: NSDraggingInfo, indexPath: IndexPath, dropOperation: NSCollectionView.DropOperation) -> Bool {
-//        return true
-//    }
-//
-//    func collectionView(_ collectionView: NSCollectionView, pasteboardWriterForItemAt indexPath: IndexPath) -> NSPasteboardWriting? {
-//        return NSPasteboardItem(pasteboardPropertyList: self.nodes[indexPath.item].name, ofType: NSPasteboard.PasteboardType.string)
-//    }
 }

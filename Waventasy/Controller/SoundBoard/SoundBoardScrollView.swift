@@ -8,29 +8,48 @@
 
 import Cocoa
 
+let SpaceBarKeyCode = 49
+
 class SoundBoardScrollView: NSScrollView {
+    var isDragMode: Bool = false // Spacebar
     var isDragging: Bool = false
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        self.documentCursor = NSCursor.openHand
+        setup()
     }
     
+    func setup() {}
+
+    public override var acceptsFirstResponder: Bool { return true }
     
-
-    override func draw(_ dirtyRect: NSRect) {
-        super.draw(dirtyRect)
-
-        // Drawing code here.
-//        self.contentView. = NSSize(width: self.frame.size.width * 2, height: self.frame.size.width * 2)
+    public override func keyDown(with event: NSEvent) {
+        print("scrollview")
+        if (event.keyCode == SpaceBarKeyCode && !self.isDragMode) {
+            print("dragmode!")
+            self.isDragMode = true
+            NSCursor.openHand.push()
+            self.window?.disableCursorRects()
+        }
+    }
+    
+    public override func keyUp(with event: NSEvent) {
+        print("scrollviewup")
+        if (event.keyCode == SpaceBarKeyCode) {
+            print("enddragmode!")
+            self.isDragMode = false
+            NSCursor.pop()
+            self.stopDragging()
+            self.window?.enableCursorRects()
+        }
     }
     
     override func mouseDown(with event: NSEvent) {
         // Draggin support
-        if (event.type == NSEvent.EventType.leftMouseDown) {
+        if (self.isDragMode && event.type == NSEvent.EventType.leftMouseDown) {
             self.isDragging = true
             NSCursor.closedHand.push()
-            self.window?.disableCursorRects()
+//            self.window?.disableCursorRects()
         }
     }
     
@@ -40,20 +59,24 @@ class SoundBoardScrollView: NSScrollView {
 //            print("Origin", NSStringFromRect(self.contentView.documentVisibleRect))
             self.contentView.scroll(NSPoint(
                 x: self.contentView.documentVisibleRect.origin.x - event.deltaX,
-                y: self.contentView.documentVisibleRect.origin.y + event.deltaY
+                y: self.contentView.documentVisibleRect.origin.y - event.deltaY
             ))
         }
     }
     
     override func mouseUp(with event: NSEvent) {
         if (self.isDragging && event.type == NSEvent.EventType.leftMouseUp) {
-            self.isDragging = false
-            NSCursor.pop()
-            self.window?.enableCursorRects()
+            self.stopDragging()
         }
     }
     
-    override func resetCursorRects() {
-        super.resetCursorRects()
+    func stopDragging() {
+        self.isDragging = false
+        NSCursor.pop()
+//
     }
+    
+//    override func resetCursorRects() {
+//        super.resetCursorRects()
+//    }
 }

@@ -34,3 +34,16 @@ func soundNodeColor(fromType type:SoundNode.NodeType) -> NSColor? {
     default: return NSColor(hex: 0xffffff)
     }
 }
+
+func soundNodeBgImage(fromType type:SoundNode.NodeType?) -> NSImage.Name {
+    guard let type = type else {
+        return NSImage.Name.blueNodeBg
+    }
+    
+    switch (type) {
+    case .frequency: return NSImage.Name.blueNodeBg
+    case .harmonic: return NSImage.Name.greenNodeBg
+    case .function, .constant:
+        return NSImage.Name.blueNodeBg
+    }
+}

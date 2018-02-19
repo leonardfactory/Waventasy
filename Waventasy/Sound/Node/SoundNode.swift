@@ -41,8 +41,8 @@ class SoundNode : BoardRenderable {
     var position:NSPoint
     
     // Link
-    var inputs:Dictionary<String, SoundNodeSlot> = [:]
-    var outputs:Dictionary<String, SoundNodeSlot> = [:]
+    var inputs:Dictionary<String, SoundNodeSlotInput> = [:]
+    var outputs:Dictionary<String, SoundNodeSlotOutput> = [:]
     
     init(_ type:NodeType, name:String, position:NSPoint) {
         self.type = type

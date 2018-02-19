@@ -8,8 +8,8 @@
 
 import Cocoa
 
-let SoundNodeLinkImageSize = NSSize(width: 10.0, height: 10.0)
-let SoundNodeLinkImageBulletSize = NSSize(width: 6.0, height: 6.0)
+let SoundNodeLinkImageSize = NSSize(width: 8.0, height: 8.0)
+let SoundNodeLinkImageBulletSize = NSSize(width: 4.0, height: 4.0)
 
 struct SoundNodeLinkColors {
     static let bgColor = NSColor(hex: 0xffffff, alpha: 0.5)

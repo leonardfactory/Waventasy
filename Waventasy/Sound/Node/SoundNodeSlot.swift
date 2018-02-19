@@ -13,15 +13,23 @@ import Foundation
  */
 class SoundNodeSlot {
     enum SlotType {
-        case constant
+        case int
+        case decimal
         case wave
     }
     
+    enum SlotDirection {
+        case input
+        case output
+    }
+    
     var type:SlotType
+    var direction:SlotDirection
     var name:String
     
-    init(_ type:SlotType, name:String) {
+    init(_ type:SlotType, direction:SlotDirection, name:String) {
         self.type = type
+        self.direction = direction
         self.name = name
     }
 }

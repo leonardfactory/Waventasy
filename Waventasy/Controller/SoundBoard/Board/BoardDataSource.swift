@@ -15,7 +15,7 @@ public protocol BoardDataSource {
     // Rendering degli elementi
     func boardView(_ boardView: BoardView, item:BoardRenderable, fromExistingView existingView:BoardItemView?) -> BoardItemView?
     // Dimensioni del Contenuto
-    func boardView(contentSizeFor boardView: BoardView) -> NSSize
+    func boardView(contentRectFor boardView: BoardView) -> NSRect
 }
 
 // Default

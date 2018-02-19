@@ -29,6 +29,8 @@ class SoundBoardWindowController: NSWindowController {
         super.windowDidLoad()
     
         self.setupAddButtonMenu()
+        
+        self.window?.makeFirstResponder(self.window!.contentViewController)
     }
     
     // Prepariamo la view per il menu di aggiunta

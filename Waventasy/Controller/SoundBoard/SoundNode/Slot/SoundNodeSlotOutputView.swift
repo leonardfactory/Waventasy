@@ -1,5 +1,5 @@
 //
-//  SoundNodeSlotView.swift
+//  SoundNodeSlotOutputView.swift
 //  Waventasy
 //
 //  Created by Leonardo Ascione on 18/02/18.
@@ -8,23 +8,25 @@
 
 import Cocoa
 
-class SoundNodeSlotView: NSView {
-    var slot:SoundNodeSlot? {
+/**
+ Input
+ */
+class SoundNodeSlotOutputView : NSView {
+    var slot:SoundNodeSlotOutput? {
         didSet {
             if let slot = slot {
                 self.nameLabel.stringValue = slot.name
-                self.setFrameSize(self.fittingSize)
             }
         }
     }
     
     var nameLabel:NSTextField!
     var linkButton:NSButton!
-
-    init(slot:SoundNodeSlot, frame frameRect:NSRect) {
+    
+    init(slot:SoundNodeSlotOutput, frame frameRect:NSRect) {
         super.init(frame: frameRect)
         setup()
-    
+        
         defer {
             self.slot = slot
         }
@@ -56,9 +58,22 @@ class SoundNodeSlotView: NSView {
         self.linkButton.isBordered = false
         self.linkButton.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(linkButton)
+        
+        // Constraints
+        self.nameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 2).isActive = true
+        self.nameLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -2).isActive = true
+        self.nameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        
+        self.linkButton.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        self.linkButton.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        self.linkButton.widthAnchor.constraint(equalToConstant: SoundNodeLinkImageSize.width).isActive = true
+        self.linkButton.heightAnchor.constraint(equalToConstant: SoundNodeLinkImageSize.height).isActive = true
+        
+        self.nameLabel.trailingAnchor.constraint(equalTo: self.linkButton.leadingAnchor, constant: -4.0).isActive = true
     }
-
+    
     @objc func linkPressed() {
         
     }
 }
+

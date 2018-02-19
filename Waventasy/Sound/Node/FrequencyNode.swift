@@ -12,7 +12,7 @@ class FrequencyNode : SoundNode {
     convenience init(name: String, position: NSPoint) {
         self.init(.frequency, name: name, position: position)
         
-        inputs["frequency"] = SoundNodeSlot(.constant, name: "Frequenza")
-        outputs["oscillator"] = SoundNodeSlot(.wave, name: "Oscillatore")
+        inputs["frequency"] = SoundNodeSlotInput(.decimal, name: "Frequenza")
+        outputs["wave"]     = SoundNodeSlotOutput(.wave, name: "Onda")
     }
 }

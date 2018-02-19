@@ -8,6 +8,16 @@
 
 import Cocoa
 
+func printResponderChain(from responder: NSResponder?) {
+    print("-- Debugging responder chain")
+    var responder = responder
+    while let r = responder {
+        print(r)
+        responder = r.nextResponder
+    }
+}
+
+
 public class BoardView: NSView {
     // Delegati
     var delegate:BoardDelegate? = nil
@@ -18,6 +28,8 @@ public class BoardView: NSView {
     var visibleItems:Set<BoardItemIdentifier> = []
     var renderedItems:Set<BoardItemIdentifier> = []
     var renderedSubviews:Dictionary<BoardItemIdentifier, BoardItemView> = [:]
+    
+    var gridSize:CGFloat { return 10.0 }
     
     // Inizializzazione
     // -
@@ -36,8 +48,18 @@ public class BoardView: NSView {
     // -
     
     private func setup() {
-        
+        printResponderChain(from: self)
     }
+    
+    // Eventi
+    // -
+    
+    // E' importante qui impostare l'acceptsFirstResponder, altrimenti
+    // la NSScrollView superiore **non** riceverà il keyDown.
+    public override var acceptsFirstResponder: Bool { return true }
+    
+    // Caricamento dei dati
+    // -
     
     public func reloadData() {
         if let dataSource = self.dataSource {
@@ -70,6 +92,7 @@ public class BoardView: NSView {
         
         guard let item = foundItem else { fatalError("BoardView.addItem: not found") }
         guard let itemView = self.dataSource?.boardView(self, item: item, fromExistingView: nil) else { return }
+        itemView.delegate = self
         
         self.addSubview(itemView)
         self.renderedItems.insert(identifier)
@@ -99,13 +122,24 @@ public class BoardView: NSView {
     // Display
     // -
     
+    public override var isFlipped: Bool { return true }
+    
     // Ridimensiona la content size
     private func resizeDocumentView() {
         if let dataSource = self.dataSource {
-            self.frame = NSRect(
-                origin:self.frame.origin,
-                size: dataSource.boardView(contentSizeFor: self)
-            )
+            print("refreshed document size", dataSource.boardView(contentRectFor: self))
+//            self.frame = dataSource.boardView(contentSizeFor: self)
+            self.setFrameSize(dataSource.boardView(contentRectFor: self).size)
         }
+    }
+}
+
+extension BoardView : BoardItemViewDelegate {
+    // Griglia
+    public func toGridPoint(point:CGPoint) -> CGPoint {
+        return CGPoint(
+            x: floor(point.x / GridSize) * GridSize,
+            y: floor(point.y / GridSize) * GridSize
+        )
     }
 }

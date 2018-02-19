@@ -8,5 +8,14 @@
 
 import Cocoa
 
+protocol BoardItemViewDelegate {
+    func toGridPoint(point:CGPoint) -> CGPoint
+}
+
+extension BoardItemViewDelegate {
+    func toGridPoint(point:CGPoint) -> CGPoint { return point }
+}
+
 public class BoardItemView: NSView {
+    var delegate:BoardItemViewDelegate? = nil
 }
