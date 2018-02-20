@@ -10,6 +10,8 @@ import Foundation
 import AudioKit
 import SwiftGraph
 
+private let logger = Logger(level: .warn)
+
 /**
  Risolve i link e i nodi presenti nel Board e li converte in un insieme di
  armoniche da riprodurre.
@@ -57,11 +59,10 @@ class SoundBuilder {
             }
         }
         catch {
-            print("Impossibile completare per via di un errore di Build. \(error)")
+            logger.err("Impossibile completare per via di un errore di Build. \(error)")
             return []
         }
         
-        print("soundAudioNodes", soundAudioNodes)
         return self.soundAudioNodes
     }
     
@@ -119,14 +120,14 @@ class SoundBuilder {
     /// valore inserito nell'UI dall'utente.
     /// In caso nessuno dei due sia impostato, lanciamento un errore.
     func resolveNodeInputs(node: SoundNode) throws {
-        print("• Resolving Inputs..", node.name)
+        logger.debug("• Resolving Inputs..", node.name)
         for slot in node.inputs {
-            print("  • Input: ", slot.name)
+            logger.debug("  • Input: ", slot.name)
             // 1. Controllo i link
             if results[slot] != nil { continue }
             
             // 2. Prendo il valore dall'input
-            print("    • From value", slot.value)
+            logger.debug("    • From value", slot.value)
             switch slot.value {
                 case .decimal, .int:
                     results[slot] = slot.value

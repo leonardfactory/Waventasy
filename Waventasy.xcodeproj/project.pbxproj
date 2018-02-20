@@ -42,6 +42,8 @@
 		A73045622033868D00DB15DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A73045602033868D00DB15DE /* Main.storyboard */; };
 		A730456F2033A5DE00DB15DE /* Harmonic.swift in Sources */ = {isa = PBXBuildFile; fileRef = A730456E2033A5DE00DB15DE /* Harmonic.swift */; };
 		A751C457203B43B800AF8F50 /* ConstantNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A751C456203B43B800AF8F50 /* ConstantNode.swift */; };
+		A758CB74203C75AF00DC69AA /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A758CB73203C75AF00DC69AA /* Logger.swift */; };
+		A758CB76203C786C00DC69AA /* Enum+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A758CB75203C786C00DC69AA /* Enum+Utility.swift */; };
 		A75C9DD820362982001B34F6 /* SoundBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75C9DD720362982001B34F6 /* SoundBoardViewController.swift */; };
 		A77063B9203B51A8009B146C /* SoundBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77063B8203B51A8009B146C /* SoundBuilder.swift */; };
 		A7B27C5E2034D0000053780B /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B27C5D2034D0000053780B /* SoundPlayer.swift */; };
@@ -93,6 +95,8 @@
 		A73045642033868D00DB15DE /* Waventasy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Waventasy.entitlements; sourceTree = "<group>"; };
 		A730456E2033A5DE00DB15DE /* Harmonic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Harmonic.swift; sourceTree = "<group>"; };
 		A751C456203B43B800AF8F50 /* ConstantNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantNode.swift; sourceTree = "<group>"; };
+		A758CB73203C75AF00DC69AA /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		A758CB75203C786C00DC69AA /* Enum+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum+Utility.swift"; sourceTree = "<group>"; };
 		A75C9DD720362982001B34F6 /* SoundBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundBoardViewController.swift; sourceTree = "<group>"; };
 		A77063B8203B51A8009B146C /* SoundBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundBuilder.swift; sourceTree = "<group>"; };
 		A7B27C5D2034D0000053780B /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
@@ -158,10 +162,12 @@
 		A726C81E2038909400DECE67 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				A758CB72203C757B00DC69AA /* Logger */,
 				A726C81F203890AA00DECE67 /* CGPoint+Operators.swift */,
 				A72D752D2038A76000D60CB0 /* FlippedClipView.swift */,
 				A72D753320392A1100D60CB0 /* NSColor+Hex.swift */,
 				A72D754D2039C23800D60CB0 /* NSView+NibLoading.swift */,
+				A758CB75203C786C00DC69AA /* Enum+Utility.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -250,6 +256,14 @@
 				A730456E2033A5DE00DB15DE /* Harmonic.swift */,
 			);
 			path = Wave;
+			sourceTree = "<group>";
+		};
+		A758CB72203C757B00DC69AA /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				A758CB73203C75AF00DC69AA /* Logger.swift */,
+			);
+			path = Logger;
 			sourceTree = "<group>";
 		};
 		A75C9DD520362931001B34F6 /* Controller */ = {
@@ -461,11 +475,13 @@
 				A72D7557203A198F00D60CB0 /* SoundNodeSlotOutputView.swift in Sources */,
 				A726C820203890AA00DECE67 /* CGPoint+Operators.swift in Sources */,
 				A7B27C5E2034D0000053780B /* SoundPlayer.swift in Sources */,
+				A758CB76203C786C00DC69AA /* Enum+Utility.swift in Sources */,
 				A72D75472039C04100D60CB0 /* SoundLink.swift in Sources */,
 				A726C816203863F500DECE67 /* SoundBoardCollectionLayout.swift in Sources */,
 				A72D7563203B13FA00D60CB0 /* SoundNodeSlotDelegate.swift in Sources */,
 				A72D753920399BE000D60CB0 /* BoardDataSource.swift in Sources */,
 				A726C81D20387A3000DECE67 /* SoundNode.swift in Sources */,
+				A758CB74203C75AF00DC69AA /* Logger.swift in Sources */,
 				A7D7F5ED203B5ACF006CAFF5 /* SoundGraph.swift in Sources */,
 				A72D7559203A1A5F00D60CB0 /* SoundNodeSlotInput.swift in Sources */,
 				A72D755D203A5BF000D60CB0 /* HarmonicNode.swift in Sources */,
