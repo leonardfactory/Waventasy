@@ -41,9 +41,29 @@
 		A730455F2033868D00DB15DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A730455E2033868D00DB15DE /* Assets.xcassets */; };
 		A73045622033868D00DB15DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A73045602033868D00DB15DE /* Main.storyboard */; };
 		A730456F2033A5DE00DB15DE /* Harmonic.swift in Sources */ = {isa = PBXBuildFile; fileRef = A730456E2033A5DE00DB15DE /* Harmonic.swift */; };
+		A74708C3203C9A4B0013FF02 /* FrequencyNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74708C2203C9A4B0013FF02 /* FrequencyNode.swift */; };
+		A74708C6203CDC750013FF02 /* HarmonicNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74708C5203CDC750013FF02 /* HarmonicNode.swift */; };
+		A74708C9203CDD6E0013FF02 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74708C8203CDD6E0013FF02 /* Link.swift */; };
+		A74708CB203CDE780013FF02 /* ConstantNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74708CA203CDE780013FF02 /* ConstantNode.swift */; };
+		A74708D0203CDF6A0013FF02 /* BoardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74708CF203CDF6A0013FF02 /* BoardItem.swift */; };
+		A74708D2203CDF8C0013FF02 /* BoardItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74708D1203CDF8C0013FF02 /* BoardItemType.swift */; };
+		A74708D6203CE1A20013FF02 /* NodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74708D5203CE1A20013FF02 /* NodeView.swift */; };
+		A74708D8203CE2350013FF02 /* BoardItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74708D7203CE2350013FF02 /* BoardItemView.swift */; };
+		A74708DA203CE29E0013FF02 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74708D9203CE29E0013FF02 /* InputView.swift */; };
+		A74708DC203CE2A80013FF02 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74708DB203CE2A80013FF02 /* OutputView.swift */; };
+		A74708DE203CE2E10013FF02 /* PropertyViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74708DD203CE2E10013FF02 /* PropertyViewDelegate.swift */; };
+		A74708E2203CE3DA0013FF02 /* NSColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74708E1203CE3DA0013FF02 /* NSColor+Hex.swift */; };
 		A751C457203B43B800AF8F50 /* ConstantNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A751C456203B43B800AF8F50 /* ConstantNode.swift */; };
 		A758CB74203C75AF00DC69AA /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A758CB73203C75AF00DC69AA /* Logger.swift */; };
 		A758CB76203C786C00DC69AA /* Enum+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A758CB75203C786C00DC69AA /* Enum+Utility.swift */; };
+		A758CB80203C8CD500DC69AA /* WaveKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A758CB7E203C8CD500DC69AA /* WaveKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A758CB83203C8CD500DC69AA /* WaveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A758CB7C203C8CD500DC69AA /* WaveKit.framework */; };
+		A758CB84203C8CD500DC69AA /* WaveKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A758CB7C203C8CD500DC69AA /* WaveKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A758CB8B203C8D0200DC69AA /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = A758CB8A203C8D0200DC69AA /* Node.swift */; };
+		A758CB8F203C8FA600DC69AA /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = A758CB8E203C8FA600DC69AA /* Property.swift */; };
+		A758CB91203C916700DC69AA /* Input.swift in Sources */ = {isa = PBXBuildFile; fileRef = A758CB90203C916700DC69AA /* Input.swift */; };
+		A758CB95203C93B700DC69AA /* Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = A758CB94203C93B700DC69AA /* Value.swift */; };
+		A758CB97203C985100DC69AA /* Output.swift in Sources */ = {isa = PBXBuildFile; fileRef = A758CB96203C985100DC69AA /* Output.swift */; };
 		A75C9DD820362982001B34F6 /* SoundBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75C9DD720362982001B34F6 /* SoundBoardViewController.swift */; };
 		A77063B9203B51A8009B146C /* SoundBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77063B8203B51A8009B146C /* SoundBuilder.swift */; };
 		A7B27C5E2034D0000053780B /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B27C5D2034D0000053780B /* SoundPlayer.swift */; };
@@ -52,12 +72,40 @@
 		A7C4FF0A20377E100011816A /* SoundNodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C4FF0920377E100011816A /* SoundNodeView.swift */; };
 		A7D7F5EB203B5A3E006CAFF5 /* SoundGraphEdge.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D7F5EA203B5A3E006CAFF5 /* SoundGraphEdge.swift */; };
 		A7D7F5ED203B5ACF006CAFF5 /* SoundGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D7F5EC203B5ACF006CAFF5 /* SoundGraph.swift */; };
+		E4115E2C3ED38235AB4FF77C /* Pods_WaveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9770747EE1088A6BBE79A9 /* Pods_WaveKit.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A758CB81203C8CD500DC69AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A730454F2033868D00DB15DE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A758CB7B203C8CD500DC69AA;
+			remoteInfo = WaveKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A758CB88203C8CD500DC69AA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A758CB84203C8CD500DC69AA /* WaveKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1D830755041ACFA6FE38E718 /* Pods-Waventasy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Waventasy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Waventasy/Pods-Waventasy.debug.xcconfig"; sourceTree = "<group>"; };
+		64535B28B9D057D9DBCC3CF1 /* Pods-WaveKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaveKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-WaveKit/Pods-WaveKit.release.xcconfig"; sourceTree = "<group>"; };
 		6D8ABFD73382CE2CA8034B49 /* Pods-Waventasy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Waventasy.release.xcconfig"; path = "Pods/Target Support Files/Pods-Waventasy/Pods-Waventasy.release.xcconfig"; sourceTree = "<group>"; };
+		6E9770747EE1088A6BBE79A9 /* Pods_WaveKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WaveKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		87C21329FD51F9AA38A8FDE2 /* Pods_Waventasy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Waventasy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E956F445A9C4B1975A75743 /* Pods-WaveKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaveKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WaveKit/Pods-WaveKit.debug.xcconfig"; sourceTree = "<group>"; };
 		A7155BDB203645BA00E9B4A7 /* SoundBoardScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundBoardScrollView.swift; sourceTree = "<group>"; };
 		A726C815203863F500DECE67 /* SoundBoardCollectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundBoardCollectionLayout.swift; sourceTree = "<group>"; };
 		A726C817203865B000DECE67 /* SoundNodeCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundNodeCollectionViewItem.swift; sourceTree = "<group>"; };
@@ -94,9 +142,29 @@
 		A73045632033868D00DB15DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A73045642033868D00DB15DE /* Waventasy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Waventasy.entitlements; sourceTree = "<group>"; };
 		A730456E2033A5DE00DB15DE /* Harmonic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Harmonic.swift; sourceTree = "<group>"; };
+		A74708C2203C9A4B0013FF02 /* FrequencyNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequencyNode.swift; sourceTree = "<group>"; };
+		A74708C5203CDC750013FF02 /* HarmonicNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HarmonicNode.swift; sourceTree = "<group>"; };
+		A74708C8203CDD6E0013FF02 /* Link.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Link.swift; sourceTree = "<group>"; };
+		A74708CA203CDE780013FF02 /* ConstantNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantNode.swift; sourceTree = "<group>"; };
+		A74708CF203CDF6A0013FF02 /* BoardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardItem.swift; sourceTree = "<group>"; };
+		A74708D1203CDF8C0013FF02 /* BoardItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardItemType.swift; sourceTree = "<group>"; };
+		A74708D5203CE1A20013FF02 /* NodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeView.swift; sourceTree = "<group>"; };
+		A74708D7203CE2350013FF02 /* BoardItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardItemView.swift; sourceTree = "<group>"; };
+		A74708D9203CE29E0013FF02 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		A74708DB203CE2A80013FF02 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
+		A74708DD203CE2E10013FF02 /* PropertyViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyViewDelegate.swift; sourceTree = "<group>"; };
+		A74708E1203CE3DA0013FF02 /* NSColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSColor+Hex.swift"; sourceTree = "<group>"; };
 		A751C456203B43B800AF8F50 /* ConstantNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantNode.swift; sourceTree = "<group>"; };
 		A758CB73203C75AF00DC69AA /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		A758CB75203C786C00DC69AA /* Enum+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum+Utility.swift"; sourceTree = "<group>"; };
+		A758CB7C203C8CD500DC69AA /* WaveKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WaveKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A758CB7E203C8CD500DC69AA /* WaveKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WaveKit.h; sourceTree = "<group>"; };
+		A758CB7F203C8CD500DC69AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A758CB8A203C8D0200DC69AA /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
+		A758CB8E203C8FA600DC69AA /* Property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
+		A758CB90203C916700DC69AA /* Input.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Input.swift; sourceTree = "<group>"; };
+		A758CB94203C93B700DC69AA /* Value.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Value.swift; sourceTree = "<group>"; };
+		A758CB96203C985100DC69AA /* Output.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Output.swift; sourceTree = "<group>"; };
 		A75C9DD720362982001B34F6 /* SoundBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundBoardViewController.swift; sourceTree = "<group>"; };
 		A77063B8203B51A8009B146C /* SoundBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundBuilder.swift; sourceTree = "<group>"; };
 		A7B27C5D2034D0000053780B /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
@@ -112,7 +180,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A758CB83203C8CD500DC69AA /* WaveKit.framework in Frameworks */,
 				A11A6ADF5754E8360AF617CF /* Pods_Waventasy.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A758CB78203C8CD500DC69AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4115E2C3ED38235AB4FF77C /* Pods_WaveKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,6 +201,8 @@
 			children = (
 				1D830755041ACFA6FE38E718 /* Pods-Waventasy.debug.xcconfig */,
 				6D8ABFD73382CE2CA8034B49 /* Pods-Waventasy.release.xcconfig */,
+				9E956F445A9C4B1975A75743 /* Pods-WaveKit.debug.xcconfig */,
+				64535B28B9D057D9DBCC3CF1 /* Pods-WaveKit.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -132,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				87C21329FD51F9AA38A8FDE2 /* Pods_Waventasy.framework */,
+				6E9770747EE1088A6BBE79A9 /* Pods_WaveKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -208,6 +288,7 @@
 			isa = PBXGroup;
 			children = (
 				A73045592033868D00DB15DE /* Waventasy */,
+				A758CB7D203C8CD500DC69AA /* WaveKit */,
 				A73045582033868D00DB15DE /* Products */,
 				57F2EC9C46AEBC942FAF6587 /* Pods */,
 				9BC295278DE0711117B1D309 /* Frameworks */,
@@ -218,6 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				A73045572033868D00DB15DE /* Waventasy.app */,
+				A758CB7C203C8CD500DC69AA /* WaveKit.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -258,12 +340,126 @@
 			path = Wave;
 			sourceTree = "<group>";
 		};
+		A74708C4203CCBF40013FF02 /* Value */ = {
+			isa = PBXGroup;
+			children = (
+				A758CB94203C93B700DC69AA /* Value.swift */,
+			);
+			path = Value;
+			sourceTree = "<group>";
+		};
+		A74708C7203CDD610013FF02 /* Link */ = {
+			isa = PBXGroup;
+			children = (
+				A74708C8203CDD6E0013FF02 /* Link.swift */,
+			);
+			path = Link;
+			sourceTree = "<group>";
+		};
+		A74708CC203CDF2B0013FF02 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A74708D3203CE1540013FF02 /* Node */,
+				A74708CD203CDF3D0013FF02 /* Board */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A74708CD203CDF3D0013FF02 /* Board */ = {
+			isa = PBXGroup;
+			children = (
+				A74708CE203CDF560013FF02 /* Item */,
+			);
+			path = Board;
+			sourceTree = "<group>";
+		};
+		A74708CE203CDF560013FF02 /* Item */ = {
+			isa = PBXGroup;
+			children = (
+				A74708CF203CDF6A0013FF02 /* BoardItem.swift */,
+				A74708D1203CDF8C0013FF02 /* BoardItemType.swift */,
+				A74708D7203CE2350013FF02 /* BoardItemView.swift */,
+			);
+			path = Item;
+			sourceTree = "<group>";
+		};
+		A74708D3203CE1540013FF02 /* Node */ = {
+			isa = PBXGroup;
+			children = (
+				A74708D4203CE1710013FF02 /* PropertyView */,
+				A74708D5203CE1A20013FF02 /* NodeView.swift */,
+			);
+			path = Node;
+			sourceTree = "<group>";
+		};
+		A74708D4203CE1710013FF02 /* PropertyView */ = {
+			isa = PBXGroup;
+			children = (
+				A74708D9203CE29E0013FF02 /* InputView.swift */,
+				A74708DB203CE2A80013FF02 /* OutputView.swift */,
+				A74708DD203CE2E10013FF02 /* PropertyViewDelegate.swift */,
+			);
+			path = PropertyView;
+			sourceTree = "<group>";
+		};
+		A74708DF203CE3C50013FF02 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				A74708E1203CE3DA0013FF02 /* NSColor+Hex.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		A758CB72203C757B00DC69AA /* Logger */ = {
 			isa = PBXGroup;
 			children = (
 				A758CB73203C75AF00DC69AA /* Logger.swift */,
 			);
 			path = Logger;
+			sourceTree = "<group>";
+		};
+		A758CB7D203C8CD500DC69AA /* WaveKit */ = {
+			isa = PBXGroup;
+			children = (
+				A758CB89203C8CFA00DC69AA /* Core */,
+				A74708CC203CDF2B0013FF02 /* View */,
+				A74708DF203CE3C50013FF02 /* Utility */,
+				A758CB7E203C8CD500DC69AA /* WaveKit.h */,
+				A758CB7F203C8CD500DC69AA /* Info.plist */,
+			);
+			path = WaveKit;
+			sourceTree = "<group>";
+		};
+		A758CB89203C8CFA00DC69AA /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				A74708C7203CDD610013FF02 /* Link */,
+				A758CB8D203C8F9200DC69AA /* Property */,
+				A758CB8C203C8F8400DC69AA /* Node */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		A758CB8C203C8F8400DC69AA /* Node */ = {
+			isa = PBXGroup;
+			children = (
+				A758CB8A203C8D0200DC69AA /* Node.swift */,
+				A74708C2203C9A4B0013FF02 /* FrequencyNode.swift */,
+				A74708C5203CDC750013FF02 /* HarmonicNode.swift */,
+				A74708CA203CDE780013FF02 /* ConstantNode.swift */,
+			);
+			path = Node;
+			sourceTree = "<group>";
+		};
+		A758CB8D203C8F9200DC69AA /* Property */ = {
+			isa = PBXGroup;
+			children = (
+				A74708C4203CCBF40013FF02 /* Value */,
+				A758CB8E203C8FA600DC69AA /* Property.swift */,
+				A758CB90203C916700DC69AA /* Input.swift */,
+				A758CB96203C985100DC69AA /* Output.swift */,
+			);
+			path = Property;
 			sourceTree = "<group>";
 		};
 		A75C9DD520362931001B34F6 /* Controller */ = {
@@ -321,6 +517,17 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		A758CB79203C8CD500DC69AA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A758CB80203C8CD500DC69AA /* WaveKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		A73045562033868D00DB15DE /* Waventasy */ = {
 			isa = PBXNativeTarget;
@@ -332,15 +539,37 @@
 				A73045552033868D00DB15DE /* Resources */,
 				A3AA9399574B25D06CBFFBDD /* [CP] Embed Pods Frameworks */,
 				1C5D1DD657493D4C2B59BDEA /* [CP] Copy Pods Resources */,
+				A758CB88203C8CD500DC69AA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A758CB82203C8CD500DC69AA /* PBXTargetDependency */,
 			);
 			name = Waventasy;
 			productName = Waventasy;
 			productReference = A73045572033868D00DB15DE /* Waventasy.app */;
 			productType = "com.apple.product-type.application";
+		};
+		A758CB7B203C8CD500DC69AA /* WaveKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A758CB85203C8CD500DC69AA /* Build configuration list for PBXNativeTarget "WaveKit" */;
+			buildPhases = (
+				6C5FA09340FCE9215BAF389B /* [CP] Check Pods Manifest.lock */,
+				A758CB77203C8CD500DC69AA /* Sources */,
+				A758CB78203C8CD500DC69AA /* Frameworks */,
+				A758CB79203C8CD500DC69AA /* Headers */,
+				A758CB7A203C8CD500DC69AA /* Resources */,
+				BA89B209F0BE84AB589D0CE4 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WaveKit;
+			productName = WaveKit;
+			productReference = A758CB7C203C8CD500DC69AA /* WaveKit.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -361,6 +590,11 @@
 							};
 						};
 					};
+					A758CB7B203C8CD500DC69AA = {
+						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = A73045522033868D00DB15DE /* Build configuration list for PBXProject "Waventasy" */;
@@ -377,6 +611,7 @@
 			projectRoot = "";
 			targets = (
 				A73045562033868D00DB15DE /* Waventasy */,
+				A758CB7B203C8CD500DC69AA /* WaveKit */,
 			);
 		};
 /* End PBXProject section */
@@ -390,6 +625,13 @@
 				A726C81A203865B000DECE67 /* SoundNodeCollectionViewItem.xib in Resources */,
 				A730455F2033868D00DB15DE /* Assets.xcassets in Resources */,
 				A73045622033868D00DB15DE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A758CB7A203C8CD500DC69AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +651,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Waventasy/Pods-Waventasy-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6C5FA09340FCE9215BAF389B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WaveKit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6E0E971A51AFB5C2FA9198DC /* [CP] Check Pods Manifest.lock */ = {
@@ -449,6 +709,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Waventasy/Pods-Waventasy-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BA89B209F0BE84AB589D0CE4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WaveKit/Pods-WaveKit-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -501,7 +776,39 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A758CB77203C8CD500DC69AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A74708DE203CE2E10013FF02 /* PropertyViewDelegate.swift in Sources */,
+				A74708E2203CE3DA0013FF02 /* NSColor+Hex.swift in Sources */,
+				A758CB95203C93B700DC69AA /* Value.swift in Sources */,
+				A74708DA203CE29E0013FF02 /* InputView.swift in Sources */,
+				A758CB91203C916700DC69AA /* Input.swift in Sources */,
+				A74708D6203CE1A20013FF02 /* NodeView.swift in Sources */,
+				A758CB8B203C8D0200DC69AA /* Node.swift in Sources */,
+				A74708DC203CE2A80013FF02 /* OutputView.swift in Sources */,
+				A74708CB203CDE780013FF02 /* ConstantNode.swift in Sources */,
+				A74708C9203CDD6E0013FF02 /* Link.swift in Sources */,
+				A74708D0203CDF6A0013FF02 /* BoardItem.swift in Sources */,
+				A74708D2203CDF8C0013FF02 /* BoardItemType.swift in Sources */,
+				A758CB8F203C8FA600DC69AA /* Property.swift in Sources */,
+				A74708C3203C9A4B0013FF02 /* FrequencyNode.swift in Sources */,
+				A758CB97203C985100DC69AA /* Output.swift in Sources */,
+				A74708D8203CE2350013FF02 /* BoardItemView.swift in Sources */,
+				A74708C6203CDC750013FF02 /* HarmonicNode.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A758CB82203C8CD500DC69AA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A758CB7B203C8CD500DC69AA /* WaveKit */;
+			targetProxy = A758CB81203C8CD500DC69AA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A73045602033868D00DB15DE /* Main.storyboard */ = {
@@ -625,6 +932,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1D830755041ACFA6FE38E718 /* Pods-Waventasy.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -643,6 +951,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6D8ABFD73382CE2CA8034B49 /* Pods-Waventasy.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -654,6 +963,61 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		A758CB86203C8CD500DC69AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9E956F445A9C4B1975A75743 /* Pods-WaveKit.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = UG9F7JGZ3C;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = WaveKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.leonardfactory.WaveKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A758CB87203C8CD500DC69AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64535B28B9D057D9DBCC3CF1 /* Pods-WaveKit.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = UG9F7JGZ3C;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = WaveKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.leonardfactory.WaveKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -674,6 +1038,15 @@
 			buildConfigurations = (
 				A73045682033868D00DB15DE /* Debug */,
 				A73045692033868D00DB15DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A758CB85203C8CD500DC69AA /* Build configuration list for PBXNativeTarget "WaveKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A758CB86203C8CD500DC69AA /* Debug */,
+				A758CB87203C8CD500DC69AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
