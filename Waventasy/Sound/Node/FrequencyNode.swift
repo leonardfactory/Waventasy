@@ -9,10 +9,22 @@
 import Foundation
 
 class FrequencyNode : SoundNode {
+    struct Slot {
+        static let frequency = "frequency"
+        static let wave = "wave"
+    }
+    
+    // Input & Output
+    public var frequency = SoundNodeSlotInput(.decimal, key: Slot.frequency, name: "Frequenza")
+    public var wave = SoundNodeSlotOutput(.wave, key: Slot.wave, name: "Onda")
+
+    override var inputs: [SoundNodeSlotInput] { return [frequency] }
+    override var outputs: [SoundNodeSlotOutput] { return [wave] }
+    
     convenience init(name: String, position: NSPoint) {
         self.init(.frequency, name: name, position: position)
         
-        inputs.append(SoundNodeSlotInput(.decimal, key: "frequency", name: "Frequenza"))
-        outputs.append(SoundNodeSlotOutput(.wave, key:"wave", name: "Onda"))
+        // Default
+        frequency.value = .decimal(440.0)
     }
 }

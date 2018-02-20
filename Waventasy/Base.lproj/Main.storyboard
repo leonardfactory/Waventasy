@@ -717,20 +717,7 @@
                                         </segmentedCell>
                                     </segmentedControl>
                                 </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="C416D091-0FC3-44FE-B436-50DB34BCFAAB" label="" paletteLabel="Add" image="NSAddTemplate" id="i8g-8L-ozz">
-                                    <nil key="toolTip"/>
-                                    <size key="minSize" width="30" height="25"/>
-                                    <size key="maxSize" width="30" height="25"/>
-                                    <button key="view" verticalHuggingPriority="750" id="dWe-lZ-zQB">
-                                        <rect key="frame" x="0.0" y="14" width="30" height="25"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSAddTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="y2a-tC-QZB">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                    </button>
-                                </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="61968EA1-25CD-4211-9C78-932BAD0CBF08" label="" paletteLabel="Add2" image="NSAddTemplate" id="hJQ-rF-npp">
+                                <toolbarItem implicitItemIdentifier="61968EA1-25CD-4211-9C78-932BAD0CBF08" label="" paletteLabel="Add" image="NSAddTemplate" id="hJQ-rF-npp">
                                     <nil key="toolTip"/>
                                     <size key="minSize" width="36" height="25"/>
                                     <size key="maxSize" width="36" height="28"/>
@@ -753,10 +740,31 @@
                                         <action selector="addNode:" target="kcc-fg-ulY" id="Ed0-RT-UOg"/>
                                     </connections>
                                 </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="3000D104-C2DD-4007-B67F-5448EEAEBFC3" label="" paletteLabel="Player" id="c14-7Y-qtf">
+                                    <nil key="toolTip"/>
+                                    <size key="minSize" width="34" height="28"/>
+                                    <size key="maxSize" width="100" height="28"/>
+                                    <segmentedControl key="view" verticalHuggingPriority="750" id="jUp-y5-2cX">
+                                        <rect key="frame" x="0.0" y="14" width="70" height="28"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedSquare" trackingMode="selectOne" id="iSn-Df-wgn">
+                                            <font key="font" metaFont="system"/>
+                                            <segments>
+                                                <segment image="Play" width="32"/>
+                                                <segment image="Stop">
+                                                    <nil key="label"/>
+                                                </segment>
+                                            </segments>
+                                        </segmentedCell>
+                                        <connections>
+                                            <action selector="togglePlayer:" target="kcc-fg-ulY" id="xjA-p9-3NO"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
-                                <toolbarItem reference="i8g-8L-ozz"/>
                                 <toolbarItem reference="hJQ-rF-npp"/>
+                                <toolbarItem reference="c14-7Y-qtf"/>
                                 <toolbarItem reference="2vk-Av-FMS"/>
                                 <toolbarItem reference="lDQ-3e-a0z"/>
                             </defaultToolbarItems>
@@ -785,16 +793,6 @@
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="ngl-G0-pm5">
                                 <rect key="frame" x="520" y="0.0" width="200" height="400"/>
-                                <subviews>
-                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9UC-U0-6mh">
-                                        <rect key="frame" x="59" y="184" width="81" height="32"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0O8-PX-lBU">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                    </button>
-                                </subviews>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="IgP-pv-7fJ"/>
                                 </constraints>
@@ -1121,7 +1119,9 @@
     </scenes>
     <resources>
         <image name="NSAddTemplate" width="11" height="11"/>
+        <image name="Play" width="19" height="19"/>
         <image name="SidebarLeft" width="19" height="19"/>
         <image name="SidebarRight" width="19" height="19"/>
+        <image name="Stop" width="19" height="19"/>
     </resources>
 </document>

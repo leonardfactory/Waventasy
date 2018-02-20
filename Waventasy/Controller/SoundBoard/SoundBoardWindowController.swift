@@ -14,6 +14,12 @@ private enum SidebarToolbarSegment: Int {
     case right = 1
 }
 
+private enum PlayerToolbarSegment: Int {
+    case none = -1
+    case play = 0
+    case stop = 1
+}
+
 private enum SoundNodeMenuItem: String {
     case none = ""
     case frequency = "FrequencyItem"
@@ -62,15 +68,28 @@ class SoundBoardWindowController: NSWindowController {
         self.popUpAddButton.menu = menu
     }
     
+    // Aggiunge un nodo
     @IBAction func addNode(_ sender: NSPopUpButton) {
         let viewController = self.window?.contentViewController as! SoundBoardViewController
         let selectedItem = SoundNodeMenuItem(rawValue: (sender.selectedItem?.identifier)!.rawValue) ?? SoundNodeMenuItem.none
         
         switch (selectedItem) {
-        case .frequency: viewController.addSoundNode(type: .frequency)
-        case .harmonic: viewController.addSoundNode(type: .harmonic)
-        case .constant: viewController.addSoundNode(type: .constant)
-        default: return
+            case .frequency: viewController.addSoundNode(type: .frequency)
+            case .harmonic: viewController.addSoundNode(type: .harmonic)
+            case .constant: viewController.addSoundNode(type: .constant)
+            default: return
+        }
+    }
+    
+    // Player
+    @IBAction func togglePlayer(_ sender: NSSegmentedControl) {
+        let viewController = self.window?.contentViewController as! SoundBoardViewController
+        let selectedSegment = PlayerToolbarSegment(rawValue: sender.selectedSegment) ?? PlayerToolbarSegment.none
+        
+        switch (selectedSegment) {
+            case .play: viewController.play()
+            case .stop: viewController.stop()
+            case .none: return
         }
     }
     
@@ -81,9 +100,9 @@ class SoundBoardWindowController: NSWindowController {
         let selectedSegment = SidebarToolbarSegment(rawValue: sender.selectedSegment) ?? SidebarToolbarSegment.none
         
         switch (selectedSegment) {
-        case .left: viewController.toggleLeftSidebar()
-        case .right: viewController.toggleRightSidebar()
-        case .none: return
+            case .left: viewController.toggleLeftSidebar()
+            case .right: viewController.toggleRightSidebar()
+            case .none: return
         }
     }
 }

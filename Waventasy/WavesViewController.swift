@@ -37,12 +37,12 @@ class WavesViewController: NSViewController {
     @objc func startPlaying() {
         print("start playing")
         
-        let mixer = (SoundBuilder(frequency: 440).withHarmonics(harmonics: self.harmonics))
+//        let mixer = (SoundBuilder(frequency: 440).withHarmonics(harmonics: self.harmonics))
 
-        AudioKit.output = mixer
-        AudioKit.start()
-
-        mixer.play()
+//        AudioKit.output = mixer
+//        AudioKit.start()
+//
+//        mixer.play()
     }
 
     override var representedObject: Any? {

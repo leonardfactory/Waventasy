@@ -2,13 +2,16 @@ PODS:
   - AudioKit (4.0.4):
     - AudioKit/UI (= 4.0.4)
   - AudioKit/UI (4.0.4)
+  - SwiftGraph (1.5.1)
 
 DEPENDENCIES:
   - AudioKit (~> 4.0)
+  - SwiftGraph
 
 SPEC CHECKSUMS:
   AudioKit: 647145c0462dc9dc8a8582998cd6db5f2e1ea848
+  SwiftGraph: 19bc20fca313a32c3d69e3a84f8756a12129f91b
 
-PODFILE CHECKSUM: d88dfce3dcbde2463826cf64982831ed11d176e4
+PODFILE CHECKSUM: 4fd8f25cbb416b4ea6342f5689ac781693f3737f
 
 COCOAPODS: 1.4.0

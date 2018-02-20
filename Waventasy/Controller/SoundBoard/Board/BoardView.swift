@@ -58,6 +58,9 @@ public class BoardView: NSView {
             userInfo: nil
         )
         self.addTrackingArea(trackingArea!)
+        
+        self.wantsLayer = true
+        self.layer?.backgroundColor = NSColor(hex: 0x2f3640).cgColor
     }
     
     // Eventi

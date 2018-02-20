@@ -7,6 +7,7 @@ target 'Waventasy' do
 
   # Pods for Waventasy
   pod 'AudioKit', '~> 4.0'
+  pod 'SwiftGraph'
 end
 
 post_install do |installer|

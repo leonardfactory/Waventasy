@@ -9,8 +9,7 @@
 import Foundation
 
 class SoundNodeSlotInput : SoundNodeSlot {
-    public var floatValue: Float? = nil
-    public var intValue: Int? = nil
+    public var value:SlotValue = .empty
     
     init(_ type: SlotType, key:String, name: String) {
         super.init(type, key: key, direction: .input, name: name)

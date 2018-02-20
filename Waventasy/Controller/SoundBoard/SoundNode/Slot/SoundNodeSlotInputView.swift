@@ -99,13 +99,13 @@ class SoundNodeSlotInputView : NSView {
                 numericInputField?.layer?.borderWidth = 0
                 numericInputField?.drawsBackground = false
                 numericInputField?.delegate = self
+                numericInputField?.stringValue = slot.value.stringValue
                 addSubview(numericInputField!)
                 
                 numericInputField?.widthAnchor.constraint(greaterThanOrEqualToConstant: 26.0).isActive = true
                 numericInputField?.firstBaselineAnchor.constraint(equalTo: nameLabel.firstBaselineAnchor).isActive = true
                 numericInputField?.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -4).isActive = true
                 nameLabel.trailingAnchor.constraint(equalTo: numericInputField!.leadingAnchor, constant: -4).isActive = true
-                break;
                 
             default:
                 nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
@@ -133,10 +133,10 @@ extension SoundNodeSlotInputView : NSTextFieldDelegate {
         guard let slotType = self.slot?.type else { return }
         switch (slotType) {
         case .decimal:
-            self.slot?.floatValue = numericInputField?.floatValue
-            break
+            self.slot?.value = .decimal(numericInputField?.floatValue ?? 0.0)
+            
         case .int:
-            self.slot?.intValue = numericInputField?.integerValue
+            self.slot?.value = .int(numericInputField?.integerValue ?? 0)
             
         default: break
         }

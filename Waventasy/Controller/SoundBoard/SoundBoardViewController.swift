@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import AudioKit
 
 class SoundBoardViewController: NSViewController {
     
@@ -23,6 +24,8 @@ class SoundBoardViewController: NSViewController {
     var activeLink:SoundLink? = nil
     // Location temporanea
     var activeLinkEnding:CGPoint? = nil
+    
+    var player:SoundPlayer? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,11 +44,12 @@ class SoundBoardViewController: NSViewController {
         self.boardView.dataSource = self
         self.boardView.delegate = self
         
-        
         // Test
-        self.nodes.append(SoundNode(.harmonic, name: "Nodo Demo", position: NSPoint(x:100.0, y:100.0)))
-        self.nodes.append(SoundNode(.frequency, name: "440Hz", position: NSPoint(x:100.0, y:225.0)))
-        self.nodes.append(SoundNode(.frequency, name: "880Hz", position: NSPoint(x:1000.0, y:600.0)))
+        self.nodes.append(FrequencyNode(name: "Frequenza", position: CGPoint(x: 200.0, y:100.0)))
+        self.nodes.append(HarmonicNode(name: "Armonica", position: CGPoint(x: 300.0, y:100.0)))
+//        self.nodes.append(SoundNode(.harmonic, name: "Nodo Demo", position: NSPoint(x:100.0, y:100.0)))
+//        self.nodes.append(SoundNode(.frequency, name: "440Hz", position: NSPoint(x:100.0, y:225.0)))
+//        self.nodes.append(SoundNode(.frequency, name: "880Hz", position: NSPoint(x:1000.0, y:600.0)))
         
         self.boardView.reloadData()
     }
@@ -89,15 +93,12 @@ class SoundBoardViewController: NSViewController {
         switch type {
         case .frequency:
             node = FrequencyNode(name: "Frequenza", position: position)
-            break
             
         case .harmonic:
             node = HarmonicNode(name: "Armonica", position: position)
-            break
             
         case .constant:
             node = ConstantNode(name: "Costante", position: position)
-            break
             
         default:
             print("non implementato")
@@ -105,6 +106,22 @@ class SoundBoardViewController: NSViewController {
         
         self.nodes.append(node!)
         self.boardView.reloadData()
+    }
+    
+    // Player
+    // -
+    public func play() {
+        do {
+            let nodes = try SoundBuilder(nodes: self.nodes, links: self.links).resolve()
+            self.player = SoundPlayer(nodes: nodes)
+        } 
+        catch {
+            print("Errore nel builder \(error)")
+        }
+    }
+    
+    public func stop() {
+        self.player?.stop()
     }
 }
 

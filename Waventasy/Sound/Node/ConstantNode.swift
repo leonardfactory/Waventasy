@@ -11,11 +11,15 @@ import Foundation
 import Foundation
 
 class ConstantNode : SoundNode {
+    
+    public var value = SoundNodeSlotInput(.decimal, key:"value", name: "Valore")
+    public var outputValue = SoundNodeSlotOutput(.decimal, key:"outputValue", name: "Ris.")
+    
+    override var inputs: [SoundNodeSlotInput] { return [value] }
+    override var outputs: [SoundNodeSlotOutput] { return [outputValue] }
+    
     convenience init(name: String, position: NSPoint) {
         self.init(.constant, name: name, position: position)
-        
-        inputs.append(SoundNodeSlotInput(.decimal, key:"value", name: "Valore"))
-        outputs.append(SoundNodeSlotOutput(.decimal, key:"value", name: "Risultato"))
     }
 }
 
