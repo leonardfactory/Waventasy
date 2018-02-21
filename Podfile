@@ -1,19 +1,11 @@
 # Uncomment the next line to define a global platform for your project
 platform :osx, '10.12'
 
-def shared_pods
-    pod 'AudioKit', '~> 4.0'
-    pod 'SwiftGraph'
-end
-
 target 'Waventasy' do
   use_frameworks!
-  shared_pods
-end
-
-target 'WaveKit' do
-    use_frameworks!
-    shared_pods
+  
+  pod 'AudioKit', '~> 4.0'
+  pod 'SwiftGraph'
 end
 
 post_install do |installer|

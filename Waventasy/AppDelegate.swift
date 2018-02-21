@@ -7,7 +7,6 @@
 //
 
 import Cocoa
-import WaveKit
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {

@@ -50,17 +50,17 @@ class SoundBoardWindowController: NSWindowController {
         menu.addItem(mainItem)
         
         let frequencyItem = NSMenuItem(title: "Frequenza", action: nil, keyEquivalent: "f")
-        frequencyItem.image = soundNodeSwatchImage(fromType: SoundNode.NodeType.frequency)
+        frequencyItem.image = nodeSwatchImage(fromType: NodeType.frequency)
         frequencyItem.identifier = NSUserInterfaceItemIdentifier(rawValue: SoundNodeMenuItem.frequency.rawValue)
         menu.addItem(frequencyItem)
         
         let harmonicItem = NSMenuItem(title: "Armonica", action: nil, keyEquivalent: "a")
-        harmonicItem.image = soundNodeSwatchImage(fromType: SoundNode.NodeType.harmonic)
+        harmonicItem.image = nodeSwatchImage(fromType: NodeType.harmonic)
         harmonicItem.identifier = NSUserInterfaceItemIdentifier(rawValue: SoundNodeMenuItem.harmonic.rawValue)
         menu.addItem(harmonicItem)
         
         let constantItem = NSMenuItem(title: "Costante", action: nil, keyEquivalent: "c")
-        constantItem.image = soundNodeSwatchImage(fromType: SoundNode.NodeType.constant)
+        constantItem.image = nodeSwatchImage(fromType: NodeType.constant)
         constantItem.identifier = NSUserInterfaceItemIdentifier(rawValue: SoundNodeMenuItem.constant.rawValue)
         menu.addItem(constantItem)
         

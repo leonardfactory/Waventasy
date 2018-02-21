@@ -9,21 +9,19 @@
 import Cocoa
 import AudioKit
 
+/// Gestione principale della creazione e della visualizzazione dei Nodi e dei Link
+/// Su una Board.
 class SoundBoardViewController: NSViewController {
     
-    @IBOutlet weak var scrollView:SoundBoardScrollView?
+    @IBOutlet weak var scrollView:BoardScrollView?
     @IBOutlet weak var rightSideBarView:NSView?
     @IBOutlet weak var rightSideBarXConstraint: NSLayoutConstraint!
     @IBOutlet weak var boardView: BoardView!
     
     var isRightSidebarShown: Bool = false
     
-    var nodes:[SoundNode] = []
-    var links:[SoundLink] = []
-    
-    var activeLink:SoundLink? = nil
-    // Location temporanea
-    var activeLinkEnding:CGPoint? = nil
+    var nodes:[Node] = []
+    var links:[Link] = []
     
     var player:SoundPlayer? = nil
     
@@ -85,23 +83,20 @@ class SoundBoardViewController: NSViewController {
     }
     
     // Aggiunta dei nodi
-    public func addSoundNode(type: SoundNode.NodeType) {
+    public func addSoundNode(type: NodeType) {
         print("addnode", type)
         let visibleRect = self.scrollView!.documentVisibleRect
-        let position = self.boardView.toGridPoint(point: CGPoint(x: visibleRect.midX, y: visibleRect.midY))
-        var node:SoundNode? = nil
+        let position = self.boardView.toGridPoint(point: visibleRect.center())
+        var node:Node? = nil
         switch type {
-        case .frequency:
-            node = FrequencyNode(name: "Frequenza", position: position)
+            case .frequency:
+                node = FrequencyNode(name: "Frequenza", position: position)
             
-        case .harmonic:
-            node = HarmonicNode(name: "Armonica", position: position)
+            case .harmonic:
+                node = HarmonicNode(name: "Armonica", position: position)
             
-        case .constant:
-            node = ConstantNode(name: "Costante", position: position)
-            
-        default:
-            print("non implementato")
+            case .constant:
+                node = ConstantNode(name: "Costante", position: position)
         }
         
         self.nodes.append(node!)
@@ -125,50 +120,49 @@ class SoundBoardViewController: NSViewController {
     }
 }
 
+/// Gestione della Board
 extension SoundBoardViewController: BoardDelegate, BoardDataSource {
-    // Display e/o Update di un nodo
-    func boardView(_ boardView: BoardView, item: BoardRenderable, fromExistingView existingView: BoardItemView?) -> BoardItemView? {
+    /// Display e/o Update di un nodo
+    func boardView(_ boardView: BoardView, item: BoardItem, fromExistingView existingView: BoardItemView?) -> BoardItemView? {
         
-        switch (item.boardType) {
+        switch (item.itemType) {
         // 1. Nodi
-        case SoundBoardItemType.node.rawValue:
-            guard let soundNode     = item as? SoundNode else { return nil }
-            guard let soundNodeView = existingView as? SoundNodeView? else { fatalError("View errata") }
-            let itemView = soundNodeView ?? SoundNodeView(node: soundNode)
-            itemView.nodeDelegate = self
+        case BoardItemType.node:
+            guard let node     = item as? Node else { return nil }
+            guard let nodeView = existingView as? NodeView? else { fatalError("View errata") }
+            let itemView = nodeView ?? NodeView(node: node)
+            itemView.nodeDelegate = self.boardView
             
             // Impostazioni
             if (existingView == nil) {
-                itemView.node = soundNode
+                itemView.node = node
             }
             
             return itemView
             
         // 2. Link
-        case SoundBoardItemType.link.rawValue:
-            guard let soundLink     = item as? SoundLink else { return nil }
-            guard let soundLinkView = existingView as? SoundLinkView? else { fatalError("View errata") }
-            let itemView = soundLinkView ?? SoundLinkView(link: soundLink)
-            itemView.linkDelegate = self
+        case BoardItemType.link:
+            guard let link     = item as? Link else { return nil }
+            guard let linkView = existingView as? LinkView? else { fatalError("View errata") }
+            let itemView = linkView ?? LinkView(link: link)
+            itemView.linkDelegate = self.boardView
             
             // Ottimizzabili. Chiama il trigger del refresh
-            itemView.link = soundLink
+            itemView.link = link
             
             return itemView
-            
-        default: return nil
         }
         
         
     }
     
-    // Ottiene l'elenco dei nodi
-    func boardView(itemsIn boardView: BoardView) -> [BoardRenderable] {
-        return (self.nodes as [BoardRenderable]) + (self.links as [BoardRenderable])
+    /// Ottiene l'elenco dei nodi e dei link
+    func itemsIn(boardView: BoardView) -> [BoardItem] {
+        return (self.nodes as [BoardItem]) + (self.links as [BoardItem])
     }
     
-    // Calcola le dimensioni
-    func boardView(contentRectFor boardView: BoardView) -> NSRect {
+    /// Calcola le dimensioni
+    func contentRectFor(boardView: BoardView) -> NSRect {
         var minPoint = CGPoint.zero
         var maxPoint = CGPoint.zero
         
@@ -187,100 +181,30 @@ extension SoundBoardViewController: BoardDelegate, BoardDataSource {
         return NSRect(origin:minPoint, size: size)
     }
     
-    // Dragging
-    var isScrollViewDragging:Bool {
-        return self.scrollView!.isDragMode
+    /// Quando un link viene aggiunto, lo inseriamo nell'elenco
+    func boardView(_ boardView: BoardView, didStartLink link: Link) -> Link {
+        self.links.append(link)
+        return link
     }
     
+    func boardView(_ boardView: BoardView, didCompleteLink: Link) {
+        // todo: Completato, potremmo segnare come "abilitato" il play
+    }
+    
+    /// Anche se è ottimizzabile, il concetto è che quando spostiamo un elemento
+    /// refreshiamo la view in modo da mostrare gli elementi spostati.
     func boardView(_ boardView: BoardView, mouseDraggedForItem itemView: BoardItemView) {
         self.boardView.reloadData()
     }
     
     // Linking
     func boardView(_ boardView: BoardView, mouseMoved: NSEvent) {
-        if self.activeLink != nil {
-            self.activeLinkEnding = self.view.convert(mouseMoved.locationInWindow, to: boardView as NSView?)
-            self.boardView.reloadData()
-        }
-    }
-}
-
-/**
- Gestione dei nodi
- */
-extension SoundBoardViewController : SoundNodeViewDelegate {
-    func canStartLink(fromNode node: SoundNode, atSlot slot: SoundNodeSlot) -> Bool {
-        return slot.direction == .output && self.activeLink == nil
-    }
-    
-    func canEndLink(toNode node: SoundNode, atSlot slot: SoundNodeSlot, link: SoundLink) -> Bool {
-        return  slot.direction == .input &&
-                self.activeLink != nil &&
-                link.sourceSlot.type == slot.type
-    }
-    
-    func findActiveLink() -> SoundLink? {
-        return self.activeLink
-    }
-    
-    func startLink(fromNode node: SoundNode, atSlot slot: SoundNodeSlot) -> SoundLink {
-        let link = SoundLink(source: node, sourceSlot: slot, target: nil, targetSlot: nil)
-        self.activeLink = link
-        self.links.append(link)
-        self.boardView.reloadData()
-        return link
-    }
-    
-    func endLink(toNode node: SoundNode, atSlot slot: SoundNodeSlot, link: SoundLink) {
-        self.activeLink?.target = node
-        self.activeLink?.targetSlot = slot
-        self.activeLink = nil
         self.boardView.reloadData()
     }
-}
-
-/**
- Gestione dei link
- */
-extension SoundBoardViewController : SoundLinkViewDelegate {
-    func color(forLink link: SoundLink?) -> NSColor {
-        return link?.target == nil
-            ? SoundNodeLinkColors.activeLineColor
-            : SoundNodeLinkColors.completeLineColor
-    }
     
-    func startingPoint(forLink link: SoundLink?) -> CGPoint {
-        if  let source = link?.source,
-            let sourceView = boardView.view(forItem: source.boardIdentifier) as? SoundNodeView,
-            let sourceSlot = link?.sourceSlot as? SoundNodeSlotOutput,
-            let sourceSlotView = sourceView.outputsSlotsViewItems[sourceSlot]
-        {
-            return sourceSlotView.convert(
-                sourceSlotView.linkButton.frame.center(),
-                to: boardView
-            )
-        }
-        
-        fatalError("Impossibile trovare lo slot")
-    }
-    
-    func endingPoint(forLink link: SoundLink?) -> CGPoint {
-        if link?.target == nil {
-            return self.activeLinkEnding ?? self.startingPoint(forLink:link)
-        }
-        
-        if  let target = link?.target,
-            let targetView = boardView.view(forItem: target.boardIdentifier) as? SoundNodeView,
-            let targetSlot = link?.targetSlot as? SoundNodeSlotInput,
-            let targetSlotView = targetView.inputSlotsViewItems[targetSlot]
-        {
-            return targetSlotView.convert(
-                targetSlotView.linkButton.frame.center(),
-                to: boardView
-            )
-        }
-        
-        return CGPoint.zero
+    /// Dragging
+    var isScrollViewDragging:Bool {
+        return self.scrollView!.isDragMode
     }
 }
 
