@@ -22,7 +22,7 @@ open class InputView : NSView {
     
     var nameLabel:NSTextField!
     var linkButton:NSButton!
-    var numericInputField:NSTextField?
+    var valueField:ValueField?
     
     public init(input:Input, frame frameRect:NSRect) {
         super.init(frame: frameRect)
@@ -79,34 +79,15 @@ open class InputView : NSView {
     
     func setupInput() {
         if let input = self.input {
-            // Creo l'input in base al tipo
-            switch (input.value) {
-                case .double, .int:
-                    numericInputField = NSTextField(string: "10")
-                    numericInputField?.wantsLayer = true
-                    numericInputField?.font = NSFont.systemFont(ofSize: 10.0)
-                    numericInputField?.textColor = NSColor.white
-                    numericInputField?.backgroundColor = NSColor(hex: 0xffffff, alpha:0.5)
-                    numericInputField?.isBordered = false
-                    numericInputField?.bezelStyle = .roundedBezel
-                    numericInputField?.formatter = NumberFormatter()
-                    numericInputField?.translatesAutoresizingMaskIntoConstraints = false
-                    numericInputField?.layer = CALayer()
-                    numericInputField?.layer?.backgroundColor = NSColor(hex: 0xffffff, alpha:0.5).cgColor
-                    numericInputField?.layer?.cornerRadius = 3.0
-                    numericInputField?.layer?.borderWidth = 0
-                    numericInputField?.drawsBackground = false
-                    numericInputField?.delegate = self
-//                    numericInputField?.doubleValue = try! input.value.doubleValue() // todo!
-                    addSubview(numericInputField!)
-                    
-                    numericInputField?.widthAnchor.constraint(greaterThanOrEqualToConstant: 26.0).isActive = true
-                    numericInputField?.firstBaselineAnchor.constraint(equalTo: nameLabel.firstBaselineAnchor).isActive = true
-                    numericInputField?.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -4).isActive = true
-                    nameLabel.trailingAnchor.constraint(equalTo: numericInputField!.leadingAnchor, constant: -4).isActive = true
-                
-                default:
-                    nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+            valueField = ValueField.create(forProperty: input)
+            addSubview(valueField!)
+            
+            nameLabel.trailingAnchor.constraint(equalTo: valueField!.leadingAnchor, constant: -4).isActive = true
+            valueField!.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -4).isActive = true
+            
+            if valueField!.requiredConstraints.contains(.baseline) {
+                print("baselineanchor")
+                valueField!.firstBaselineAnchor.constraint(equalTo: nameLabel.firstBaselineAnchor).isActive = true
             }
         }
     }
@@ -122,21 +103,6 @@ open class InputView : NSView {
             else {
                 print("Impossibile collegare a questo nodo")
             }
-        }
-    }
-}
-
-extension InputView : NSTextFieldDelegate {
-    open override func controlTextDidEndEditing(_ obj: Notification) {
-        guard let input = input else { return }
-        switch (input.value) {
-            case .double:
-                input.value = .double(numericInputField?.doubleValue ?? 0.0)
-            
-            case .int:
-                input.value = .int(numericInputField?.integerValue ?? 0)
-            
-            default: break
         }
     }
 }

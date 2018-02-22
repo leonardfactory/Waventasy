@@ -701,9 +701,9 @@
                                 <toolbarItem implicitItemIdentifier="7D50F936-154B-4B56-8823-A02E178A3786" label="" paletteLabel="Buttons" id="lDQ-3e-a0z">
                                     <nil key="toolTip"/>
                                     <size key="minSize" width="63" height="25"/>
-                                    <size key="maxSize" width="67" height="28"/>
+                                    <size key="maxSize" width="68" height="28"/>
                                     <segmentedControl key="view" verticalHuggingPriority="750" id="goH-Sc-Q9d">
-                                        <rect key="frame" x="0.0" y="14" width="67" height="25"/>
+                                        <rect key="frame" x="0.0" y="14" width="68" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                         <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedSquare" trackingMode="selectAny" id="Hbn-7Q-yKW">
                                             <font key="font" metaFont="system"/>
@@ -719,12 +719,12 @@
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="61968EA1-25CD-4211-9C78-932BAD0CBF08" label="" paletteLabel="Add" image="NSAddTemplate" id="hJQ-rF-npp">
                                     <nil key="toolTip"/>
-                                    <size key="minSize" width="36" height="25"/>
-                                    <size key="maxSize" width="36" height="28"/>
+                                    <size key="minSize" width="42" height="28"/>
+                                    <size key="maxSize" width="42" height="28"/>
                                     <popUpButton key="view" verticalHuggingPriority="750" id="laW-2b-T1w">
-                                        <rect key="frame" x="0.0" y="14" width="36" height="28"/>
+                                        <rect key="frame" x="0.0" y="14" width="42" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <popUpButtonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" pullsDown="YES" altersStateOfSelectedItem="NO" selectedItem="2WO-f5-TRn" id="Cie-Ht-K1p">
+                                        <popUpButtonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" imagePosition="only" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" pullsDown="YES" altersStateOfSelectedItem="NO" selectedItem="2WO-f5-TRn" id="Cie-Ht-K1p">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="menu"/>
                                             <menu key="menu" id="Dzq-Id-qtY">

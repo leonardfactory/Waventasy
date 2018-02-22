@@ -42,6 +42,8 @@
 		A74708F8203D90700013FF02 /* BoardView+LinkDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74708F7203D90700013FF02 /* BoardView+LinkDelegate.swift */; };
 		A74708FA203D907D0013FF02 /* BoardView+NodeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74708F9203D907D0013FF02 /* BoardView+NodeDelegate.swift */; };
 		A74708FD203DAFA40013FF02 /* ResolveContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74708FC203DAFA40013FF02 /* ResolveContext.swift */; };
+		A7470902203DCBDA0013FF02 /* ValueField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7470901203DCBDA0013FF02 /* ValueField.swift */; };
+		A7470904203DED1A0013FF02 /* DoubleField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7470903203DED1A0013FF02 /* DoubleField.swift */; };
 		A758CB74203C75AF00DC69AA /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A758CB73203C75AF00DC69AA /* Logger.swift */; };
 		A758CB76203C786C00DC69AA /* Enum+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A758CB75203C786C00DC69AA /* Enum+Utility.swift */; };
 		A75C9DD820362982001B34F6 /* SoundBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75C9DD720362982001B34F6 /* SoundBoardViewController.swift */; };
@@ -104,6 +106,8 @@
 		A74708F7203D90700013FF02 /* BoardView+LinkDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BoardView+LinkDelegate.swift"; sourceTree = "<group>"; };
 		A74708F9203D907D0013FF02 /* BoardView+NodeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BoardView+NodeDelegate.swift"; sourceTree = "<group>"; };
 		A74708FC203DAFA40013FF02 /* ResolveContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResolveContext.swift; sourceTree = "<group>"; };
+		A7470901203DCBDA0013FF02 /* ValueField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueField.swift; sourceTree = "<group>"; };
+		A7470903203DED1A0013FF02 /* DoubleField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleField.swift; sourceTree = "<group>"; };
 		A758CB73203C75AF00DC69AA /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		A758CB75203C786C00DC69AA /* Enum+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum+Utility.swift"; sourceTree = "<group>"; };
 		A758CB8A203C8D0200DC69AA /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
@@ -252,7 +256,7 @@
 		A74708D3203CE1540013FF02 /* Node */ = {
 			isa = PBXGroup;
 			children = (
-				A74708D4203CE1710013FF02 /* PropertyView */,
+				A74708D4203CE1710013FF02 /* Property */,
 				A74708D5203CE1A20013FF02 /* NodeView.swift */,
 				A72D752F2039216D00D60CB0 /* NodeDrawing.swift */,
 				A72D75522039E2EB00D60CB0 /* NodeAssetImages.swift */,
@@ -260,14 +264,15 @@
 			path = Node;
 			sourceTree = "<group>";
 		};
-		A74708D4203CE1710013FF02 /* PropertyView */ = {
+		A74708D4203CE1710013FF02 /* Property */ = {
 			isa = PBXGroup;
 			children = (
+				A74708FE203DCA530013FF02 /* Value */,
 				A74708D9203CE29E0013FF02 /* InputView.swift */,
 				A74708DB203CE2A80013FF02 /* OutputView.swift */,
 				A74708DD203CE2E10013FF02 /* PropertyViewDelegate.swift */,
 			);
-			path = PropertyView;
+			path = Property;
 			sourceTree = "<group>";
 		};
 		A74708F3203CEE200013FF02 /* Link */ = {
@@ -312,6 +317,15 @@
 				A74708FC203DAFA40013FF02 /* ResolveContext.swift */,
 			);
 			path = Resolve;
+			sourceTree = "<group>";
+		};
+		A74708FE203DCA530013FF02 /* Value */ = {
+			isa = PBXGroup;
+			children = (
+				A7470901203DCBDA0013FF02 /* ValueField.swift */,
+				A7470903203DED1A0013FF02 /* DoubleField.swift */,
+			);
+			path = Value;
 			sourceTree = "<group>";
 		};
 		A758CB72203C757B00DC69AA /* Logger */ = {
@@ -518,6 +532,7 @@
 				A74708F8203D90700013FF02 /* BoardView+LinkDelegate.swift in Sources */,
 				A74708FA203D907D0013FF02 /* BoardView+NodeDelegate.swift in Sources */,
 				A72D7561203B0D0100D60CB0 /* LinkView.swift in Sources */,
+				A7470904203DED1A0013FF02 /* DoubleField.swift in Sources */,
 				A74708E8203CED590013FF02 /* Node.swift in Sources */,
 				A72D754E2039C23800D60CB0 /* NSView+NibLoading.swift in Sources */,
 				A77063B9203B51A8009B146C /* SoundBuilder.swift in Sources */,
@@ -537,6 +552,7 @@
 				A7D7F5EB203B5A3E006CAFF5 /* SoundGraphEdge.swift in Sources */,
 				A74708EA203CED640013FF02 /* HarmonicNode.swift in Sources */,
 				A74708E9203CED5D0013FF02 /* FrequencyNode.swift in Sources */,
+				A7470902203DCBDA0013FF02 /* ValueField.swift in Sources */,
 				A74708EE203CEDDC0013FF02 /* PropertyViewDelegate.swift in Sources */,
 				A74708FD203DAFA40013FF02 /* ResolveContext.swift in Sources */,
 				A75C9DD820362982001B34F6 /* SoundBoardViewController.swift in Sources */,

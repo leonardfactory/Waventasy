@@ -104,8 +104,8 @@ class NodeView : BoardItemView {
     
     /// Crea gli elementi dell'UI di base
     func setupInterface() {
-        self.translatesAutoresizingMaskIntoConstraints = false
-        self.autoresizingMask = [.height, .width]
+        self.translatesAutoresizingMaskIntoConstraints = true
+        self.autoresizingMask = [.none]
         
         backgroundImageView = NSImageView(image: NSImage(named: nodeBgImage(fromType: self.node?.type))!)
         backgroundImageView.imageScaling = .scaleAxesIndependently

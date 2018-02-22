@@ -62,9 +62,8 @@ struct ValueFormatters {
     /// Formatter per i valori di tipo Double
     static let doubleFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
-        formatter.alwaysShowsDecimalSeparator = true
         formatter.numberStyle = .decimal
-        formatter.maximumFractionDigits = 4
+        formatter.maximumFractionDigits = 2
         return formatter
     }()
 }
