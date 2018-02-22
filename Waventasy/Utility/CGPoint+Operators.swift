@@ -9,6 +9,9 @@
 import Foundation
 
 extension CGPoint {
+    // Operazioni fra CGPoint
+    // -
+    
     static func +(left: CGPoint, right: CGPoint) -> CGPoint {
         var sum = CGPoint()
         sum = CGPoint(x: left.x + right.x, y: left.y + right.y)
@@ -21,14 +24,8 @@ extension CGPoint {
         return sum
     }
     
-    static func -(left: CGPoint, right: CGSize) -> CGPoint {
-        var sum = CGPoint()
-        sum = CGPoint(x: left.x - right.width, y:left.y - right.height)
-        return sum
-    }
-    
-    static func /(left:CGPoint, right:CGFloat) -> CGPoint {
-        return CGPoint(x:left.x / right, y: left.y / right)
+    func floor() -> CGPoint {
+        return CGPoint(x: Darwin.floor(self.x), y: Darwin.floor(self.y))
     }
     
     func distance(p: CGPoint) -> CGFloat {
@@ -36,6 +33,31 @@ extension CGPoint {
         let dy = y - p.y
         return sqrt(dx*dx + dy*dy)
     }
+    
+    // Operazioni su CGFloat
+    // -
+    
+    static func /(left:CGPoint, right:CGFloat) -> CGPoint {
+        return CGPoint(x:left.x / right, y: left.y / right)
+    }
+    
+    // Operazioni su CGSize
+    // -
+    
+    static func -(left: CGPoint, right: CGSize) -> CGPoint {
+        var sum = CGPoint()
+        sum = CGPoint(x: left.x - right.width, y:left.y - right.height)
+        return sum
+    }
+    
+    static func /(left:CGPoint, right:CGSize) -> CGPoint {
+        return CGPoint(x:left.x / right.width, y: left.y / right.height)
+    }
+    
+    static func *(left:CGPoint, right:CGSize) -> CGPoint {
+        return CGPoint(x:left.x * right.width, y: left.y * right.height)
+    }
+    
 }
 
 extension CGSize {
