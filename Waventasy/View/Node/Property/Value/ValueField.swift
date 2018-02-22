@@ -31,7 +31,7 @@ class ValueField: NSView {
     var delegate:ValueFieldDelegate?
     
     /// Specifica se deve essere allineato con la Baseline, ecc.
-    var requiredConstraints:Constraint { return [] }
+    var requiredConstraints:Constraint { return [.bottom] }
     
     /// Creazione dinamica di un ValueField in base al tipo di dato fornito.
     static func create(forProperty property:Property) -> ValueField {
@@ -49,11 +49,11 @@ class ValueField: NSView {
     }
     
     func setup() {
-        print("normalField")
         // UI Init
         self.translatesAutoresizingMaskIntoConstraints = false
-        widthAnchor.constraint(greaterThanOrEqualToConstant: 0)
-        heightAnchor.constraint(greaterThanOrEqualToConstant: 0)
+        
+        widthAnchor.constraint(greaterThanOrEqualToConstant: 0).isActive = true
+        heightAnchor.constraint(greaterThanOrEqualToConstant: 0).isActive = true
     }
     
     required init?(coder decoder: NSCoder) {

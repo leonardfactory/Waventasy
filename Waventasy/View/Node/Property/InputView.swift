@@ -85,9 +85,13 @@ open class InputView : NSView {
             nameLabel.trailingAnchor.constraint(equalTo: valueField!.leadingAnchor, constant: -4).isActive = true
             valueField!.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -4).isActive = true
             
+            // Dynamic constraints
             if valueField!.requiredConstraints.contains(.baseline) {
-                print("baselineanchor")
                 valueField!.firstBaselineAnchor.constraint(equalTo: nameLabel.firstBaselineAnchor).isActive = true
+            }
+            
+            if valueField!.requiredConstraints.contains(.bottom) {
+                valueField!.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
             }
         }
     }
