@@ -28,8 +28,6 @@ class SoundBoardViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.scrollView?.becomeFirstResponder()
-        
         // Nascondo la rightSidebar
         self.rightSideBarXConstraint.constant = -self.rightSideBarView!.frame.size.width
         self.isRightSidebarShown = false
@@ -45,9 +43,6 @@ class SoundBoardViewController: NSViewController {
         // Test
         self.nodes.append(FrequencyNode(name: "Frequenza", position: CGPoint(x: 200.0, y:100.0)))
         self.nodes.append(HarmonicNode(name: "Armonica", position: CGPoint(x: 300.0, y:100.0)))
-//        self.nodes.append(SoundNode(.harmonic, name: "Nodo Demo", position: NSPoint(x:100.0, y:100.0)))
-//        self.nodes.append(SoundNode(.frequency, name: "440Hz", position: NSPoint(x:100.0, y:225.0)))
-//        self.nodes.append(SoundNode(.frequency, name: "880Hz", position: NSPoint(x:1000.0, y:600.0)))
         
         self.boardView.reloadData()
     }
@@ -84,7 +79,6 @@ class SoundBoardViewController: NSViewController {
     
     // Aggiunta dei nodi
     public func addSoundNode(type: NodeType) {
-        print("addnode", type)
         let visibleRect = self.scrollView!.documentVisibleRect
         let position = self.boardView.toGridPoint(point: visibleRect.center())
         var node:Node? = nil

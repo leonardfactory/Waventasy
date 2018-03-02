@@ -45,7 +45,7 @@ class BoardScrollView: NSScrollView {
         }
     }
     
-    override func mouseDown(with event: NSEvent) {
+    override func mouseDown(with event: NSEvent) {        
         // Draggin support
         if (self.isDragMode && event.type == NSEvent.EventType.leftMouseDown) {
             self.isDragging = true

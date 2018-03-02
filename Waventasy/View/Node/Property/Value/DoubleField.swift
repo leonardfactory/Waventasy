@@ -25,7 +25,7 @@ class DoubleField: ValueField {
         self.translatesAutoresizingMaskIntoConstraints = false
         
         guard case let .double(double) = property.value else { fatalError("Proprietà \(property.name) non di tipo Double. Field errato" ) }
-        print("Building inputField")
+        
         inputField = NSTextField(string: "")
         inputField.wantsLayer = true
         inputField.font = NSFont.systemFont(ofSize: 10.0)

@@ -51,6 +51,7 @@ class NodeView : BoardItemView {
             
             if let node = node {
                 self.frame = NSRect(origin: node.position, size:self.fittingSize)
+                self.needsDisplay = true
             }
         }
     }
@@ -118,6 +119,9 @@ class NodeView : BoardItemView {
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(nameLabel)
         
+        // Focus ring
+        self.focusRingType = .exterior
+        
         // Constraints
         backgroundImageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         backgroundImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
@@ -173,6 +177,25 @@ class NodeView : BoardItemView {
         }
     }
     
+    // Selection
+    // -
+    
+    override var acceptsFirstResponder: Bool { return true }
+    
+    override func keyDown(with event: NSEvent) {
+        // print("key down for nodeview", node?.name ?? "<N.A.>")
+    }
+    
+    override var focusRingMaskBounds: NSRect { return self.bounds }
+    
+    /// Crea la _shape_ sulla quale verrà mostrato il Focus Ring.
+    /// Il colore non è rilevante in quanto serve solamente la path
+    override func drawFocusRingMask() {
+        let rounded = NSBezierPath(roundedRect: self.bounds.insetBy(dx: 1.0, dy: 1.0), xRadius: 5.0, yRadius: 5.0)
+        NSColor.white.set()
+        rounded.fill()
+    }
+    
     // Cursor
     // -
     
@@ -186,6 +209,8 @@ class NodeView : BoardItemView {
     // -
     
     override func mouseDown(with event: NSEvent) {
+        self.window?.makeFirstResponder(self)
+        super.mouseDown(with: event)
         // Draggin support
         if (event.type == NSEvent.EventType.leftMouseDown && delegate!.canDragItem) {
             self.isDragging = true
@@ -208,6 +233,7 @@ class NodeView : BoardItemView {
     }
     
     override func mouseUp(with event: NSEvent) {
+        super.mouseUp(with: event)
         if (self.isDragging && event.type == NSEvent.EventType.leftMouseUp) {
             self.isDragging = false
             NSCursor.pop()
