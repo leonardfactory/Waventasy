@@ -48,6 +48,7 @@
 		A758CB76203C786C00DC69AA /* Enum+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A758CB75203C786C00DC69AA /* Enum+Utility.swift */; };
 		A75C9DD820362982001B34F6 /* SoundBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75C9DD720362982001B34F6 /* SoundBoardViewController.swift */; };
 		A77063B9203B51A8009B146C /* SoundBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77063B8203B51A8009B146C /* SoundBuilder.swift */; };
+		A78BE58E204AB7C8004CBEBB /* BoardContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78BE58D204AB7C8004CBEBB /* BoardContainerView.swift */; };
 		A7B27C5E2034D0000053780B /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B27C5D2034D0000053780B /* SoundPlayer.swift */; };
 		A7C4FF05203766940011816A /* SoundBoardWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C4FF04203766940011816A /* SoundBoardWindowController.swift */; };
 		A7D7F5EB203B5A3E006CAFF5 /* SoundGraphEdge.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D7F5EA203B5A3E006CAFF5 /* SoundGraphEdge.swift */; };
@@ -120,6 +121,7 @@
 		A758CB96203C985100DC69AA /* Output.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Output.swift; sourceTree = "<group>"; };
 		A75C9DD720362982001B34F6 /* SoundBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundBoardViewController.swift; sourceTree = "<group>"; };
 		A77063B8203B51A8009B146C /* SoundBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundBuilder.swift; sourceTree = "<group>"; };
+		A78BE58D204AB7C8004CBEBB /* BoardContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardContainerView.swift; sourceTree = "<group>"; };
 		A7B27C5D2034D0000053780B /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
 		A7C4FF04203766940011816A /* SoundBoardWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundBoardWindowController.swift; sourceTree = "<group>"; };
 		A7D7F5EA203B5A3E006CAFF5 /* SoundGraphEdge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundGraphEdge.swift; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 		A74708CD203CDF3D0013FF02 /* Board */ = {
 			isa = PBXGroup;
 			children = (
+				A78BE58C204AB7B2004CBEBB /* Container */,
 				A72D753E2039A0BA00D60CB0 /* BoardDelegate.swift */,
 				A72D753820399BE000D60CB0 /* BoardDataSource.swift */,
 				A7155BDB203645BA00E9B4A7 /* BoardScrollView.swift */,
@@ -392,6 +395,14 @@
 				A7C4FF04203766940011816A /* SoundBoardWindowController.swift */,
 			);
 			path = SoundBoard;
+			sourceTree = "<group>";
+		};
+		A78BE58C204AB7B2004CBEBB /* Container */ = {
+			isa = PBXGroup;
+			children = (
+				A78BE58D204AB7C8004CBEBB /* BoardContainerView.swift */,
+			);
+			path = Container;
 			sourceTree = "<group>";
 		};
 		A7F5915D204A1DE600DEA70A /* Document */ = {
@@ -594,6 +605,7 @@
 				A74708EC203CEDD10013FF02 /* InputView.swift in Sources */,
 				A72D75302039216D00D60CB0 /* NodeDrawing.swift in Sources */,
 				A730455B2033868D00DB15DE /* AppDelegate.swift in Sources */,
+				A78BE58E204AB7C8004CBEBB /* BoardContainerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

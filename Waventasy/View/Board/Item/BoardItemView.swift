@@ -8,8 +8,6 @@
 
 import Cocoa
 
-import Cocoa
-
 protocol BoardItemViewDelegate {
     // Fissa i punti alla griglia, se necessario
     func toGridPoint(point:CGPoint) -> CGPoint

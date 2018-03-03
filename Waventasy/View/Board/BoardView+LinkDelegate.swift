@@ -28,6 +28,8 @@ extension BoardView : LinkViewDelegate {
             )
         }
         
+        return CGPoint.zero
+        
         fatalError("Impossibile trovare lo slot")
     }
     

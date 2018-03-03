@@ -35,8 +35,12 @@ public class BoardView: NSView {
     
     /// Link attualmente in creazione
     var activeLink:Link? = nil
-    // Location temporanea dell'end del Link
+    /// Location temporanea dell'end del Link
     var activeLinkEnding:CGPoint? = nil
+    
+    /// Ordinamento
+    var containerTypes:[BoardItemType] = [.node, .link]
+    var containerViews:Dictionary<BoardItemType, NSView> = [:]
     
     // Inizializzazione
     // -
@@ -65,6 +69,13 @@ public class BoardView: NSView {
         
         self.wantsLayer = true
         self.layer?.backgroundColor = NSColor(hex: 0x2f3640).cgColor
+        
+        // View container
+        for itemType in containerTypes {
+            containerViews[itemType] = BoardContainerView(frame: self.bounds)
+            self.addSubview(containerViews[itemType]!)
+        }
+        
     }
     
     // Eventi
@@ -110,7 +121,7 @@ public class BoardView: NSView {
         guard let itemView = self.dataSource?.boardView(self, item: item, fromExistingView: nil) else { return }
         itemView.delegate = self
         
-        self.addSubview(itemView)
+        self.containerViews[item.itemType]?.addSubview(itemView)
         self.renderedItems.insert(identifier)
         self.renderedSubviews[identifier] = itemView
     }
@@ -162,7 +173,7 @@ public class BoardView: NSView {
     // -
     
     /// Ottiene la vista renderizzata per l'item specificato.
-    /// Può ritornare nil se non è stata ancora renderizztaa.
+    /// Può ritornare nil se non è stata ancora renderizzata.
     public func view(forItem item:BoardItemIdentifier) -> BoardItemView? {
         return renderedSubviews[item]
     }
