@@ -9,7 +9,7 @@
 import Foundation
 
 /// Per comodità, rappresentiamo ogni subclass di Node con un Enum.
-public enum NodeType {
+public enum NodeType : String, Codable {
     /// Frequenza
     case frequency
     /// Armonica
@@ -19,8 +19,8 @@ public enum NodeType {
 }
 
 /// Rappresenta un Nodo Audio nella composizione di un Playback.
-open class Node : Hashable {
-    public var id:NSUUID = NSUUID()
+open class Node : Hashable, Codable {
+    public var id:UUID = UUID()
     
     /// Tipo di nodo
     public var type:NodeType
@@ -58,11 +58,33 @@ open class Node : Hashable {
     // MARK: Hashable
     
     public var hashValue: Int {
-        return id.hash
+        return id.hashValue
     }
     
     public static func ==(lhs: Node, rhs: Node) -> Bool {
         return lhs.id == rhs.id
+    }
+    
+    // MARK: Decoding
+    
+    public enum NodeCodingKeys : CodingKey {
+        case id, type, name, position, props
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: NodeCodingKeys.self)
+        try container.encode(id, forKey: .id)
+        try container.encode(type, forKey: .type)
+        try container.encode(name, forKey: .name)
+        try container.encode(position, forKey: .position)
+    }
+    
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: NodeCodingKeys.self)
+        id = try container.decode(UUID.self, forKey: .id)
+        type = try container.decode(NodeType.self, forKey: .type)
+        name = try container.decode(String.self, forKey: .name)
+        position = try container.decode(CGPoint.self, forKey: .position)
     }
 }
 

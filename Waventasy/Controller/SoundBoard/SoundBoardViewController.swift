@@ -20,8 +20,9 @@ class SoundBoardViewController: NSViewController {
     
     var isRightSidebarShown: Bool = false
     
-    var nodes:[Node] = []
-    var links:[Link] = []
+    var document: Document? {
+        return view.window?.windowController?.document as? Document
+    }
     
     var player:SoundPlayer? = nil
     
@@ -39,11 +40,9 @@ class SoundBoardViewController: NSViewController {
         self.view.wantsLayer = true
         self.boardView.dataSource = self
         self.boardView.delegate = self
-        
-        // Test
-        self.nodes.append(FrequencyNode(name: "Frequenza", position: CGPoint(x: 200.0, y:100.0)))
-        self.nodes.append(HarmonicNode(name: "Armonica", position: CGPoint(x: 300.0, y:100.0)))
-        
+    }
+    
+    override func viewDidAppear() {
         self.boardView.reloadData()
     }
     
@@ -66,6 +65,19 @@ class SoundBoardViewController: NSViewController {
     
     public func toggleLeftSidebar() {
         print("Toggle left..")
+        do {
+            let encoder = JSONEncoder()
+            encoder.outputFormatting = .prettyPrinted
+            let encoded = try encoder.encode(self.document!.graph)
+            print("Encoded: ", String(data: encoded, encoding: .utf8) ?? "")
+            
+            let decoder = JSONDecoder()
+            decoder.userInfo = [ NodeGraph.nodesKey: NodeListDecoder() ]
+            let decoded = try decoder.decode(NodeGraph.self, from: encoded)
+            print("Decoded: ", decoded)
+        } catch {
+            print("Cannot buld due to error \(error)")
+        }
     }
     
     // Translucent
@@ -93,15 +105,18 @@ class SoundBoardViewController: NSViewController {
                 node = ConstantNode(name: "Costante", position: position)
         }
         
-        self.nodes.append(node!)
+        self.document!.graph.nodes.append(node!)
         self.boardView.reloadData()
     }
+    
+    // Salvataggio documento
+    // -
     
     // Player
     // -
     public func play() {
         do {
-            let nodes = try SoundBuilder(nodes: self.nodes, links: self.links).resolve()
+            let nodes = try SoundBuilder(nodes: self.document!.graph.nodes, links: self.document!.graph.links).resolve()
             self.player = SoundPlayer(nodes: nodes)
         } 
         catch {
@@ -152,7 +167,7 @@ extension SoundBoardViewController: BoardDelegate, BoardDataSource {
     
     /// Ottiene l'elenco dei nodi e dei link
     func itemsIn(boardView: BoardView) -> [BoardItem] {
-        return (self.nodes as [BoardItem]) + (self.links as [BoardItem])
+        return (self.document!.graph.nodes as [BoardItem]) + (self.document!.graph.links as [BoardItem])
     }
     
     /// Calcola le dimensioni
@@ -160,7 +175,7 @@ extension SoundBoardViewController: BoardDelegate, BoardDataSource {
         var minPoint = CGPoint.zero
         var maxPoint = CGPoint.zero
         
-        for node in self.nodes {
+        for node in self.document!.graph.nodes {
             if (node.position.x < minPoint.x) { minPoint.x = node.position.x }
             if (node.position.y < minPoint.y) { minPoint.y = node.position.y }
             if (node.position.x + 100 > maxPoint.x) { maxPoint.x = node.position.x + 100 }
@@ -177,7 +192,7 @@ extension SoundBoardViewController: BoardDelegate, BoardDataSource {
     
     /// Quando un link viene aggiunto, lo inseriamo nell'elenco
     func boardView(_ boardView: BoardView, didStartLink link: Link) -> Link {
-        self.links.append(link)
+        self.document!.graph.links.append(link)
         return link
     }
     

@@ -11,13 +11,13 @@ import AudioKit
 
 /// Rappresenta un parametro in ingresso o in uscita
 /// di un nodo.
-public class Property : Hashable {
+public class Property : Hashable, Codable {
     /// Per comodità, rappresentiamo la direction come un Enum
-    public enum Direction {
+    public enum Direction : String, Codable {
         case input, output
     }
     
-    public var id:NSUUID = NSUUID()
+    public var id:UUID = UUID()
     
     /// Direzione
     public var direction:Direction
@@ -40,10 +40,20 @@ public class Property : Hashable {
         return value.typeEquals(other: other.value)
     }
     
+    // MARK: Codable
+    
+//    private enum CodingKeys : CodingKey {
+//        case direction, key, name, value
+//    }
+//
+//    public required init(from decoder: Decoder) throws {
+//
+//    }
+    
     // MARK: Implementazione di Hashable
     
     public var hashValue: Int {
-        return id.hash
+        return id.hashValue
     }
     
     public static func ==(lhs: Property, rhs: Property) -> Bool {

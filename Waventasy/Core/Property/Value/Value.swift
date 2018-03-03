@@ -10,7 +10,57 @@ import Foundation
 import AudioKit
 
 /// Protocollo per la gestione delle proprietà
-public enum Value {
+public enum Value : Codable {
+    private enum CodingKeys : CodingKey {
+        case type, value
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let type = try container.decode(String.self, forKey: .type)
+        
+        switch (type) {
+            case "double":
+                self = .double(try container.decode(Double?.self, forKey: .value))
+                return
+            
+            case "int":
+                self = .int(try container.decode(Int?.self, forKey: .type))
+                return
+            
+            case "wave":
+                self = .wave(nil)
+                return
+            
+            case "none":
+                self = .none
+            
+            default:
+                throw DecodingError.dataCorruptedError(forKey: .type, in: container, debugDescription: "Impossibile trovare il tipo di Valore")
+        }
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        switch self {
+            case let .double(d):
+                try container.encode("double", forKey: .type)
+                try container.encode(d, forKey: .value)
+                
+            case let .int(i):
+                try container.encode("int", forKey: .type)
+                try container.encode(i, forKey: .value)
+            
+            case .wave(_):
+                // Le onde non possono essere salvate.
+                try container.encode("wave", forKey: .type)
+            
+            case .none:
+                try container.encode("none", forKey: .type)
+        }
+        
+    }
+    
     public enum ValueError : Error {
         case wrongType
     }

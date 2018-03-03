@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="kcc-fg-ulY">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
@@ -684,7 +684,7 @@
         <!--Window Controller-->
         <scene sceneID="Vee-GB-hqw">
             <objects>
-                <windowController id="kcc-fg-ulY" customClass="SoundBoardWindowController" customModule="Waventasy" customModuleProvider="target" sceneMemberID="viewController">
+                <windowController storyboardIdentifier="SoundDocumentController" id="kcc-fg-ulY" customClass="SoundBoardWindowController" customModule="Waventasy" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Sound Board" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="DIb-jc-QEe">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>

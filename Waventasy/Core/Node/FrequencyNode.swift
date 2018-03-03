@@ -25,6 +25,29 @@ open class FrequencyNode : Node {
         super.init(.frequency, name: name, position: position)
     }
     
+    // Codable
+    // -
+    
+    private enum CodingKeys : CodingKey {
+        case frequency, wave
+    }
+    
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        frequency = try container.decode(Input.self, forKey: .frequency)
+        wave      = try container.decode(Output.self, forKey: .wave)
+        
+        try super.init(from: decoder)
+    }
+    
+    override public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(frequency, forKey: .frequency)
+        try container.encode(wave, forKey: .wave)
+        
+        try super.encode(to: encoder)
+    }
+    
     /// Risoluzione
     public override func resolve(ctx: ResolveContext) throws {
         let oscillator = AKOscillator()

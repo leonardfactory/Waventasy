@@ -52,6 +52,9 @@
 		A7C4FF05203766940011816A /* SoundBoardWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C4FF04203766940011816A /* SoundBoardWindowController.swift */; };
 		A7D7F5EB203B5A3E006CAFF5 /* SoundGraphEdge.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D7F5EA203B5A3E006CAFF5 /* SoundGraphEdge.swift */; };
 		A7D7F5ED203B5ACF006CAFF5 /* SoundGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D7F5EC203B5ACF006CAFF5 /* SoundGraph.swift */; };
+		A7F5915F204A1E1800DEA70A /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F5915E204A1E1800DEA70A /* Document.swift */; };
+		A7F59162204A381C00DEA70A /* NodeListDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F59161204A381C00DEA70A /* NodeListDecoder.swift */; };
+		A7F59164204A440800DEA70A /* NodeGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F59163204A440800DEA70A /* NodeGraph.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -121,6 +124,9 @@
 		A7C4FF04203766940011816A /* SoundBoardWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundBoardWindowController.swift; sourceTree = "<group>"; };
 		A7D7F5EA203B5A3E006CAFF5 /* SoundGraphEdge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundGraphEdge.swift; sourceTree = "<group>"; };
 		A7D7F5EC203B5ACF006CAFF5 /* SoundGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundGraph.swift; sourceTree = "<group>"; };
+		A7F5915E204A1E1800DEA70A /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		A7F59161204A381C00DEA70A /* NodeListDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeListDecoder.swift; sourceTree = "<group>"; };
+		A7F59163204A440800DEA70A /* NodeGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeGraph.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +195,7 @@
 		A73045592033868D00DB15DE /* Waventasy */ = {
 			isa = PBXGroup;
 			children = (
+				A7F5915D204A1DE600DEA70A /* Document */,
 				A758CB89203C8CFA00DC69AA /* Core */,
 				A74708F4203D8BDE0013FF02 /* Process */,
 				A74708CC203CDF2B0013FF02 /* View */,
@@ -349,6 +356,7 @@
 		A758CB8C203C8F8400DC69AA /* Node */ = {
 			isa = PBXGroup;
 			children = (
+				A7F59160204A380800DEA70A /* Codable */,
 				A74708FB203DAF970013FF02 /* Resolve */,
 				A758CB8A203C8D0200DC69AA /* Node.swift */,
 				A74708C2203C9A4B0013FF02 /* FrequencyNode.swift */,
@@ -384,6 +392,23 @@
 				A7C4FF04203766940011816A /* SoundBoardWindowController.swift */,
 			);
 			path = SoundBoard;
+			sourceTree = "<group>";
+		};
+		A7F5915D204A1DE600DEA70A /* Document */ = {
+			isa = PBXGroup;
+			children = (
+				A7F5915E204A1E1800DEA70A /* Document.swift */,
+			);
+			path = Document;
+			sourceTree = "<group>";
+		};
+		A7F59160204A380800DEA70A /* Codable */ = {
+			isa = PBXGroup;
+			children = (
+				A7F59161204A381C00DEA70A /* NodeListDecoder.swift */,
+				A7F59163204A440800DEA70A /* NodeGraph.swift */,
+			);
+			path = Codable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -535,6 +560,7 @@
 				A7470904203DED1A0013FF02 /* DoubleField.swift in Sources */,
 				A74708E8203CED590013FF02 /* Node.swift in Sources */,
 				A72D754E2039C23800D60CB0 /* NSView+NibLoading.swift in Sources */,
+				A7F59162204A381C00DEA70A /* NodeListDecoder.swift in Sources */,
 				A77063B9203B51A8009B146C /* SoundBuilder.swift in Sources */,
 				A72D75532039E2EB00D60CB0 /* NodeAssetImages.swift in Sources */,
 				A74708E6203CED4C0013FF02 /* Input.swift in Sources */,
@@ -542,7 +568,9 @@
 				A726C820203890AA00DECE67 /* CGPoint+Operators.swift in Sources */,
 				A7B27C5E2034D0000053780B /* SoundPlayer.swift in Sources */,
 				A758CB76203C786C00DC69AA /* Enum+Utility.swift in Sources */,
+				A7F59164204A440800DEA70A /* NodeGraph.swift in Sources */,
 				A72D753920399BE000D60CB0 /* BoardDataSource.swift in Sources */,
+				A7F5915F204A1E1800DEA70A /* Document.swift in Sources */,
 				A74708E4203CED3B0013FF02 /* Value.swift in Sources */,
 				A758CB74203C75AF00DC69AA /* Logger.swift in Sources */,
 				A7D7F5ED203B5ACF006CAFF5 /* SoundGraph.swift in Sources */,
